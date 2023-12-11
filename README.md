@@ -1,13 +1,13 @@
 # foodie-pal
 
-![title1](https://github.com/edgardhab/foodie-pal/assets/57774147/ce028cba-dc50-4803-803c-8412dc07c6d5)
+![title1](https://github.com/edgardhab/foodie-pal/assets/57774147/46845192-f362-4289-b33b-4e6d624f2103)
 
-![title2](https://github.com/edgardhab/foodie-pal/assets/57774147/9a5973e7-9c52-4a8d-bfcf-8fbb79a843b9)
+![title2](https://github.com/edgardhab/foodie-pal/assets/57774147/ae95d08e-ea0b-4c3a-b6f5-28c88b965a14)
 
-![title3](https://github.com/edgardhab/foodie-pal/assets/57774147/a94bc14d-3e33-4d06-a831-706a9ca68495)
+![title3](https://github.com/edgardhab/foodie-pal/assets/57774147/f163f695-873c-4ead-b372-66d9979fdf55)
 
-![title4](https://github.com/edgardhab/foodie-pal/assets/57774147/e77c580a-17fb-4ea1-9f53-3b5c2917251d)
+![title4](https://github.com/edgardhab/foodie-pal/assets/57774147/0883715c-94ce-48f0-b4f1-a64343d03d1d)
 
-![title5](https://github.com/edgardhab/foodie-pal/assets/57774147/4d992c25-2bab-4c50-8184-6d4ce6e2b434)
+![title5](https://github.com/edgardhab/foodie-pal/assets/57774147/f4af602b-b13e-4751-9b69-6978e91b8d3a)
 
-![title6](https://github.com/edgardhab/foodie-pal/assets/57774147/6ab624d7-a070-40d5-8478-0a7f0715c2ff)
+![title6](https://github.com/edgardhab/foodie-pal/assets/57774147/14a7dca0-ad36-4536-bc06-3301a808a79e)
