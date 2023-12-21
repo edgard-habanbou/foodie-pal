@@ -1,6 +1,6 @@
 # foodie-pal
 
-![title1](https://github.com/edgardhab/foodie-pal/assets/57774147/46845192-f362-4289-b33b-4e6d624f2103)
+![title1](https://github.com/edgardhab/foodie-pal/assets/57774147/50816947-6201-4eab-acf1-58bdd02eef65)
 
 ![title2](https://github.com/edgardhab/foodie-pal/assets/57774147/ae95d08e-ea0b-4c3a-b6f5-28c88b965a14)
 
