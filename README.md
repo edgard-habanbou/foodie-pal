@@ -4,9 +4,10 @@
 
 ![title2](https://github.com/edgardhab/foodie-pal/assets/57774147/ae95d08e-ea0b-4c3a-b6f5-28c88b965a14)
 
-
+>
 > Foodie-Pal, a user-friendly Progressive Web App, assists in meal preparation by suggesting recipes tailored to available ingredients.
 > Additionally, it employs AI to create personalized nutrition plans.
+>
 
 # User Stories
 
