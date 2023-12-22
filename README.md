@@ -45,5 +45,6 @@
 
 ## Admin
 
-As an admin, I want to receive user feedback to improve the app's functionality.
-As an admin, I want to be able to accept/decline OpenAI nutrition plan before sending it to the user
+- As an admin, I want to receive user feedback to improve the app's functionality.
+- As an admin, I want to be able to accept/decline OpenAI nutrition plan before sending it to the user
+ 
