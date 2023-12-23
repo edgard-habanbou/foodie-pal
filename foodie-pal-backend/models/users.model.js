@@ -8,6 +8,7 @@ import CookingPreferences from "./cookingPreferences.model";
 import DietPlanUserInfo from "./dietPlanUserInfo.model";
 import DietairyPreferences from "./dietairyPreferences.model";
 import NutritionGoal from "./nutritionGoal.model";
+import userRole from "./userRoles.model";
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -31,9 +32,13 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  userRole: {
+  gender: {
     type: Boolean,
-    default: false,
+    required: true,
+  },
+  userRole: {
+    type: mongoose.Schema.Types.ObjectId,
+    default: mongoose.Types.ObjectId("657f052bf4aaced6b5b8d7b0"),
   },
   imageUrl: {
     type: String,

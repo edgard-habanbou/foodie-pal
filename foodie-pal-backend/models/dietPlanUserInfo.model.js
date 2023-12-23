@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 const Allergy = require("./allergies.model");
 
 const DietPlanSchema = new mongoose.Schema({
-  gender: {
-    type: Boolean,
-    required: true,
-  },
   age: {
     type: Number,
     required: true,
