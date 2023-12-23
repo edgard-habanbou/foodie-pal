@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const eatingHabbitsSchema = new mongoose.Schema({
   eatingHabbitDescription: {
-    type: Text,
+    type: String,
     required: true,
   },
   takeOutPerWeek: {
@@ -39,6 +39,6 @@ const eatingHabbitsSchema = new mongoose.Schema({
   },
 });
 
-const EatingHabbits = mongoose.model("EatingHabbits", eatingHabbitsSchema);
+const EatingHabbit = mongoose.model("EatingHabbit", eatingHabbitsSchema);
 
-module.exports = EatingHabbits;
+module.exports = EatingHabbit;

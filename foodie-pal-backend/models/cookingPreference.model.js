@@ -11,9 +11,9 @@ const cookingPreferencesSchema = new mongoose.Schema({
   },
 });
 
-const CookingPreferences = mongoose.model(
-  "CookingPreferences",
+const CookingPreference = mongoose.model(
+  "CookingPreference",
   cookingPreferencesSchema
 );
 
-module.exports = CookingPreferences;
+module.exports = CookingPreference;

@@ -37,8 +37,8 @@ const login = async (req, res) => {
 };
 
 const register = async (req, res) => {
-  const { email, password, firstName, lastName } = req.body;
-  if (!email || !password || !fname || !lname) {
+  const { email, password, firstName, lastName, gender } = req.body;
+  if (!email || !password || !firstName || !lastName || gender === undefined) {
     res.status(400).send({ message: "all fields are required" });
     return;
   }
@@ -54,7 +54,7 @@ const register = async (req, res) => {
 
     await user.save();
 
-    res.status(200).send({ user });
+    res.status(200).send({ message: "user created successfully" });
   } catch (e) {
     res.status(500).send({ error: e });
   }

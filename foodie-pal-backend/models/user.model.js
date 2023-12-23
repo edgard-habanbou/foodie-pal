@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-import EatingHabbits from "./eatingHabbits.model";
-import Item from "./items.model.js";
-import MedicalConditions from "./medicalConditions.model";
-import Allergy from "./allergies.model";
-import CookingPreferences from "./cookingPreferences.model";
-import DietPlanUserInfo from "./dietPlanUserInfo.model";
-import DietairyPreferences from "./dietairyPreferences.model";
-import NutritionGoal from "./nutritionGoal.model";
-import userRole from "./userRoles.model";
+
+const Item = require("./item.model");
+const EatingHabbit = require("./eatingHabbit.model");
+const MedicalCondition = require("./medicalCondition.model");
+const Allergy = require("./allergy.model");
+const CookingPreference = require("./cookingPreference.model");
+const DietPlanUserInfo = require("./dietPlanUserInfo.model");
+const DietairyPreference = require("./dietairyPreference.model");
+const NutritionGoal = require("./nutritionGoal.model");
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema({
   },
   userRole: {
     type: mongoose.Schema.Types.ObjectId,
-    default: mongoose.Types.ObjectId("657f052bf4aaced6b5b8d7b0"),
+    default: new mongoose.Types.ObjectId("657f052bf4aaced6b5b8d7b0"),
   },
   imageUrl: {
     type: String,
@@ -52,22 +52,22 @@ const userSchema = new mongoose.Schema({
     type: [Item.schema],
   },
   eatingHabbits: {
-    type: [EatingHabbits.schema],
+    type: [EatingHabbit.schema],
   },
   medicalConditions: {
-    type: [MedicalConditions.schema],
+    type: [MedicalCondition.schema],
   },
   allergies: {
     type: [Allergy.schema],
   },
   cookingPreferences: {
-    type: [CookingPreferences.schema],
+    type: [CookingPreference.schema],
   },
   DietPlanUserInfo: {
     type: [DietPlanUserInfo.schema],
   },
   DietairyPreferences: {
-    type: [DietairyPreferences.schema],
+    type: [DietairyPreference.schema],
   },
   NutritionGoals: {
     type: [NutritionGoal.schema],

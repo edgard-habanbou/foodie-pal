@@ -9,9 +9,9 @@ const dietairyRestrictionsSchema = new mongoose.Schema({
   },
 });
 
-const DietairyRestrictions = mongoose.model(
-  "DietairyRestrictions",
+const DietairyRestriction = mongoose.model(
+  "DietairyRestriction",
   dietairyRestrictionsSchema
 );
 
-module.exports = DietairyRestrictions;
+module.exports = DietairyRestriction;

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Allergy = require("./allergies.model");
+const Allergy = require("./allergy.model");
 
 const DietPlanSchema = new mongoose.Schema({
   age: {
