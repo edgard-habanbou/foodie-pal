@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const dietairyRestrictionsSchema = new mongoose.Schema({
+const dietairyPreferencesSchema = new mongoose.Schema({
   restrictions: {
     type: [DietairyRestrictions.Schema],
     required: true,
@@ -15,9 +15,9 @@ const dietairyRestrictionsSchema = new mongoose.Schema({
   },
 });
 
-const DietairyRestrictions = mongoose.model(
-  "DietairyRestrictions",
-  dietairyRestrictionsSchema
+const DietairyPreferences = mongoose.model(
+  "DietairyPreferences",
+  dietairyPreferencesSchema
 );
 
-module.exports = DietairyRestrictions;
+module.exports = DietairyPreferences;

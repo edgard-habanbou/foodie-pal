@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const dietairyRestrictionsSchema = new mongoose.Schema({
+const nutritionGoalSchema = new mongoose.Schema({
   primaryGoal: {
     type: String,
     required: true,
@@ -11,9 +11,6 @@ const dietairyRestrictionsSchema = new mongoose.Schema({
   },
 });
 
-const DietairyRestrictions = mongoose.model(
-  "DietairyRestrictions",
-  dietairyRestrictionsSchema
-);
+const NutritionGoal = mongoose.model("NutritionGoal", nutritionGoalSchema);
 
-module.exports = DietairyRestrictions;
+module.exports = NutritionGoal;
