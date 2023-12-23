@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Allergy = require("./allergies.model");
 
 const DietPlanSchema = new mongoose.Schema({
   gender: {
@@ -22,11 +23,11 @@ const DietPlanSchema = new mongoose.Schema({
     required: true,
   },
   allergies: {
-    type: [String],
+    type: [Allergy.schema],
     required: true,
   },
   supportSystem: {
-    type: [String],
+    type: Boolean,
     required: true,
   },
 });
