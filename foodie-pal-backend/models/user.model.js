@@ -58,7 +58,7 @@ const userSchema = new mongoose.Schema({
     type: [MedicalCondition.schema],
   },
   allergies: {
-    type: [Allergy.schema],
+    type: [mongoose.Schema.Types.ObjectId],
   },
   cookingPreferences: {
     type: [CookingPreference.schema],

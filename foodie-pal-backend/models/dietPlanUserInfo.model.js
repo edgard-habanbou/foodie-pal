@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const Allergy = require("./allergy.model");
 
 const DietPlanSchema = new mongoose.Schema({
   age: {
@@ -19,7 +18,7 @@ const DietPlanSchema = new mongoose.Schema({
     required: true,
   },
   allergies: {
-    type: [Allergy.schema],
+    type: [mongoose.Schema.Types.ObjectId],
     required: true,
   },
   supportSystem: {

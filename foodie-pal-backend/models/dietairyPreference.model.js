@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
-const DietairyRestriction = require("./dietairyRestriction.model");
 
 const dietairyPreferencesSchema = new mongoose.Schema({
   restrictions: {
-    type: [DietairyRestriction.Schema],
+    type: [mongoose.Schema.Types.ObjectId],
     required: true,
   },
   mealsPerDay: {
