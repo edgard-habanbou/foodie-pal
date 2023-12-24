@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 import { userApi } from "../../network/axios";
+import { useNavigate } from "react-router-dom";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [Loading, setLoading] = useState(false);
 
+  const navigate = useNavigate();
   const handleLogin = async () => {
+    setLoading(true);
     try {
       const response = await userApi.loginUser({ email, password });
-      console.log(response);
+      if (response.token && response.user) {
+        navigate("/home");
+      }
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
   };
 
   return (

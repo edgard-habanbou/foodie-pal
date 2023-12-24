@@ -20,6 +20,7 @@ class UserApi {
   async loginUser(user) {
     try {
       const response = await axios.post("/auth/login", user);
+      localStorage.setItem("jwt", response?.data?.token);
       return response?.data;
     } catch (error) {
       return error;
