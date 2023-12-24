@@ -10,7 +10,7 @@ class UserApi {
   async registerUser(user) {
     try {
       const response = await axios.post("/auth/register", user);
-      return response.data;
+      return response?.data;
     } catch (error) {
       return {
         error: error.response.data,
@@ -20,15 +20,15 @@ class UserApi {
   async loginUser(user) {
     try {
       const response = await axios.post("/auth/login", user);
-      return response.data;
+      return response?.data;
     } catch (error) {
-      return error.response.data;
+      return error;
     }
   }
   async uploadImage(image) {
     try {
       const response = await axios.post("/profile/upload", image);
-      return response.data;
+      return response?.data;
     } catch (error) {
       return error.response.data;
     }

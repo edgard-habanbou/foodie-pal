@@ -111,7 +111,7 @@ const addMedications = async (req, res) => {
   }
 };
 
-model.exports = {
+module.exports = {
   addAllergies,
   addCookingPreferences,
   addDietairyPreferences,
