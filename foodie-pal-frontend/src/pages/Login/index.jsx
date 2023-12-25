@@ -11,6 +11,7 @@ function Login() {
     setLoading(true);
     try {
       const response = await userApi.loginUser({ email, password });
+      console.log(response);
       if (response.token && response.user) {
         navigate("/home");
       }
@@ -21,22 +22,30 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="flex column gap  full-height">
       <div>
-        <h1>Login</h1>
+        <h2>Login</h2>
       </div>
       <div>
         <input
           type="text"
           placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
+          className="input"
+          onChange={(e) => setEmail(e.target.value.toLowerCase())}
         />
+      </div>
+      <div>
         <input
           type="password"
           placeholder="Password"
+          className="input"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={handleLogin}>Login</button>
+      </div>
+      <div>
+        <button className="btn" onClick={handleLogin}>
+          Login
+        </button>
       </div>
     </div>
   );

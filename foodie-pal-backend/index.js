@@ -7,7 +7,7 @@ app.use(fileUpload());
 require("dotenv").config();
 
 app.use(express.static("public"));
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors());
 app.use(express.json());
 
 // auth route
@@ -20,9 +20,9 @@ const { authMiddleware } = require("./middlewares/auth.middleware");
 const profileRoutes = require("./routes/profile.routes");
 app.use("/profile", authMiddleware, profileRoutes);
 
-//user routes
-const userRoutes = require("./routes/user.routes");
-app.use("/user", authMiddleware, userRoutes);
+//allergy routes
+const allergyRoutes = require("./routes/allergy.routes");
+app.use("/allergy", authMiddleware, allergyRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log("Server listining on PORT: ", process.env.PORT);

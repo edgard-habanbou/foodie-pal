@@ -1,19 +1,4 @@
 const User = require("../models/user.model");
-const Role = require("../models/userRole.model");
-
-const addAllergies = async (req, res) => {
-  try {
-    const user = await User.findById(req.user._id);
-    const allergies = req.body.allergies;
-    allergies.forEach((allergy) => {
-      user.allergies.push(allergy);
-    });
-    await user.save();
-    res.status(200).json({ user });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
 
 const addCookingPreferences = async (req, res) => {
   try {
@@ -112,7 +97,6 @@ const addMedications = async (req, res) => {
 };
 
 module.exports = {
-  addAllergies,
   addCookingPreferences,
   addDietairyPreferences,
   addDietPlanUserInfo,
