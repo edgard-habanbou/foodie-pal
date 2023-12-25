@@ -1,17 +1,5 @@
 const User = require("../models/user.model");
 
-const addCookingPreferences = async (req, res) => {
-  try {
-    const user = await User.findById(req.user._id);
-    const cookingPreferences = req.body.cookingPreferences;
-    user.cookingPreferences.push(cookingPreferences);
-    await user.save();
-    res.status(200).json({ user });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
 const addDietairyPreferences = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
@@ -97,7 +85,6 @@ const addMedications = async (req, res) => {
 };
 
 module.exports = {
-  addCookingPreferences,
   addDietairyPreferences,
   addDietPlanUserInfo,
   addEatingHabbits,

@@ -24,9 +24,9 @@ app.use("/profile", authMiddleware, profileRoutes);
 const allergyRoutes = require("./routes/allergy.routes");
 app.use("/allergy", authMiddleware, allergyRoutes);
 
-//cooking preferences routes
-const cookingPreferencesRoutes = require("./routes/cookingPreferences.routes");
-app.use("/cookingpreferences", authMiddleware, cookingPreferencesRoutes);
+//sub document routes
+const subDocument = require("./routes/SubDocument.routes");
+app.use("/subdocument", authMiddleware, subDocument);
 
 app.listen(process.env.PORT, () => {
   console.log("Server listining on PORT: ", process.env.PORT);
