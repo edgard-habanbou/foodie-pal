@@ -1,5 +1,3 @@
-![image](https://github.com/edgardhab/foodie-pal/assets/57774147/289b8d70-4735-4127-a878-8b95a8245d5a)# foodie-pal
-
 ![title1](https://github.com/edgardhab/foodie-pal/assets/57774147/185c3aca-5c99-49c8-927b-c75d640b8472)
 
 ![title2](https://github.com/edgardhab/foodie-pal/assets/57774147/ae95d08e-ea0b-4c3a-b6f5-28c88b965a14)
