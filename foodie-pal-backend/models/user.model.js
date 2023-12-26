@@ -3,8 +3,8 @@ const bcrypt = require("bcrypt");
 
 const Item = require("./item.model");
 const EatingHabbit = require("./eatingHabbit.model");
-const MedicalCondition = require("./medicalCondition.model");
 const Allergy = require("./allergy.model");
+const MedicalCondition = require("./medicalCondition.model");
 const CookingPreference = require("./cookingPreference.model");
 const DietPlanUserInfo = require("./dietPlanUserInfo.model");
 const DietairyPreference = require("./dietairyPreference.model");
@@ -49,7 +49,8 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   items: {
-    type: [Item.schema],
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: Item,
   },
   eatingHabbits: {
     type: [EatingHabbit.schema],
@@ -59,7 +60,7 @@ const userSchema = new mongoose.Schema({
   },
   allergies: {
     type: [mongoose.Schema.Types.ObjectId],
-    ref: "Allergy",
+    ref: Allergy,
   },
   cookingPreferences: {
     type: [CookingPreference.schema],

@@ -28,6 +28,10 @@ app.use("/allergy", authMiddleware, allergyRoutes);
 const subDocument = require("./routes/SubDocument.routes");
 app.use("/subdocument", authMiddleware, subDocument);
 
+//sub document ids routes
+const subDocumentId = require("./routes/subDocIds.routes");
+app.use("/subdocid", authMiddleware, subDocumentId);
+
 app.listen(process.env.PORT, () => {
   console.log("Server listining on PORT: ", process.env.PORT);
   connectToMongoDB();
