@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { userApi } from "../../network/axios";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading";
+import Popup from "../../components/Popup";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -13,12 +14,27 @@ function Login() {
     setLoading(true);
     try {
       const response = await userApi.loginUser({ email, password });
+      console.log(response.message);
       if (response.token && response.user) {
         navigate("/home");
+      } else if (response.message === "Request failed with status code 400") {
+        Popup({
+          title: "Error",
+          text: "Invalid Credentials",
+          icon: "error",
+          confirmButtonText: "Ok",
+          confirmButtonColor: "#FE8A01",
+        });
+      } else {
+        Popup({
+          title: "Error",
+          text: "Something went wrong",
+          icon: "error",
+          confirmButtonText: "Ok",
+          confirmButtonColor: "#FE8A01",
+        });
       }
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
     setLoading(false);
   };
 
