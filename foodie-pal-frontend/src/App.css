@@ -3,7 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+:root {
+  --primarycolor: #fe8a01;
+}
 .flex {
   display: flex;
 }

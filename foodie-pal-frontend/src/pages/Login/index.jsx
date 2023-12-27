@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { userApi } from "../../network/axios";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../components/Loading";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [Loading, setLoading] = useState(false);
+  const [Load, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const handleLogin = async () => {
     setLoading(true);
     try {
       const response = await userApi.loginUser({ email, password });
-      console.log(response);
       if (response.token && response.user) {
         navigate("/home");
       }
@@ -23,6 +24,7 @@ function Login() {
 
   return (
     <div className="flex column gap  full-height">
+      {Load && <Loading />}
       <div>
         <h2>Login</h2>
       </div>

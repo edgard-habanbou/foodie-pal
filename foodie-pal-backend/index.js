@@ -20,10 +20,6 @@ const { authMiddleware } = require("./middlewares/auth.middleware");
 const profileRoutes = require("./routes/profile.routes");
 app.use("/profile", authMiddleware, profileRoutes);
 
-//allergy routes
-const allergyRoutes = require("./routes/allergy.routes");
-app.use("/allergy", authMiddleware, allergyRoutes);
-
 //sub document routes
 const subDocument = require("./routes/SubDocument.routes");
 app.use("/subdocument", authMiddleware, subDocument);
