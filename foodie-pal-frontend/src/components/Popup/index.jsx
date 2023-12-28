@@ -6,6 +6,7 @@ export default function Popup({
   icon,
   confirmButtonText,
   confirmButtonColor,
+  action,
 }) {
   Swal.fire({
     title: title,
@@ -13,5 +14,9 @@ export default function Popup({
     icon: icon,
     confirmButtonColor: confirmButtonColor,
     confirmButtonText: confirmButtonText,
+  }).then((result) => {
+    if (result.isConfirmed && action) {
+      action();
+    }
   });
 }

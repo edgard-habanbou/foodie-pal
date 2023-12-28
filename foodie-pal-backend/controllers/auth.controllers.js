@@ -149,7 +149,22 @@ const checkToken = async (req, res) => {
   }
 };
 
-function generateRandomString() {
+const checkAuthToken = (req, res) => {
+  const { token } = req.body;
+  if (!token) {
+    res.status(400).send({ message: "token is required" });
+    return;
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    res.status(200).send({ user: decoded });
+  } catch (e) {
+    res.status(400).send({ message: "Invalid token" });
+  }
+};
+
+const generateRandomString = () => {
   const characters =
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   let randomString = "";
@@ -160,11 +175,13 @@ function generateRandomString() {
   }
 
   return randomString;
-}
+};
+
 module.exports = {
   login,
   register,
   forgotPassword,
   resetPassword,
   checkToken,
+  checkAuthToken,
 };

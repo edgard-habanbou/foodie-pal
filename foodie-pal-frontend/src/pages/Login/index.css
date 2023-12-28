@@ -6,7 +6,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
+  border-radius: 10px;
   padding: 20px;
   text-align: center;
 }
@@ -21,7 +21,7 @@
 }
 .password-icon {
   position: absolute;
-  right: 15%;
+  right: 8%;
   transform: translate(-50%, -50%);
   cursor: pointer;
 }

@@ -18,7 +18,7 @@ function ResetPassword({ token }) {
   const handleReset = async () => {
     try {
       const response = await userApi.resetPassword({ password, token });
-      if (response.message === "Password reset successful") {
+      if (response.message === "password reset successfully") {
         Popup({
           title: "Success",
           text: `Password reset successful`,
@@ -47,6 +47,13 @@ function ResetPassword({ token }) {
         navigate("/");
       }
     } catch (error) {
+      Popup({
+        title: "Error",
+        text: `Invalid Token`,
+        icon: "error",
+        confirmButtonText: "Ok",
+        confirmButtonColor: "#FE8A01",
+      });
       console.log(error);
     }
   };

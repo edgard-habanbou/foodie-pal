@@ -43,6 +43,8 @@ function Login() {
     try {
       const response = await userApi.loginUser({ email, password });
       if (response.token && response.user) {
+        localStorage.setItem("token", response.token);
+        localStorage.setItem("user", JSON.stringify(response.user));
         navigate("/home");
       } else if (response.message === "Request failed with status code 400") {
         Popup({
@@ -75,7 +77,19 @@ function Login() {
     }
     setLoading(false);
   };
-
+  const checkIfLoggedIn = async () => {
+    if (localStorage.getItem("token")) {
+      const response = await userApi.checkIfLoggedIn({
+        token: localStorage.getItem("token"),
+      });
+      if (response.user) {
+        navigate("/home");
+      }
+    } else {
+      alert(localStorage.getItem("token"));
+    }
+  };
+  checkIfLoggedIn();
   return (
     <div>
       {Load && <Loading />}
