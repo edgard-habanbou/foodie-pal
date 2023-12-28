@@ -1,11 +1,15 @@
 const User = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const validator = require("validator");
 
 const login = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     res.status(400).send({ message: "all fields are required" });
+    return;
+  } else if (!validator.isEmail(email)) {
+    res.status(400).send({ message: "Invalid email" });
     return;
   }
   const user = await User.findOne({ email });
@@ -40,6 +44,14 @@ const register = async (req, res) => {
   const { email, password, firstName, lastName, gender } = req.body;
   if (!email || !password || !firstName || !lastName || gender === undefined) {
     res.status(400).send({ message: "all fields are required" });
+    return;
+  } else if (!validator.isEmail(email)) {
+    res.status(400).send({ message: "Invalid email" });
+    return;
+  } else if (password.length < 8) {
+    res
+      .status(400)
+      .send({ message: "password must be at least 8 characters long" });
     return;
   }
 

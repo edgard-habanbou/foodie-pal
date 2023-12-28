@@ -3,10 +3,10 @@ import { userApi } from "../../network/axios";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading";
 import Popup from "../../components/Popup";
-import { variables } from "./variables";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import Signup from "../Signup";
 
 import "./index.css";
 
@@ -18,7 +18,8 @@ function Login() {
   const [Register, setRegister] = useState(false);
   const [forgotPassword, setForgotPassword] = useState(false);
 
-  const handleRegister = () => {
+  const handleRegister = (e) => {
+    e.preventDefault();
     setRegister(!Register);
   };
 
@@ -26,7 +27,8 @@ function Login() {
     setShowPassword(!showPassword);
   };
 
-  const handleForgotPassword = () => {
+  const handleForgotPassword = (e) => {
+    e.preventDefault();
     setForgotPassword(!forgotPassword);
   };
 
@@ -41,6 +43,14 @@ function Login() {
         Popup({
           title: "Error",
           text: `Invalid Email or Password`,
+          icon: "error",
+          confirmButtonText: "Ok",
+          confirmButtonColor: "#FE8A01",
+        });
+      } else if (response.message === "Invalid email") {
+        Popup({
+          title: "Error",
+          text: `Invalid Email`,
           icon: "error",
           confirmButtonText: "Ok",
           confirmButtonColor: "#FE8A01",
@@ -64,79 +74,81 @@ function Login() {
   return (
     <div>
       {Load && <Loading />}
-
       <div className="image"></div>
-
-      <div className="flex column gap center login full-height">
-        <div>
-          <h2>Login</h2>
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Email"
-            className="input"
-            onChange={(e) => setEmail(e.target.value.toLowerCase())}
-          />
-        </div>
-        <div className="flex column gap">
-          <div className="flex center">
-            <div>
-              {showPassword ? (
-                <input
-                  type="text"
-                  placeholder="Password"
-                  className="input"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              ) : (
-                <input
-                  type="password"
-                  placeholder="Password"
-                  className="input"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              )}
-            </div>
-            <div>
-              {!showPassword ? (
-                <FontAwesomeIcon
-                  className="password-icon"
-                  onClick={handleShowPassword}
-                  icon={faEye}
-                />
-              ) : (
-                <FontAwesomeIcon
-                  className="password-icon"
-                  icon={faEyeSlash}
-                  onClick={handleShowPassword}
-                />
-              )}
-            </div>
-          </div>
-
-          <div className="flex right ">
-            <a href="/" className="link" onClick={handleForgotPassword}>
-              Forgot Password?
-            </a>
-          </div>
-        </div>
-        <div className="flex column gap">
+      {Register ? (
+        <Signup handleRegister={handleRegister} setLoading={setLoading} />
+      ) : (
+        <div className="flex column gap center login full-height">
           <div>
-            <button className="btn" onClick={handleLogin}>
-              Login
-            </button>
+            <h2>Login</h2>
           </div>
-          <div className="flex right">
-            <span className="span">
-              don't have an account?{" "}
-              <a href="/" className="link" onClick={handleRegister}>
-                Sign Up
+          <div>
+            <input
+              type="text"
+              placeholder="Email"
+              className="input"
+              onChange={(e) => setEmail(e.target.value.toLowerCase())}
+            />
+          </div>
+          <div className="flex column gap">
+            <div className="flex center">
+              <div>
+                {showPassword ? (
+                  <input
+                    type="text"
+                    placeholder="Password"
+                    className="input"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                ) : (
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    className="input"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                )}
+              </div>
+              <div>
+                {!showPassword ? (
+                  <FontAwesomeIcon
+                    className="password-icon"
+                    onClick={handleShowPassword}
+                    icon={faEye}
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    className="password-icon"
+                    icon={faEyeSlash}
+                    onClick={handleShowPassword}
+                  />
+                )}
+              </div>
+            </div>
+
+            <div className="flex right ">
+              <a href="/" className="link" onClick={handleForgotPassword}>
+                Forgot Password?
               </a>
-            </span>
+            </div>
+          </div>
+          <div className="flex column gap">
+            <div>
+              <button className="btn" onClick={handleLogin}>
+                Login
+              </button>
+            </div>
+            <div className="flex right">
+              <span className="span">
+                don't have an account?{" "}
+                <a href="/" className="link" onClick={handleRegister}>
+                  Sign Up
+                </a>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

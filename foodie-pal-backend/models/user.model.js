@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
-const Item = require("./item.model");
 const EatingHabbit = require("./eatingHabbit.model");
 const Allergy = require("./allergy.model");
 const MedicalCondition = require("./medicalCondition.model");
@@ -46,11 +45,10 @@ const userSchema = new mongoose.Schema({
   },
   medications: {
     type: [String],
-    required: true,
   },
   items: {
     type: [mongoose.Schema.Types.ObjectId],
-    ref: Item,
+    ref: "Item",
   },
   eatingHabbits: {
     type: [EatingHabbit.schema],
