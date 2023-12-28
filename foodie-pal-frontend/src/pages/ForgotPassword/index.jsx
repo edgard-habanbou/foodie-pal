@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Popup from "../../components/Popup";
 import { userApi } from "../../network/axios";
 import Loading from "../../components/Loading";
-const ForgotPassword = () => {
+const ForgotPassword = ({ handleForgotPasswordBtn }) => {
   const [email, setEmail] = useState("");
   const [Load, setLoading] = useState(false);
 
@@ -34,7 +34,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="login">
+    <div className="flex login full-height gap center column">
       {Load && <Loading />}
       <div className="flex column gap">
         <h1>Forgot Password</h1>
@@ -47,8 +47,16 @@ const ForgotPassword = () => {
           }}
         />
         <button type="submit" className="btn" onClick={handleForgotPassword}>
-          Send Reset Link
+          Send Link
         </button>
+      </div>
+      <div className="flex full-width right">
+        <span className="span">
+          Changed your mind?{" "}
+          <a href="/" className="link" onClick={handleForgotPasswordBtn}>
+            Log In
+          </a>
+        </span>
       </div>
     </div>
   );

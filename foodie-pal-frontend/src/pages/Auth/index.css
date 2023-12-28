@@ -1,0 +1,33 @@
+.login {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  text-align: center;
+}
+.image {
+  background-image: url("../../assets/images/wp9506513.jpg");
+  filter: blur(6px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+.password-icon {
+  position: absolute;
+  right: 8%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .image {
+    background-image: url("../../assets/images/background-large.jpg");
+    filter: blur(0px);
+  }
+}
