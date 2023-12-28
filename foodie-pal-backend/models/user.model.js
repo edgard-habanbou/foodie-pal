@@ -35,6 +35,14 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  resetPasswordCode: {
+    type: String,
+    default: "",
+  },
+  resetPasswordCodeUsed: {
+    type: Boolean,
+    default: false,
+  },
   userRole: {
     type: mongoose.Schema.Types.ObjectId,
     default: new mongoose.Types.ObjectId("657f052bf4aaced6b5b8d7b0"),

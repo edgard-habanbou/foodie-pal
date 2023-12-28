@@ -9,6 +9,12 @@ class UserApi {
   async uploadImage(image) {
     return await api.post("/profile/upload", image);
   }
+  async resetPassword(tokenAndPass) {
+    return await api.post("/auth/reset-password", tokenAndPass);
+  }
+  async checkToken(token) {
+    return await api.post(`/auth/check-token/`, token);
+  }
 }
 
 export const userApi = new UserApi();

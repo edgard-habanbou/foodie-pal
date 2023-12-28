@@ -7,8 +7,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Signup from "../Signup";
+import ForgotPassword from "../ForgotPassword";
+import { useParams } from "react-router-dom";
 
 import "./index.css";
+import ResetPassword from "../ResetPassword";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -17,6 +20,8 @@ function Login() {
   const [Load, setLoading] = useState(false);
   const [Register, setRegister] = useState(false);
   const [forgotPassword, setForgotPassword] = useState(false);
+
+  const { token } = useParams();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -77,6 +82,10 @@ function Login() {
       <div className="image"></div>
       {Register ? (
         <Signup handleRegister={handleRegister} setLoading={setLoading} />
+      ) : forgotPassword ? (
+        <ForgotPassword />
+      ) : token ? (
+        <ResetPassword token={token} />
       ) : (
         <div className="flex column gap center login full-height">
           <div>

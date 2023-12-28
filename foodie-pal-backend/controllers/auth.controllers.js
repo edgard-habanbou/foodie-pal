@@ -2,6 +2,7 @@ const User = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const validator = require("validator");
+const { sendMail } = require("./mail.controllers");
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -72,7 +73,98 @@ const register = async (req, res) => {
   }
 };
 
+const forgotPassword = async (req, res) => {
+  const { email } = req.body;
+  if (!email) {
+    res.status(400).send({ message: "email is required" });
+    return;
+  } else if (!validator.isEmail(email)) {
+    res.status(400).send({ message: "Invalid email" });
+    return;
+  }
+
+  const user = await User.findOne({ email });
+  if (!user) {
+    res.status(400).send({ message: "Invalid email" });
+    return;
+  } else {
+    const code = generateRandomString();
+    user.resetPasswordCode = code;
+    user.resetPasswordCodeUsed = false;
+    await user.save();
+
+    sendMail(
+      email,
+      "Reset Password",
+      "Go to this link to reset your password " +
+        `${process.env.CLIENT_LINK}/reset-password/${code}`,
+      res
+    );
+  }
+};
+
+const resetPassword = async (req, res) => {
+  const { token, password } = req.body;
+  if (!token || !password) {
+    res.status(400).send({ message: "token and password are required" });
+    return;
+  } else if (password.length < 8) {
+    res
+      .status(400)
+      .send({ message: "password must be at least 8 characters long" });
+    return;
+  }
+
+  const user = await User.findOne({ resetPasswordCode: token });
+  if (!user) {
+    res.status(400).send({ message: "Invalid token" });
+    return;
+  } else if (user.resetPasswordCodeUsed) {
+    res.status(400).send({ message: "Token already used" });
+    return;
+  }
+
+  user.password = password;
+  user.resetPasswordCodeUsed = true;
+  await user.save();
+
+  res.status(200).send({ message: "password reset successfully" });
+};
+
+const checkToken = async (req, res) => {
+  const { token } = req.body;
+  if (!token) {
+    res.status(400).send({ message: "token is required" });
+    return;
+  }
+  const user = await User.findOne({ resetPasswordCode: token });
+  if (!user) {
+    res.status(400).send({ message: "Invalid token" });
+    return;
+  } else if (user.resetPasswordCodeUsed) {
+    res.status(400).send({ message: "Token already used" });
+    return;
+  } else {
+    res.status(200).send({ message: "token is valid" });
+  }
+};
+
+function generateRandomString() {
+  const characters =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let randomString = "";
+
+  for (let i = 0; i < 10; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    randomString += characters.charAt(randomIndex);
+  }
+
+  return randomString;
+}
 module.exports = {
   login,
   register,
+  forgotPassword,
+  resetPassword,
+  checkToken,
 };
