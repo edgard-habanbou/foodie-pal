@@ -3,12 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 :root {
   --primarycolor: #fe8a01;
   --secondarycolor: #372702;
 }
 .flex {
   display: flex;
+}
+.wrap {
+  flex-wrap: wrap;
 }
 .row {
   flex-direction: row;

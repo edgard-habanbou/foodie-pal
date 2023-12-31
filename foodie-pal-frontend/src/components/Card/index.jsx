@@ -16,8 +16,12 @@ function Card({ title, imageUrl, calories, time, focus = false }) {
 
   return (
     <div className="card-info flex column center gap " style={cardInfoStyle}>
-      <p className="card-title">{title}</p>
-      <img src={imageUrl} alt="recipeImage" className="recipe-image" />
+      <div>
+        <img src={imageUrl} alt="recipeImage" className="recipe-image" />
+      </div>
+      <div className="card-title">
+        <p>{title}</p>
+      </div>
       <div className="flex space-between full-width">
         <div className="flex column center time">
           <FontAwesomeIcon icon={faFire} />
