@@ -1,9 +1,13 @@
 import React from "react";
+import Menu from "../../components/Menu";
 
 function Landing() {
   return (
     <div>
-      <h1>Landing</h1>
+      <Menu />
+      <div>
+        <h1>Landing</h1>
+      </div>
     </div>
   );
 }

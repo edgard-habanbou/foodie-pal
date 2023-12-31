@@ -25,7 +25,7 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
       } else if (response.message === "Request failed with status code 400") {
         Popup({
           title: "Error",
-          text: `Invalid Email or Password`,
+          text: `Wrong Credentials`,
           icon: "error",
           confirmButtonText: "Ok",
           confirmButtonColor: "#FE8A01",
