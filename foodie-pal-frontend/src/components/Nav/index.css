@@ -5,7 +5,8 @@
   padding-left: 0.5rem;
 }
 .menu-logo {
-  width: 4rem;
+  width: 3rem;
+  height: 3rem;
 }
 .landing {
   padding-top: 3rem;
@@ -17,6 +18,12 @@
 .menu-item a {
   text-decoration: none;
   color: white;
+}
+.logout p {
+  color: red;
+}
+.logout a {
+  color: red;
 }
 .menu-item {
   padding-top: 1rem;
@@ -33,4 +40,20 @@
 }
 .selected a {
   color: black;
+}
+.menu-items {
+  height: 94%;
+}
+
+.showing {
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

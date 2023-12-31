@@ -3,7 +3,7 @@ import Nav from "../../components/Nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-function Landing() {
+function Diet() {
   const showMenu = () => {
     const menu = document.getElementById("menu");
     menu.classList.toggle("showing");
@@ -18,10 +18,10 @@ function Landing() {
         <button onClick={showMenu}>
           <FontAwesomeIcon icon={faBars} />
         </button>
-        <h1>Landing</h1>
+        <h1>Diet</h1>
       </div>
     </div>
   );
 }
 
-export default Landing;
+export default Diet;

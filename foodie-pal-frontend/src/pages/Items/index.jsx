@@ -2,8 +2,7 @@ import React from "react";
 import Nav from "../../components/Nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-
-function Landing() {
+function Items() {
   const showMenu = () => {
     const menu = document.getElementById("menu");
     menu.classList.toggle("showing");
@@ -24,4 +23,4 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default Items;

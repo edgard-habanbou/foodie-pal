@@ -2,6 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Auth from "./pages/Auth";
 import Landing from "./pages/Landing";
+import Favorites from "./pages/Favorites";
+import Profile from "./pages/Profile";
+import Items from "./pages/Items";
+import Diet from "./pages/Diet";
 import "./App.css";
 
 function App() {
@@ -9,8 +13,12 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Auth />} />
-        <Route path="/home" element={<Landing />} />
         <Route path="/reset-password/:token" element={<Auth />} />
+        <Route path="/home" element={<Landing />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/items" element={<Items />} />
+        <Route path="/diet" element={<Diet />} />
       </Routes>
     </Router>
   );

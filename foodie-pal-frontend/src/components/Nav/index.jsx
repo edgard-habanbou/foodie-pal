@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from "../../assets/svgs/Logo.svg";
 import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,8 +7,9 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
 import { faSeedling } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
-function Menu() {
+function Nav() {
   const selected = () => {
     const url = window.location.pathname;
     const menuItems = document.querySelectorAll(".menu-item");
@@ -20,13 +21,18 @@ function Menu() {
       }
     });
   };
-  selected();
+  const Logout = () => {
+    localStorage.clear();
+  };
+  useEffect(() => {
+    selected();
+  }, []);
   return (
-    <div className="menu  full-height-screen">
-      <div>
+    <div id="menu" className="menu hidden full-height-screen">
+      <div flex center full-width>
         <img src={Logo} alt="logo" className="menu-logo" />
       </div>
-      <div className="flex column center gap full-height">
+      <div className="flex column center gap menu-items">
         <div className="menu-item flex column center ">
           <a href="/home">
             <FontAwesomeIcon icon={faHouse} />
@@ -37,7 +43,7 @@ function Menu() {
           <a href="/favorites">
             <FontAwesomeIcon icon={faHeart} />
           </a>
-          <p>Favorites</p>
+          <p>Fav</p>
         </div>
         <div className="menu-item flex column center">
           <a href="/items">
@@ -57,9 +63,16 @@ function Menu() {
           </a>
           <p>Profile</p>
         </div>
+        <div className="menu-item flex column center logout">
+          <a href="/" onClick={Logout}>
+            <FontAwesomeIcon icon={faRightFromBracket} />
+          </a>
+
+          <p>Logout</p>
+        </div>
       </div>
     </div>
   );
 }
 
-export default Menu;
+export default Nav;
