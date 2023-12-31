@@ -36,6 +36,16 @@
 .full-height {
   height: 100%;
 }
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+}
+.full-height-screen {
+  height: 100vh;
+}
+.full-width-screen {
+  width: 100vw;
+}
 .gap {
   gap: 1rem;
 }

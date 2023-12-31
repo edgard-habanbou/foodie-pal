@@ -1,0 +1,36 @@
+.menu {
+  background-color: #2d2d2d;
+  padding-top: 3rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+.menu-logo {
+  width: 4rem;
+}
+.landing {
+  padding-top: 3rem;
+}
+.menu-item p {
+  font-size: 0.8rem;
+  color: white;
+}
+.menu-item a {
+  text-decoration: none;
+  color: white;
+}
+.menu-item {
+  padding-top: 1rem;
+}
+.selected {
+  background-color: #fe8a01;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  padding-top: 0rem;
+}
+.selected p {
+  color: black;
+}
+.selected a {
+  color: black;
+}
