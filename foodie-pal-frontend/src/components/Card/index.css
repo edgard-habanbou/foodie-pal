@@ -1,0 +1,21 @@
+.recipe-image {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+}
+.card-info {
+  height: 12rem;
+  padding: 25px;
+}
+.time {
+  gap: 0.2rem;
+  background-color: #fe8a01;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: small;
+}
+.card-title {
+  color: white;
+  font-weight: 900;
+}
