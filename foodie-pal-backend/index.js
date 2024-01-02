@@ -3,7 +3,6 @@ const { connectToMongoDB } = require("./configs/connection");
 const app = express();
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
-const bcrypt = require("bcrypt");
 app.use(fileUpload());
 require("dotenv").config();
 
@@ -28,6 +27,10 @@ app.use("/subdocument", authMiddleware, subDocument);
 //sub document ids routes
 const subDocumentId = require("./routes/subDocIds.routes");
 app.use("/subdocid", authMiddleware, subDocumentId);
+
+//byteScale routes
+const byteScale = require("./routes/byteScale.routes");
+app.use("/bytescale", authMiddleware, byteScale);
 
 app.listen(process.env.PORT, () => {
   console.log("Server listining on PORT: ", process.env.PORT);

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { userApi } from "../../network/axios";
 import Popup from "../../components/Popup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,8 +12,6 @@ function Signup({ handleRegister, setLoading }) {
   const [lastName, setLastName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [gender, setGender] = useState("");
-
-  const navigate = useNavigate();
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
