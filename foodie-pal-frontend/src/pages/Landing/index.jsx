@@ -3,6 +3,7 @@ import Nav from "../../components/Nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Card from "../../components/Card";
+import CategoriesNav from "../../components/CategoriesNav";
 import "./index.css";
 function Landing() {
   const showMenu = () => {
@@ -19,8 +20,11 @@ function Landing() {
         <button onClick={showMenu}>
           <FontAwesomeIcon icon={faBars} />
         </button>
-        <h1>Landing</h1>
-        <div className="flex wrap gap">
+        <div className="flex center">
+          <CategoriesNav />
+        </div>
+
+        <div className="flex wrap gap center">
           <Card
             title="Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe"
             calories="417"

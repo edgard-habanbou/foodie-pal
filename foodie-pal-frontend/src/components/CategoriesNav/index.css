@@ -1,0 +1,14 @@
+.cat-nav {
+  background-color: #606060;
+  width: 80%;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+.cat-nav-item {
+  color: #929292;
+  cursor: pointer;
+}
+.cat-nav-item-selected {
+  color: #fff;
+  cursor: pointer;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { userApi } from "../../network/axios";
 import Popup from "../../components/Popup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +13,8 @@ function Signup({ handleRegister, setLoading }) {
   const [lastName, setLastName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [gender, setGender] = useState("");
+
+  const navigate = useNavigate();
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -47,7 +50,6 @@ function Signup({ handleRegister, setLoading }) {
         firstName,
         lastName,
       });
-      console.log(response.response.data.error.code);
       if (response.message === "user created successfully") {
         Popup({
           title: "Success",
@@ -56,6 +58,8 @@ function Signup({ handleRegister, setLoading }) {
           icon: "success",
           confirmButtonText: "Ok",
         });
+
+        handleRegister();
       } else if (response.response.data.error.code === 11000) {
         Popup({
           title: "Error",

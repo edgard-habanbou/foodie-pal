@@ -62,7 +62,8 @@ const userSchema = new mongoose.Schema({
     type: [EatingHabbit.schema],
   },
   medicalConditions: {
-    type: [MedicalCondition.schema],
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: MedicalCondition,
   },
   allergies: {
     type: [mongoose.Schema.Types.ObjectId],
