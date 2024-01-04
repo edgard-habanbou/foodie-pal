@@ -16,8 +16,8 @@ function CategoriesNav() {
   ];
   const handleCategoryClick = (e) => {
     const selectedCategory = e.target.innerText;
-    const catNavItems = document.querySelectorAll(".cat-nav-item");
 
+    const catNavItems = document.querySelectorAll(".cat-nav-item");
     catNavItems.forEach((item) => {
       if (item.innerText === selectedCategory) {
         item.classList.add("cat-nav-item-selected");

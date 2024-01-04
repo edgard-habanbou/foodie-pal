@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import "./index.css";
 function header() {
   const userImage = JSON.parse(localStorage.getItem("user")).imageUrl;
   const showMenu = () => {
