@@ -3,6 +3,7 @@ import Nav from "../../components/Nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Card from "../../components/Card";
+import Header from "../../components/Header";
 import CategoriesNav from "../../components/CategoriesNav";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Grid, Pagination } from "swiper/modules";
@@ -190,11 +191,6 @@ function Landing() {
         "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
     },
   ]);
-  const showMenu = () => {
-    const menu = document.getElementById("menu");
-    menu.classList.toggle("showing");
-    menu.classList.toggle("hidden");
-  };
 
   return (
     <div className="flex">
@@ -202,9 +198,7 @@ function Landing() {
         <Nav />
       </div>
       <div className="landing ">
-        <button onClick={showMenu}>
-          <FontAwesomeIcon icon={faBars} />
-        </button>
+        <Header />
         <div className="flex center">
           <CategoriesNav />
         </div>

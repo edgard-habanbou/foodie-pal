@@ -16,3 +16,11 @@
 .swiper-pagination-bullet {
   background: white !important;
 }
+.user-image {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.header {
+  padding: 0 20px 10px 20px;
+}

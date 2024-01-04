@@ -62,7 +62,8 @@ body {
 }
 .btn {
   border-radius: 10px;
-  padding: 0.7rem 5rem;
+  padding: 0.7rem 0rem;
+  width: 200px;
   border: none;
   background-color: var(--primarycolor);
   color: white;
@@ -120,6 +121,16 @@ body {
 .hidden {
   display: none;
 }
+.btn-menu {
+  background: none;
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+}
 button {
   font-weight: bold;
+}
+span {
+  font-size: 15px;
 }

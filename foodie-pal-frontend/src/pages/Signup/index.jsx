@@ -161,7 +161,7 @@ function Signup({ handleRegister, setLoading }) {
             <span>Gender</span>
           </div>
           <div className="flex gap">
-            <div>
+            <div className="flex center ">
               <input
                 onClick={handleGender}
                 value="male"
@@ -171,7 +171,7 @@ function Signup({ handleRegister, setLoading }) {
               />
               <span htmlFor="male"> Male</span>
             </div>
-            <div>
+            <div className="flex center ">
               <input
                 onClick={handleGender}
                 type="radio"
