@@ -37,7 +37,7 @@ const ForgotPassword = ({ handleForgotPasswordBtn }) => {
     <div className="flex login full-height gap center column">
       {Load && <Loading />}
       <div className="flex column gap">
-        <h1>Forgot Password</h1>
+        <h2>Forgot Password</h2>
         <input
           type="text"
           className="input"

@@ -1,3 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+body {
+  font-family: "Montserrat";
+}
 * {
   margin: 0;
   padding: 0;
@@ -75,8 +79,9 @@
 .input {
   border-radius: 10px;
   border: none;
-  padding: 0.8rem 2rem;
+  padding: 0.8rem 1rem;
   color: white;
+  width: 100%;
   background-color: #a1a1a1ab;
 }
 .input::placeholder {
@@ -114,4 +119,7 @@
 }
 .hidden {
   display: none;
+}
+button {
+  font-weight: bold;
 }
