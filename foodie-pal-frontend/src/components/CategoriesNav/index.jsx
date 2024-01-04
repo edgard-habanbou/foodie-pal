@@ -30,7 +30,7 @@ function CategoriesNav() {
   return (
     <div className="cat-nav">
       <div className="flex categories center gap">
-        <Flicking renderOnlyVisible={true} align="prev">
+        <Flicking renderOnlyVisible={true} align="prev" circular={true}>
           {categories?.map((category, i) => (
             <div key={i} className="cat-nav-item" onClick={handleCategoryClick}>
               {category}

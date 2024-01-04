@@ -8,6 +8,11 @@
 
   padding-top: 3rem;
 }
-.cards {
-  gap: 2rem;
+
+.swiper {
+  width: 90%;
+  height: 90%;
+}
+.swiper-pagination-bullet {
+  background: white !important;
 }

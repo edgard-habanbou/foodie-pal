@@ -1,18 +1,203 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "../../components/Nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Card from "../../components/Card";
 import CategoriesNav from "../../components/CategoriesNav";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Grid, Pagination } from "swiper/modules";
 import "./index.css";
+import "swiper/css";
+import "swiper/css/grid";
+import "swiper/css/pagination";
+
 function Landing() {
+  const [recipes, setRecipes] = useState([
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+    {
+      title:
+        "Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe",
+      calories: "417",
+      time: "60m",
+      imageUrl:
+        "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",
+    },
+  ]);
   const showMenu = () => {
     const menu = document.getElementById("menu");
     menu.classList.toggle("showing");
     menu.classList.toggle("hidden");
   };
+
   return (
-    <div className="flex ">
+    <div className="flex">
       <div>
         <Nav />
       </div>
@@ -24,44 +209,25 @@ function Landing() {
           <CategoriesNav />
         </div>
 
-        <div className="flex wrap  center cards">
-          <Card
-            title="Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe"
-            calories="417"
-            time="60m"
-            imageUrl="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg"
-          />
-          <Card
-            title="Banana Bread"
-            calories="417"
-            time="60m"
-            imageUrl="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg"
-          />
-          <Card
-            title="Banana Bread"
-            calories="417"
-            time="60m"
-            imageUrl="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg"
-          />
-          <Card
-            title="Banana Bread"
-            calories="417"
-            time="60m"
-            imageUrl="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg"
-          />
-          <Card
-            title="Banana Bread"
-            calories="417"
-            time="60m"
-            imageUrl="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg"
-          />
-          <Card
-            title="Banana Bread"
-            calories="417"
-            time="60m"
-            imageUrl="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg"
-          />
-        </div>
+        <Swiper
+          slidesPerView={2.2}
+          grid={{
+            rows: 3,
+          }}
+          pagination={{ dynamicBullets: true, clickable: true }}
+          modules={[Grid, Pagination]}
+        >
+          {recipes.map((recipe, i) => (
+            <SwiperSlide key={i}>
+              <Card
+                title={recipe.title}
+                calories={recipe.calories}
+                time={recipe.time}
+                imageUrl={recipe.imageUrl}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );
