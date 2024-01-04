@@ -2,17 +2,23 @@ const axios = require("axios");
 
 const getImageURL = async (req, res) => {
   const { image } = req.files;
+};
 
+module.exports = {
+  getImageURL,
+};
+
+const getConcepts = async (url) => {
   const apiUrl =
     "https://api.clarifai.com/v2/users/clarifai/apps/main/models/food-item-recognition/versions/1d5fd481e0cf4826aa72ec3ff049e044/outputs";
-  const apiKey = "8454426672df48eaba4fb32d21586aec";
+  const apiKey = process.env.CLAIRIFY_API_KEY;
 
   const requestData = {
     inputs: [
       {
         data: {
           image: {
-            url: "https://www.campdenbri.co.uk/images/fruit-veg-seeds-medium.jpg",
+            url: url,
           },
         },
       },
@@ -32,8 +38,4 @@ const getImageURL = async (req, res) => {
     .catch((error) => {
       console.error(error);
     });
-};
-
-module.exports = {
-  getImageURL,
 };

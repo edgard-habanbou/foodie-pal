@@ -17,7 +17,7 @@ function Items() {
         <button onClick={showMenu}>
           <FontAwesomeIcon icon={faBars} />
         </button>
-        <h1>Landing</h1>
+        <h1>Items</h1>
       </div>
     </div>
   );

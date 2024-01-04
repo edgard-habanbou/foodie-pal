@@ -24,7 +24,7 @@ function Landing() {
           <CategoriesNav />
         </div>
 
-        <div className="flex wrap gap center">
+        <div className="flex wrap  center cards">
           <Card
             title="Tamil Nadu Style Poo Kosu Poriyal - Pepper Garlic Cauliflower Poriyal Recipe"
             calories="417"

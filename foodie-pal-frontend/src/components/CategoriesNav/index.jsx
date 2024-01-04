@@ -1,4 +1,5 @@
-import React from "react";
+import Flicking from "@egjs/react-flicking";
+import "@egjs/react-flicking/dist/flicking-inline.css";
 import "./index.css";
 
 function CategoriesNav() {
@@ -25,14 +26,17 @@ function CategoriesNav() {
       }
     });
   };
+
   return (
     <div className="cat-nav">
-      <div className="flex wrap center gap">
-        {categories?.map((category, i) => (
-          <div key={i} className="cat-nav-item" onClick={handleCategoryClick}>
-            {category}
-          </div>
-        ))}
+      <div className="flex categories center gap">
+        <Flicking renderOnlyVisible={true} align="prev">
+          {categories?.map((category, i) => (
+            <div key={i} className="cat-nav-item" onClick={handleCategoryClick}>
+              {category}
+            </div>
+          ))}
+        </Flicking>
       </div>
     </div>
   );

@@ -7,8 +7,13 @@
 .cat-nav-item {
   color: #929292;
   cursor: pointer;
+  margin-right: 20px;
 }
 .cat-nav-item-selected {
   color: #fff;
   cursor: pointer;
+}
+.categories {
+  display: flex;
+  white-space: nowrap;
 }
