@@ -132,7 +132,7 @@ function Landing() {
         </div>
 
         <Swiper
-          slidesPerView={2}
+          slidesPerView={2.2}
           grid={{
             rows: 3,
           }}

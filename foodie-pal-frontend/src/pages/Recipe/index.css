@@ -1,4 +1,6 @@
-.swiper {
-  width: 90%;
-  height: 89%;
+.swiper-div {
+  height: 260px;
+  background-color: #393838;
+  border-radius: 10px;
+  margin: 0 15px;
 }

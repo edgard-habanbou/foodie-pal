@@ -24,9 +24,9 @@ function Recipe() {
       </div>
       <div className="landing ">
         <Header />
-        <div>
+        <div className="swiper-div flex center">
           <Swiper
-            slidesPerView={2}
+            slidesPerView={2.2}
             grid={{
               rows: 1,
             }}
