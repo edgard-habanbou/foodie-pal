@@ -5,9 +5,11 @@ import Header from "../../components/Header";
 import SwiperCarousel from "../../components/SwiperCarousel";
 import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 import { faClock, faFire } from "@fortawesome/free-solid-svg-icons";
 
 function Recipe() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const recipes = JSON.parse(localStorage.getItem("recipes"));
   const selectedRecipe = recipes.find(
@@ -42,8 +44,25 @@ function Recipe() {
               <p>{selectedRecipe.time}</p>
             </div>
           </div>
+          <div className="recipe-desc flex column gap">
+            <div>
+              <p>
+                <b>{selectedRecipe.title}</b>
+              </p>
+            </div>
+            <div>
+              <p>{selectedRecipe.description}</p>
+            </div>
+          </div>
           <div>
-            <p>{selectedRecipe.description}</p>
+            <button
+              onClick={() => {
+                navigate(`/cook/${id}`);
+              }}
+              className="btn"
+            >
+              Start Cooking
+            </button>
           </div>
         </div>
       </div>

@@ -13,6 +13,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 20px;
   align-items: center;
   padding-top: 20px;
+}
+.recipe-desc {
+  color: white;
+  text-align: center;
 }
