@@ -118,6 +118,9 @@ body {
 .padding {
   padding: 5px 10px;
 }
+.padding-top {
+  padding-top: 10px;
+}
 .hidden {
   display: none;
 }

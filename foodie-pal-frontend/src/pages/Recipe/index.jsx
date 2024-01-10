@@ -4,6 +4,8 @@ import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import SwiperCarousel from "../../components/SwiperCarousel";
 import "./index.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock, faFire } from "@fortawesome/free-solid-svg-icons";
 
 function Recipe() {
   const { id } = useParams();
@@ -22,7 +24,19 @@ function Recipe() {
         <div className="swiper-div flex center">
           <SwiperCarousel recipes={recipes} row={1} />
         </div>
-        <h1>ID: {selectedRecipe?.title}</h1>
+        <div className="recipe-info full-width">
+          <div>
+            <img
+              className="recipe-image-large"
+              src={selectedRecipe.imageUrl}
+              alt="recipeImage"
+            />
+          </div>
+
+          <div>
+            <p>{selectedRecipe.description}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
