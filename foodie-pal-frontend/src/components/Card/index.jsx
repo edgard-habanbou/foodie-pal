@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import "./index.css";
 import selected from "../../assets/svgs/selected.svg";
 import unselected from "../../assets/svgs/unselected.svg";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { faFire } from "@fortawesome/free-solid-svg-icons";
 
-function Card({ title, imageUrl, calories, time, description }) {
+function Card({ id, title, imageUrl, calories, time, description }) {
   const [focus, setFocus] = useState(false);
   const [showDescription, setShowDescription] = useState(false);
+  const navigate = useNavigate();
 
   const cardInfoStyle = {
     backgroundImage: `url(${focus ? selected : unselected})`,
@@ -20,6 +22,7 @@ function Card({ title, imageUrl, calories, time, description }) {
   const handleCardClick = () => {
     setFocus(!focus);
     setShowDescription(!showDescription);
+    navigate(`/${id}`);
   };
   return (
     <div>
