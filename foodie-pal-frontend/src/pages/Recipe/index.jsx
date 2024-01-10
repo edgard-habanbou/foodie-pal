@@ -42,6 +42,9 @@ function Recipe() {
               <p>{selectedRecipe.time}</p>
             </div>
           </div>
+          <div>
+            <p>{selectedRecipe.description}</p>
+          </div>
         </div>
       </div>
     </div>
