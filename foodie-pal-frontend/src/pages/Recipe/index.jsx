@@ -32,9 +32,15 @@ function Recipe() {
               alt="recipeImage"
             />
           </div>
-
-          <div>
-            <p>{selectedRecipe.description}</p>
+          <div className="flex row gap">
+            <div className="flex column center time">
+              <FontAwesomeIcon icon={faFire} />
+              <p>{selectedRecipe.calories}</p>
+            </div>
+            <div className="flex column center time">
+              <FontAwesomeIcon icon={faClock} />
+              <p>{selectedRecipe.time}</p>
+            </div>
           </div>
         </div>
       </div>
