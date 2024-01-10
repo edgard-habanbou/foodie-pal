@@ -29,7 +29,7 @@ function Nav() {
   }, []);
   return (
     <div id="menu" className="menu hidden full-height-screen">
-      <div flex center full-width>
+      <div className="flex center full-width">
         <img src={Logo} alt="logo" className="menu-logo" />
       </div>
       <div className="flex column center gap menu-items">

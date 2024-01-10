@@ -29,3 +29,9 @@
   white-space: nowrap;
   overflow: hidden;
 }
+.card-info {
+  background-image: url(../../assets/svgs/unselected.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}

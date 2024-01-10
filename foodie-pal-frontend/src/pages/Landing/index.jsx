@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Nav from "../../components/Nav";
 import Card from "../../components/Card";
 import Header from "../../components/Header";
@@ -132,7 +132,7 @@ function Landing() {
         </div>
 
         <Swiper
-          slidesPerView={2.1}
+          slidesPerView={2}
           grid={{
             rows: 3,
           }}
