@@ -22,7 +22,7 @@ function Card({ id, title, imageUrl, calories, time, description }) {
   const handleCardClick = () => {
     setFocus(!focus);
     setShowDescription(!showDescription);
-    navigate(`/${id}`);
+    navigate(`/home/${id}`);
   };
   return (
     <div>
