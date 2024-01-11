@@ -56,11 +56,7 @@ function Cook() {
           {instructions.map((instruction, i) => {
             return (
               <SwiperSlide key={i}>
-                <div className="instruction">
-                  {i + 1}
-                  {") "}
-                  {instruction}
-                </div>
+                <div className="instruction">{instruction}</div>
               </SwiperSlide>
             );
           })}

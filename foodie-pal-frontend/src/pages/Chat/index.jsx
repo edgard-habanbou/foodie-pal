@@ -4,22 +4,32 @@ import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 function Chat() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const recipes = JSON.parse(localStorage.getItem("recipes"));
   const selectedRecipe = recipes.find(
     (recipe) => recipe.id === parseInt(id, 10)
   );
+  const handleBack = () => {
+    navigate(`/cook/${id}`);
+  };
   return (
     <div className="flex background">
       <div>
         <Nav />
       </div>
+
       <div className="landing">
         <Header />
+
         <div className="flex gap center instructions-wrapper">
+          <button className="btn-menu" onClick={handleBack}>
+            <FontAwesomeIcon icon={faArrowLeft} size="2xl" />
+          </button>
           <div>
             <img
               className="recipe-image-large"
@@ -34,7 +44,11 @@ function Chat() {
           </div>
         </div>
         <div className="chat-wrapper flex column center">
-          <div className="chat "></div>
+          <div className="chat">
+            <div>
+              <p>Hello</p>
+            </div>
+          </div>
           <div className="flex gap">
             <input type="text" className="input" placeholder="Question?" />
             <button className="btn">
