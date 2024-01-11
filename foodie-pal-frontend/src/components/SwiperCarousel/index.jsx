@@ -7,7 +7,7 @@ import "swiper/css/grid";
 import "swiper/css/pagination";
 import "./index.css";
 
-function SwiperCarousel({ recipes, row, slidesPerView = 2.2 }) {
+function SwiperCarousel({ recipes, row, slidesPerView = 2 }) {
   return (
     <Swiper
       slidesPerView={slidesPerView}

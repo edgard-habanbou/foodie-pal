@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import Nav from "../../components/Nav";
+import { useNavigate } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -14,9 +15,13 @@ import { Pagination } from "swiper/modules";
 function Cook() {
   const { id } = useParams();
   const recipes = JSON.parse(localStorage.getItem("recipes"));
+  const navigate = useNavigate();
   const selectedRecipe = recipes.find(
     (recipe) => recipe.id === parseInt(id, 10)
   );
+  const handleChatbtn = () => {
+    navigate(`/chat/${id}`);
+  };
   const instructions = selectedRecipe.instructions;
   return (
     <div className="flex ">
@@ -41,7 +46,7 @@ function Cook() {
         </div>
         <Swiper
           direction={"vertical"}
-          slidesPerView={5}
+          slidesPerView={4.5}
           pagination={{
             clickable: true,
           }}
@@ -60,6 +65,11 @@ function Cook() {
             );
           })}
         </Swiper>
+        <div className="flex center">
+          <button onClick={handleChatbtn} className="btn">
+            Have a question?
+          </button>
+        </div>
       </div>
     </div>
   );
