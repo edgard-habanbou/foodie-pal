@@ -9,7 +9,11 @@ import { useNavigate } from "react-router-dom";
 import SwiperVertical from "../../components/SwiperVertical";
 
 function Chat() {
-  const [chat, setChat] = useState([]);
+  const [chats, setChats] = useState([
+    ["openai", "how can i help"],
+    ["user", "hey"],
+  ]);
+
   const navigate = useNavigate();
   const { id } = useParams();
   const recipes = JSON.parse(localStorage.getItem("recipes"));
@@ -47,7 +51,7 @@ function Chat() {
         </div>
         <div className="chat-wrapper flex column center">
           <div className="chat">
-            <SwiperVertical instructions={chat} />
+            <SwiperVertical chats={chats} />
           </div>
           <div className="flex gap">
             <input type="text" className="input" placeholder="Question?" />

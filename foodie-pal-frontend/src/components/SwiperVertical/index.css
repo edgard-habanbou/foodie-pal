@@ -1,0 +1,13 @@
+.messages {
+  width: 100%;
+}
+.message {
+  background-color: #a1a1a1;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.swiper-wrapper {
+  width: 100%;
+}
