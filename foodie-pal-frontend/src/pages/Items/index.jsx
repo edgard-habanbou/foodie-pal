@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
+import SwiperVertitcal from "../../components/SwiperVertical";
 function Items() {
   return (
     <div className="flex background">
