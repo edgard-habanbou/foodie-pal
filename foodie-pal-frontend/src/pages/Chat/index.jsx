@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import "./index.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 function Chat() {
   const { id } = useParams();
@@ -31,8 +33,14 @@ function Chat() {
             </b>
           </div>
         </div>
-        <div className="chat-wrapper flex center">
-          <div className="chat"></div>
+        <div className="chat-wrapper flex column center">
+          <div className="chat "></div>
+          <div className="flex gap">
+            <input type="text" className="input" placeholder="Question?" />
+            <button className="btn">
+              Send <FontAwesomeIcon icon={faPaperPlane} />
+            </button>
+          </div>
         </div>
       </div>
     </div>
