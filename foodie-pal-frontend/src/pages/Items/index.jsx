@@ -9,7 +9,7 @@ function Items() {
     menu.classList.toggle("hidden");
   };
   return (
-    <div className="flex ">
+    <div className="flex background">
       <div>
         <Nav />
       </div>

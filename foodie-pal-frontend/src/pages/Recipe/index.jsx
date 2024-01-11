@@ -17,7 +17,7 @@ function Recipe() {
   );
 
   return (
-    <div className="flex ">
+    <div className="flex background">
       <div>
         <Nav />
       </div>

@@ -24,7 +24,7 @@ function Cook() {
   };
   const instructions = selectedRecipe.instructions;
   return (
-    <div className="flex ">
+    <div className="flex background">
       <div>
         <Nav />
       </div>
