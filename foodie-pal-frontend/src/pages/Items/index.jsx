@@ -3,14 +3,18 @@ import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import SwiperVertical from "../../components/SwiperVertical";
 import Loading from "../../components/Loading";
+import Camera from "../../components/Camera";
 import { userApi } from "../../network/axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 function Items() {
   const [items, setItems] = useState([]);
   const [Load, setLoading] = useState(false);
+  const [showCamera, setShowCamera] = useState(false);
 
-  const handleCamerabtn = () => {};
+  const handleCamerabtn = () => {
+    setShowCamera(!showCamera);
+  };
 
   const handleGetItems = async () => {
     setLoading(true);
@@ -35,10 +39,11 @@ function Items() {
         <div className="flex margin gap">
           <input type="text" className="input" placeholder="Item Name" />
           <button className="btn">Add Item</button>
-          <button className="btn">
+          <button className="btn" onClick={handleCamerabtn}>
             <FontAwesomeIcon icon={faCamera} />
           </button>
         </div>
+        {showCamera && <Camera />}
         <SwiperVertical instructions={items} />
       </div>
       {Load && <Loading />}
