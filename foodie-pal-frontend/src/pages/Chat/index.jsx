@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
@@ -6,8 +6,10 @@ import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import SwiperVertical from "../../components/SwiperVertical";
 
 function Chat() {
+  const [chat, setChat] = useState([]);
   const navigate = useNavigate();
   const { id } = useParams();
   const recipes = JSON.parse(localStorage.getItem("recipes"));
@@ -45,9 +47,7 @@ function Chat() {
         </div>
         <div className="chat-wrapper flex column center">
           <div className="chat">
-            <div>
-              <p>Hello</p>
-            </div>
+            <SwiperVertical instructions={chat} />
           </div>
           <div className="flex gap">
             <input type="text" className="input" placeholder="Question?" />
