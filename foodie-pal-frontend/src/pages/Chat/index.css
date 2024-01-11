@@ -1,3 +1,15 @@
 .background {
   background-color: #2d2d2d;
 }
+.chat {
+  background-color: #2d2d2d;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  padding: 0 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+}
+.chat-wrapper {
+  height: 70%;
+}
