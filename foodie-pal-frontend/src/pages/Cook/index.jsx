@@ -2,7 +2,15 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import Nav from "../../components/Nav";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
 import "./index.css";
+import "swiper/css";
+import "swiper/css/pagination";
+
+import { Pagination } from "swiper/modules";
+
 function Cook() {
   const { id } = useParams();
   const recipes = JSON.parse(localStorage.getItem("recipes"));
@@ -17,27 +25,41 @@ function Cook() {
       </div>
       <div className="landing ">
         <Header />
-        <div>
-          <div className="flex gap center instructions-wrapper">
-            <div>
-              <img
-                className="recipe-image-large"
-                src={selectedRecipe.imageUrl}
-                alt="recipeImage"
-              />
-            </div>
-            <div className="recipe-desc  ">
-              <b>
-                <p>{selectedRecipe.title}</p>
-              </b>
-            </div>
+        <div className="flex gap center instructions-wrapper">
+          <div>
+            <img
+              className="recipe-image-large"
+              src={selectedRecipe.imageUrl}
+              alt="recipeImage"
+            />
           </div>
-          <div className="instructions">
-            {instructions.map((instruction) => {
-              return <li>{instruction}</li>;
-            })}
+          <div className="recipe-desc  ">
+            <b>
+              <p>{selectedRecipe.title}</p>
+            </b>
           </div>
         </div>
+        <Swiper
+          direction={"vertical"}
+          slidesPerView={5}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+          className="instructions"
+        >
+          {instructions.map((instruction, i) => {
+            return (
+              <SwiperSlide key={i}>
+                <div className="instruction">
+                  {i + 1}
+                  {") "}
+                  {instruction}
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </div>
     </div>
   );

@@ -21,6 +21,7 @@ function Landing() {
         "In the same skillet, crack 4 eggs and scramble until fully cooked.",
         "Sprinkle 1/2 cup of shredded cheese over the eggs and potatoes.",
         "Let the cheese melt, then serve hot.",
+        "Let the cheese melt, then serve hot.",
       ],
       imageUrl:
         "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Indian_Masala_Pasta_Recipe_With_Achari_Chicken-6_1600.jpg",

@@ -5,16 +5,18 @@ import Card from "../Card";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
+import "./index.css";
 
-function SwiperCarousel({ recipes, row }) {
+function SwiperCarousel({ recipes, row, slidesPerView = 2.2 }) {
   return (
     <Swiper
-      slidesPerView={2.2}
+      slidesPerView={slidesPerView}
       grid={{
         rows: row,
       }}
       pagination={{ dynamicBullets: true, clickable: true }}
       modules={[Grid, Pagination]}
+      className="mySwiper"
     >
       {recipes.map((recipe, i) => (
         <SwiperSlide key={i}>

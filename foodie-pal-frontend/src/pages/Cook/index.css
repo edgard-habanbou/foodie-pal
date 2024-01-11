@@ -1,6 +1,22 @@
 .instructions {
+  background-color: #2d2d2d;
   color: white;
+  border-radius: 10px;
+  height: 50%;
+  width: fit-content;
+  margin: 10px;
 }
 .instructions-wrapper {
   padding: 10px;
+}
+.instruction {
+  margin: 20px 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: white;
+  background-color: #a1a1a1;
+  width: 90%;
+  height: 70px;
+  display: flex;
+  align-items: center;
 }

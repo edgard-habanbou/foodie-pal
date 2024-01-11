@@ -4,16 +4,9 @@
   background-repeat: no-repeat;
   background-position: center;
   height: 100vh;
+  width: 100vw;
 
   padding-top: 3rem;
-}
-
-.swiper {
-  width: 90%;
-  height: 89%;
-}
-.swiper-pagination-bullet {
-  background: white !important;
 }
 
 .user-image {
