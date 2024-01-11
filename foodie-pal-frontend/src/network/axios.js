@@ -21,6 +21,9 @@ class UserApi {
   async checkIfLoggedIn(token) {
     return await api.post("/auth/check", token);
   }
+  async getUser(token) {
+    return await api.get("/user", token);
+  }
 }
 
 export const userApi = new UserApi();
