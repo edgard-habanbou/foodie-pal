@@ -22,7 +22,7 @@ class UserApi {
     return await api.post("/auth/check", token);
   }
   async getUser(token) {
-    return await api.get("/user", token);
+    return await api.get("profile/user", token);
   }
 }
 
