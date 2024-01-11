@@ -4,13 +4,9 @@ import Header from "../../components/Header";
 import Nav from "../../components/Nav";
 import { useNavigate } from "react-router-dom";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-
 import "./index.css";
-import "swiper/css";
-import "swiper/css/pagination";
 
-import { Pagination } from "swiper/modules";
+import SwiperVertical from "../../components/SwiperVertical";
 
 function Cook() {
   const { id } = useParams();
@@ -44,23 +40,7 @@ function Cook() {
             </b>
           </div>
         </div>
-        <Swiper
-          direction={"vertical"}
-          slidesPerView={4.5}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-          className="instructions"
-        >
-          {instructions.map((instruction, i) => {
-            return (
-              <SwiperSlide key={i}>
-                <div className="instruction">{instruction}</div>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+        <SwiperVertical instructions={instructions} />
         <div className="flex center">
           <button onClick={handleChatbtn} className="btn">
             Have a question?
