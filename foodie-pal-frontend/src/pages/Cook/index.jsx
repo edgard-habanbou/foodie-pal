@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import "./index.css";
 
 import SwiperVertical from "../../components/SwiperVertical";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 function Cook() {
   const { id } = useParams();
@@ -18,6 +20,9 @@ function Cook() {
   const handleChatbtn = () => {
     navigate(`/chat/${id}`);
   };
+  const handleBack = () => {
+    navigate(`/home/${id}`);
+  };
   const instructions = selectedRecipe.instructions;
   return (
     <div className="flex background">
@@ -27,6 +32,9 @@ function Cook() {
       <div className="landing ">
         <Header />
         <div className="flex gap center instructions-wrapper">
+          <button className="btn-menu" onClick={handleBack}>
+            <FontAwesomeIcon icon={faArrowLeft} size="2xl" />
+          </button>
           <div>
             <img
               className="recipe-image-large"
