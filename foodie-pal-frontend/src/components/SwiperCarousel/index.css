@@ -3,5 +3,5 @@
   height: 85%;
 }
 .swiper-pagination-bullet {
-  background: white !important;
+  background: var(--primarycolor) !important;
 }
