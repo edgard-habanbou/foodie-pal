@@ -30,11 +30,10 @@ function Cook() {
         <Nav />
       </div>
       <div className="landing ">
-        <Header />
+        <button className="btn-menu" onClick={handleBack}>
+          <FontAwesomeIcon icon={faArrowLeft} size="2xl" />
+        </button>
         <div className="flex gap center instructions-wrapper">
-          <button className="btn-menu" onClick={handleBack}>
-            <FontAwesomeIcon icon={faArrowLeft} size="2xl" />
-          </button>
           <div>
             <img
               className="recipe-image-large"
