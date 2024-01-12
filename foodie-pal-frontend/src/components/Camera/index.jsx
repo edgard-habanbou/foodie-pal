@@ -16,7 +16,6 @@ const Camera = () => {
   }, [webcamRef]);
 
   const onUserMedia = (e) => {
-    alert("User media loaded.");
     console.log(e);
   };
 
@@ -24,7 +23,7 @@ const Camera = () => {
     <>
       <Webcam
         ref={webcamRef}
-        audio={true}
+        audio={false}
         screenshotFormat="image/jpeg"
         videoConstraints={videoConstraints}
         onUserMedia={onUserMedia}
