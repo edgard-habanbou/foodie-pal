@@ -1,6 +1,5 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Header from "../../components/Header";
 import Nav from "../../components/Nav";
 import { useNavigate } from "react-router-dom";
 
