@@ -16,6 +16,7 @@ const Camera = () => {
   }, [webcamRef]);
 
   const onUserMedia = (e) => {
+    alert("User media loaded.");
     console.log(e);
   };
 
