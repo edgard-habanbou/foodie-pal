@@ -3,7 +3,6 @@ import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import SwiperVertical from "../../components/SwiperVertical";
 import Loading from "../../components/Loading";
-import Camera from "../../components/Camera";
 import { userApi } from "../../network/axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
@@ -12,7 +11,6 @@ function Items() {
   const [items, setItems] = useState([]);
   const [Load, setLoading] = useState(false);
   const [showCamera, setShowCamera] = useState(false);
-  const [url, setUrl] = useState();
 
   const handleCamerabtn = () => {
     setShowCamera(!showCamera);
@@ -47,14 +45,7 @@ function Items() {
         </div>
         <div className=" flex center">
           <div className="camera-items">
-            {showCamera && (
-              <Camera setShowCamera={setShowCamera} setUrl={setUrl} />
-            )}
-            {url && (
-              <div>
-                <img src={url} alt="Screenshot" />
-              </div>
-            )}
+            <input type="file" name="" id="" />
           </div>
         </div>
         <SwiperVertical instructions={items} />
