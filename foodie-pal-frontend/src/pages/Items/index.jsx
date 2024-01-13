@@ -14,7 +14,6 @@ function Items() {
   const [uploadedImage, setUploadedImage] = useState(null);
 
   const handleCamerabtn = () => {
-    // Trigger a click on the file input
     const fileInput = document.getElementById("fileInput");
     if (fileInput) {
       fileInput.click();
@@ -22,7 +21,6 @@ function Items() {
   };
 
   const handleFileChange = (event) => {
-    // Handle the file change event and set the uploaded image
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -75,6 +73,7 @@ function Items() {
               <img src={uploadedImage} className="items-img" alt="Uploaded" />
             )}
           </div>
+          <div className="camera-"></div>
         </div>
         <SwiperVertical instructions={items} />
       </div>

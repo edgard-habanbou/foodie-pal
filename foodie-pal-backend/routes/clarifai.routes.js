@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { getImageURL } = require("../controllers/byteScale.controller");
+const { getImageURL } = require("../controllers/clarifai.controller");
 
 const router = express.Router();
 

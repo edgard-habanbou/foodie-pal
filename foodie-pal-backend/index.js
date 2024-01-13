@@ -31,8 +31,8 @@ const subDocumentId = require("./routes/subDocIds.routes");
 app.use("/subdocid", authMiddleware, subDocumentId);
 
 //byteScale routes
-const byteScale = require("./routes/byteScale.routes");
-app.use("/bytescale", authMiddleware, byteScale);
+const clarifai = require("./routes/clarifai.routes");
+app.use("/clarifai", authMiddleware, clarifai);
 
 // Specify your SSL certificate and private key
 const credentials = {

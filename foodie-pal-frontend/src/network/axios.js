@@ -24,6 +24,9 @@ class UserApi {
   async getUser(token) {
     return await api.get("profile/user", token);
   }
+  async uploadItemsImage(image) {
+    return await api.post("/clarifai/upload", image);
+  }
 }
 
 export const userApi = new UserApi();
