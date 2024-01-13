@@ -6,9 +6,10 @@ import Loading from "../../components/Loading";
 import { userApi } from "../../network/axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
+
 import "./index.css";
 
-function Items() {
+const Items = () => {
   const [items, setItems] = useState([]);
   const [Load, setLoading] = useState(false);
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -24,7 +25,8 @@ function Items() {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onloadend = () => {
+      reader.onloadend = async () => {
+        await userApi.uploadItemsImage({ image: reader.result });
         setUploadedImage(reader.result);
       };
       reader.readAsDataURL(file);
@@ -60,7 +62,7 @@ function Items() {
             <FontAwesomeIcon icon={faCamera} />
           </button>
         </div>
-        <div className=" flex center">
+        <div className="flex center">
           <div className="camera-items">
             <input
               type="file"
@@ -80,6 +82,6 @@ function Items() {
       {Load && <Loading />}
     </div>
   );
-}
+};
 
 export default Items;
