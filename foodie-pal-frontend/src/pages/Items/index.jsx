@@ -7,6 +7,7 @@ import Camera from "../../components/Camera";
 import { userApi } from "../../network/axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
+import "./index.css";
 function Items() {
   const [items, setItems] = useState([]);
   const [Load, setLoading] = useState(false);
@@ -37,22 +38,24 @@ function Items() {
       </div>
       <div className="landing">
         <Header />
-        <div className="flex margin gap">
+        <div className="flex margin gap center">
           <input type="text" className="input" placeholder="Item Name" />
           <button className="btn">Add Item</button>
           <button className="btn" onClick={handleCamerabtn}>
             <FontAwesomeIcon icon={faCamera} />
           </button>
         </div>
-        <div className="camera-items">
-          {showCamera && (
-            <Camera setShowCamera={setShowCamera} setUrl={setUrl} />
-          )}
-          {url && (
-            <div>
-              <img src={url} alt="Screenshot" />
-            </div>
-          )}
+        <div className=" flex center">
+          <div className="camera-items">
+            {showCamera && (
+              <Camera setShowCamera={setShowCamera} setUrl={setUrl} />
+            )}
+            {url && (
+              <div>
+                <img src={url} alt="Screenshot" />
+              </div>
+            )}
+          </div>
         </div>
         <SwiperVertical instructions={items} />
       </div>
