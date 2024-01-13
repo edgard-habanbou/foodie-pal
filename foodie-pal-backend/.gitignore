@@ -1,4 +1,5 @@
 .env
 /node_modules
 /public/images/*
+/public/items/*
 /ssl

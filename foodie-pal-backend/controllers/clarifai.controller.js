@@ -1,7 +1,27 @@
 const axios = require("axios");
+const fs = require("fs");
+const path = require("path");
 
 const getImageURL = async (req, res) => {
-  const { image } = req.files;
+  try {
+    const base64Data = req.body.image.replace(/^data:image\/\w+;base64,/, "");
+    const dataBuffer = Buffer.from(base64Data, "base64");
+
+    const imageName = `${Date.now()}.png`;
+
+    const { dirname } = require("path");
+    const appDir = dirname(require.main.filename);
+    const image_dir = appDir + "/public/items/" + imageName;
+
+    fs.writeFileSync(image_dir, dataBuffer);
+    const items = await getConcepts(
+      `${process.env.SERVER_LINK}/items/${imageName}`
+    );
+    res.status(200).json({ items });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 };
 
 module.exports = {
@@ -33,7 +53,7 @@ const getConcepts = async (url) => {
   axios
     .post(apiUrl, requestData, { headers })
     .then((response) => {
-      res.status(200).json(response.data.outputs[0].data.concepts);
+      return response.data.outputs[0].data.concepts;
     })
     .catch((error) => {
       console.error(error);
