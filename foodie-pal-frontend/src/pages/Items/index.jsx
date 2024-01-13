@@ -7,13 +7,30 @@ import { userApi } from "../../network/axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
+
 function Items() {
   const [items, setItems] = useState([]);
   const [Load, setLoading] = useState(false);
-  const [showCamera, setShowCamera] = useState(false);
+  const [uploadedImage, setUploadedImage] = useState(null);
 
   const handleCamerabtn = () => {
-    setShowCamera(!showCamera);
+    // Trigger a click on the file input
+    const fileInput = document.getElementById("fileInput");
+    if (fileInput) {
+      fileInput.click();
+    }
+  };
+
+  const handleFileChange = (event) => {
+    // Handle the file change event and set the uploaded image
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setUploadedImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleGetItems = async () => {
@@ -26,9 +43,11 @@ function Items() {
     }
     setLoading(false);
   };
+
   useEffect(() => {
     handleGetItems();
   }, []);
+
   return (
     <div className="flex background">
       <div>
@@ -45,7 +64,16 @@ function Items() {
         </div>
         <div className=" flex center">
           <div className="camera-items">
-            <input type="file" name="" id="" />
+            <input
+              type="file"
+              name=""
+              hidden
+              id="fileInput"
+              onChange={handleFileChange}
+            />
+            {uploadedImage && (
+              <img src={uploadedImage} className="items-img" alt="Uploaded" />
+            )}
           </div>
         </div>
         <SwiperVertical instructions={items} />

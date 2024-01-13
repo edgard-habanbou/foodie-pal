@@ -5,3 +5,9 @@
   width: 95%;
   height: 30vh;
 }
+.items-img {
+  width: 45%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  height: 100%;
+}
