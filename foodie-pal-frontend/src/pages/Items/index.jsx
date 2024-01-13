@@ -71,9 +71,15 @@ const Items = () => {
               id="fileInput"
               onChange={handleFileChange}
             />
-            {uploadedImage && (
-              <img src={uploadedImage} className="items-img" alt="Uploaded" />
-            )}
+            <img
+              src={
+                uploadedImage
+                  ? uploadedImage
+                  : `${process.env.REACT_APP_BASE_URL}/default-item.png`
+              }
+              className="items-img"
+              alt="Uploaded"
+            />
           </div>
           <div className="camera-"></div>
         </div>
