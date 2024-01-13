@@ -11,6 +11,7 @@ function Items() {
   const [items, setItems] = useState([]);
   const [Load, setLoading] = useState(false);
   const [showCamera, setShowCamera] = useState(false);
+  const [url, setUrl] = useState();
 
   const handleCamerabtn = () => {
     setShowCamera(!showCamera);
@@ -43,7 +44,16 @@ function Items() {
             <FontAwesomeIcon icon={faCamera} />
           </button>
         </div>
-        {showCamera && <Camera />}
+        <div className="camera-items">
+          {showCamera && (
+            <Camera setShowCamera={setShowCamera} setUrl={setUrl} />
+          )}
+          {url && (
+            <div>
+              <img src={url} alt="Screenshot" />
+            </div>
+          )}
+        </div>
         <SwiperVertical instructions={items} />
       </div>
       {Load && <Loading />}

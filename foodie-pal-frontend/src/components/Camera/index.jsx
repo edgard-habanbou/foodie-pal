@@ -1,26 +1,26 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef } from "react";
 import Webcam from "react-webcam";
 
 const videoConstraints = {
-  width: 540,
+  width: 200,
   facingMode: "environment",
 };
 
-const Camera = () => {
+const Camera = ({ setShowCamera, setUrl }) => {
   const webcamRef = useRef(null);
-  const [url, setUrl] = useState(null);
 
   const capturePhoto = useCallback(async () => {
     const imageSrc = webcamRef.current.getScreenshot();
     setUrl(imageSrc);
-  }, [webcamRef]);
+    setShowCamera(false);
+  }, [webcamRef, setShowCamera, setUrl]);
 
   const onUserMedia = (e) => {
     console.log(e);
   };
 
   return (
-    <>
+    <div className="flex column">
       <Webcam
         ref={webcamRef}
         audio={false}
@@ -31,12 +31,7 @@ const Camera = () => {
       <button className="btn" onClick={capturePhoto}>
         Capture
       </button>
-      {url && (
-        <div>
-          <img src={url} alt="Screenshot" />
-        </div>
-      )}
-    </>
+    </div>
   );
 };
 
