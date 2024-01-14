@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import SwiperCarousel from "../../components/SwiperCarousel";
+import Loading from "../../components/Loading";
 import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
@@ -109,6 +110,7 @@ function Recipe() {
           </div>
         </div>
       </div>
+      {Load && <Loading />}
     </div>
   );
 }
