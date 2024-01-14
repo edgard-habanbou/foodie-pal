@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
@@ -22,27 +22,33 @@ function Recipe() {
 
   const handleFavoriteBtn = async () => {
     setIsFavorite(!isFavorite);
-    if (isFavorite) {
-      setLoading(true);
-      try {
-        const data = {
-          subDocument: {
-            FavoriteRecipes: {
-              title: selectedRecipe.title,
-              description: selectedRecipe.description,
-              calories: selectedRecipe.calories,
-              time: selectedRecipe.time,
-              instructions: selectedRecipe.instructions,
-            },
-          },
-        };
-        await userApi.updateUser(data);
-      } catch (error) {
-        console.error(error);
-      }
-      setLoading(false);
-    }
   };
+  useEffect(() => {
+    const updateFav = async () => {
+      if (isFavorite) {
+        setLoading(true);
+        try {
+          const data = {
+            subDocument: {
+              FavoriteRecipes: {
+                title: selectedRecipe.title,
+                description: selectedRecipe.description,
+                calories: selectedRecipe.calories,
+                time: selectedRecipe.time,
+                instructions: selectedRecipe.instructions,
+                imageUrl: selectedRecipe.imageUrl,
+              },
+            },
+          };
+          await userApi.updateUser(data);
+        } catch (error) {
+          console.error(error);
+        }
+        setLoading(false);
+      }
+    };
+    updateFav();
+  }, [isFavorite]);
 
   return (
     <div className="flex background">
