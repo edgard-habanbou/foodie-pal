@@ -1,7 +1,8 @@
 import React from "react";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -29,10 +30,17 @@ function SwiperVertical({
           </SwiperSlide>
         );
       })}
-      {itemsInPic?.map((instruction, i) => {
+      {itemsInPic?.map((itemInPic, i) => {
         return (
           <SwiperSlide key={i}>
-            <div className="items-in-pic">{instruction}</div>
+            <div className="items-in-pic flex space-between">
+              <div>{itemInPic}</div>
+              <div>
+                <button className="btn-add">
+                  <FontAwesomeIcon icon={faPlus} size="2xl" />
+                </button>
+              </div>
+            </div>
           </SwiperSlide>
         );
       })}

@@ -7,7 +7,14 @@
   border-radius: 10px;
   width: fit-content;
 }
-
 .swiper-wrapper {
   width: 100%;
+}
+.btn-add {
+  background-color: var(--primarycolor);
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
 }
