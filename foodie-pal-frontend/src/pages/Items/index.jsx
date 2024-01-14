@@ -74,7 +74,7 @@ const Items = () => {
           },
         },
       };
-      await userApi.updateUser(data);
+      await userApi.deleteFromUser(data);
       handleGetItems();
     } catch (error) {
       console.error(error);

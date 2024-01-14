@@ -39,7 +39,10 @@ function SwiperVertical({
           <SwiperSlide key={i}>
             <div className="instruction flex space-between">
               {item.name}
-              <button className="btn-delete" onClick={deleteBtnHandler}>
+              <button
+                className="btn-delete"
+                onClick={() => deleteBtnHandler(item)}
+              >
                 <FontAwesomeIcon icon={faTrash} size="xl" />
               </button>
             </div>
