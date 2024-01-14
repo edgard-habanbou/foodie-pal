@@ -7,8 +7,10 @@ import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { faClock, faFire, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { userApi } from "../../network/axios";
 
 function Recipe() {
+  const [Load, setLoading] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
   const recipes = JSON.parse(localStorage.getItem("recipes"));
@@ -18,8 +20,28 @@ function Recipe() {
 
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const handleFavoriteBtn = () => {
-    setIsFavorite((prevIsFavorite) => !prevIsFavorite);
+  const handleFavoriteBtn = async () => {
+    setIsFavorite(!isFavorite);
+    if (isFavorite) {
+      setLoading(true);
+      try {
+        const data = {
+          subDocument: {
+            FavoriteRecipes: {
+              title: selectedRecipe.title,
+              description: selectedRecipe.description,
+              calories: selectedRecipe.calories,
+              time: selectedRecipe.time,
+              instructions: selectedRecipe.instructions,
+            },
+          },
+        };
+        await userApi.updateUser(data);
+      } catch (error) {
+        console.error(error);
+      }
+      setLoading(false);
+    }
   };
 
   return (
