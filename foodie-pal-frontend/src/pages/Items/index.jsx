@@ -94,7 +94,11 @@ const Items = () => {
             <FontAwesomeIcon icon={faCamera} />
           </button>
         </div>
-        <div className="flex center">
+        <div className="margin padding">
+          <h3 className="color-white">Add By Photo</h3>
+          <hr />
+        </div>
+        <div className="flex center column">
           <div className="camera-items flex">
             <input
               type="file"
@@ -121,7 +125,11 @@ const Items = () => {
             </div>
           </div>
         </div>
-        <div className="items-added">
+        <div className="items-added flex  column ">
+          <div className="margin padding">
+            <h3 className="color-white">Items</h3>
+            <hr />
+          </div>
           <SwiperVertical items={items} slidesPerView={4.5} />
         </div>
       </div>

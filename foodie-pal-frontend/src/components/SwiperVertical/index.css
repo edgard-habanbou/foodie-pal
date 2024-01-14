@@ -18,3 +18,11 @@
   height: 30px;
   border-radius: 10px;
 }
+.btn-delete {
+  background-color: var(--primarycolor);
+  border: none;
+  color: white;
+  width: 50px;
+  height: 40px;
+  border-radius: 10px;
+}

@@ -3,6 +3,7 @@ import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -14,6 +15,7 @@ function SwiperVertical({
   chats,
   slidesPerView = 4.5,
   addBtnHandler = () => {},
+  deleteBtnHandler = () => {},
 }) {
   return (
     <Swiper
@@ -35,7 +37,12 @@ function SwiperVertical({
       {items?.map((item, i) => {
         return (
           <SwiperSlide key={i}>
-            <div className="instruction">{item.name}</div>
+            <div className="instruction flex space-between">
+              {item.name}
+              <button className="btn-delete" onClick={deleteBtnHandler}>
+                <FontAwesomeIcon icon={faTrash} size="xl" />
+              </button>
+            </div>
           </SwiperSlide>
         );
       })}
