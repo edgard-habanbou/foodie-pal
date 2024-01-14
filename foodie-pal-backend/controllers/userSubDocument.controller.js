@@ -38,9 +38,15 @@ const deleteSubDocument = async (req, res) => {
     const subDocument = req.body.subDocument;
 
     for (const [key, value] of Object.entries(subDocument)) {
-      await User.findByIdAndUpdate(req.user._id, {
-        [`${key}`]: [],
-      });
+      if (key === "items") {
+        await User.findByIdAndUpdate(req.user._id, {
+          $pull: { items: value },
+        });
+      } else {
+        await User.findByIdAndUpdate(req.user._id, {
+          [`${key}`]: [],
+        });
+      }
     }
 
     const user = await User.findById(req.user._id).select(

@@ -8,6 +8,7 @@ const {
 const router = express.Router();
 
 router.post("/", addEditSubDocument);
-router.delete("/", deleteSubDocument);
+router.post("/delete", deleteSubDocument);
+// router.delete("/", deleteSubDocument);
 
 module.exports = router;
