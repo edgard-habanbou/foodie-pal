@@ -46,7 +46,9 @@ function Cook() {
             </b>
           </div>
         </div>
-        <SwiperVertical instructions={instructions} />
+        <div className="cooking-instrunctions">
+          <SwiperVertical instructions={instructions} />
+        </div>
         <div className="flex center">
           <button onClick={handleChatbtn} className="btn">
             Have a question?

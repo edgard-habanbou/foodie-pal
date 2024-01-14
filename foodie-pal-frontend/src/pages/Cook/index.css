@@ -19,3 +19,6 @@
   display: flex;
   align-items: center;
 }
+.cooking-instrunctions {
+  height: 65vh;
+}
