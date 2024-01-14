@@ -30,6 +30,9 @@ class UserApi {
   async updateUser(updates) {
     return await api.post("/subdocument", updates);
   }
+  async deleteFromUser(deleted) {
+    return await api.delete("/subdocument", deleted);
+  }
 }
 
 export const userApi = new UserApi();

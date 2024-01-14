@@ -64,6 +64,24 @@ const Items = () => {
     setLoading(false);
   };
 
+  const deleteBtnHandler = async (item) => {
+    setLoading(true);
+    try {
+      const data = {
+        subDocument: {
+          items: {
+            name: item,
+          },
+        },
+      };
+      await userApi.updateUser(data);
+      handleGetItems();
+    } catch (error) {
+      console.error(error);
+    }
+    setLoading(false);
+  };
+
   const handleGetItems = async () => {
     setLoading(true);
     try {
@@ -130,7 +148,11 @@ const Items = () => {
             <h3 className="color-white">Items</h3>
             <hr />
           </div>
-          <SwiperVertical items={items} slidesPerView={4.5} />
+          <SwiperVertical
+            items={items}
+            deleteBtnHandler={deleteBtnHandler}
+            slidesPerView={4.5}
+          />
         </div>
       </div>
       {Load && <Loading />}
