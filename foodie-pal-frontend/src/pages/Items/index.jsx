@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import SwiperVertical from "../../components/SwiperVertical";
@@ -9,8 +9,23 @@ import { faCamera } from "@fortawesome/free-solid-svg-icons";
 
 import "./index.css";
 
+import "./index.css";
+
 const Items = () => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([
+    "Potato",
+    "Onion",
+    "Tomato",
+    "Cucumber",
+    "Pepper",
+  ]);
+  const [itemsInPic, setItemsInPic] = useState([
+    "Potato",
+    "Onion",
+    "Tomato",
+    "Cucumber",
+    "Pepper",
+  ]);
   const [Load, setLoading] = useState(false);
   const [uploadedImage, setUploadedImage] = useState(null);
 
@@ -33,20 +48,20 @@ const Items = () => {
     }
   };
 
-  const handleGetItems = async () => {
-    setLoading(true);
-    try {
-      const response = await userApi.getUser();
-      setItems(response.items);
-    } catch (error) {
-      setLoading(false);
-    }
-    setLoading(false);
-  };
+  // const handleGetItems = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const response = await userApi.getUser();
+  //     setItems(response.items);
+  //   } catch (error) {
+  //     setLoading(false);
+  //   }
+  //   setLoading(false);
+  // };
 
-  useEffect(() => {
-    handleGetItems();
-  }, []);
+  // useEffect(() => {
+  //   handleGetItems();
+  // }, []);
 
   return (
     <div className="flex background">
@@ -63,7 +78,7 @@ const Items = () => {
           </button>
         </div>
         <div className="flex center">
-          <div className="camera-items">
+          <div className="camera-items flex">
             <input
               type="file"
               name=""
@@ -80,10 +95,14 @@ const Items = () => {
               className="items-img"
               alt="Uploaded"
             />
+            <div className=" full-width">
+              <SwiperVertical instructions={itemsInPic} slidesPerView={2.5} />
+            </div>
           </div>
-          <div className="camera-"></div>
         </div>
-        <SwiperVertical instructions={items} />
+        <div className="items-added">
+          <SwiperVertical instructions={items} slidesPerView={4.5} />
+        </div>
       </div>
       {Load && <Loading />}
     </div>

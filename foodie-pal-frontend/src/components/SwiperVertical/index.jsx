@@ -6,11 +6,11 @@ import "./index.css";
 import "swiper/css";
 import "swiper/css/pagination";
 
-function SwiperVertical({ instructions, chats }) {
+function SwiperVertical({ instructions, chats, slidesPerView = 4.5 }) {
   return (
     <Swiper
       direction={"vertical"}
-      slidesPerView={4.5}
+      slidesPerView={slidesPerView}
       pagination={{
         clickable: true,
       }}
