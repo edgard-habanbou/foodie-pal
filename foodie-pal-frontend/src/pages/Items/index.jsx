@@ -46,7 +46,14 @@ const Items = () => {
     }
   };
   const addBtnHandler = (item) => {
-    alert(item);
+    const data = {
+      subDocument: {
+        items: {
+          name: item,
+        },
+      },
+    };
+    console.log(data);
   };
 
   // const handleGetItems = async () => {
