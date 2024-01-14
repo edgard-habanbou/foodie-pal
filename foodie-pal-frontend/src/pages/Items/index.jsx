@@ -9,8 +9,6 @@ import { faCamera } from "@fortawesome/free-solid-svg-icons";
 
 import "./index.css";
 
-import "./index.css";
-
 const Items = () => {
   const [items, setItems] = useState([
     "Potato",
@@ -96,7 +94,7 @@ const Items = () => {
               alt="Uploaded"
             />
             <div className=" full-width">
-              <SwiperVertical instructions={itemsInPic} slidesPerView={2.5} />
+              <SwiperVertical itemsInPic={itemsInPic} slidesPerView={3} />
             </div>
           </div>
         </div>
