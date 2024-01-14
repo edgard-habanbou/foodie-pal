@@ -45,6 +45,9 @@ const Items = () => {
       reader.readAsDataURL(file);
     }
   };
+  const addBtnHandler = (item) => {
+    alert(item);
+  };
 
   // const handleGetItems = async () => {
   //   setLoading(true);
@@ -94,7 +97,11 @@ const Items = () => {
               alt="Uploaded"
             />
             <div className=" full-width">
-              <SwiperVertical itemsInPic={itemsInPic} slidesPerView={3} />
+              <SwiperVertical
+                itemsInPic={itemsInPic}
+                slidesPerView={3}
+                addBtnHandler={addBtnHandler}
+              />
             </div>
           </div>
         </div>

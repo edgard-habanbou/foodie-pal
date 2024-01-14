@@ -37,7 +37,10 @@ function SwiperVertical({
             <div className="items-in-pic flex space-between">
               <div>{itemInPic}</div>
               <div>
-                <button className="btn-add" onClick={addBtnHandler(itemInPic)}>
+                <button
+                  className="btn-add"
+                  onClick={() => addBtnHandler(itemInPic)}
+                >
                   <FontAwesomeIcon icon={faPlus} size="2xl" />
                 </button>
               </div>
