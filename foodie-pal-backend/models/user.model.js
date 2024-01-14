@@ -8,6 +8,7 @@ const CookingPreference = require("./cookingPreference.model");
 const DietPlanUserInfo = require("./dietPlanUserInfo.model");
 const DietairyPreference = require("./dietairyPreference.model");
 const NutritionGoal = require("./nutritionGoal.model");
+const Item = require("./Item.model");
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -55,8 +56,7 @@ const userSchema = new mongoose.Schema({
     type: [String],
   },
   items: {
-    type: [mongoose.Schema.Types.ObjectId],
-    ref: "Item",
+    type: [Item.schema],
   },
   eatingHabbits: {
     type: [EatingHabbit.schema],
