@@ -41,7 +41,7 @@ function SwiperVertical({
               {item.name}
               <button
                 className="btn-delete"
-                onClick={() => deleteBtnHandler(item)}
+                onClick={() => deleteBtnHandler(item.name)}
               >
                 <FontAwesomeIcon icon={faTrash} size="xl" />
               </button>
