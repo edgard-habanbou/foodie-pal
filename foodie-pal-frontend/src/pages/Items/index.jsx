@@ -10,13 +10,7 @@ import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
 
 const Items = () => {
-  const [items, setItems] = useState([
-    "Potato",
-    "Onion",
-    "Tomato",
-    "Cucumber",
-    "Pepper",
-  ]);
+  const [items, setItems] = useState([]);
   const [itemsInPic, setItemsInPic] = useState([
     "Potato",
     "Onion",
@@ -26,6 +20,7 @@ const Items = () => {
   ]);
   const [Load, setLoading] = useState(false);
   const [uploadedImage, setUploadedImage] = useState(null);
+  const [itemName, setItemName] = useState("");
 
   const handleCamerabtn = () => {
     const fileInput = document.getElementById("fileInput");
@@ -106,8 +101,17 @@ const Items = () => {
       <div className="landing">
         <Header />
         <div className="flex margin gap center">
-          <input type="text" className="input" placeholder="Item Name" />
-          <button className="btn">Add Item</button>
+          <input
+            type="text"
+            className="input"
+            placeholder="Item Name"
+            onChange={(e) => {
+              setItemName(e.target.value);
+            }}
+          />
+          <button className="btn" onClick={() => addBtnHandler(itemName)}>
+            Add Item
+          </button>
           <button className="btn" onClick={handleCamerabtn}>
             <FontAwesomeIcon icon={faCamera} />
           </button>
