@@ -16,6 +16,14 @@ const addEditSubDocument = async (req, res) => {
           const updatedItems = [...existingItems, newItem];
           updateQuery[key] = updatedItems;
         }
+      } else if (key === "FavoriteRecipes") {
+        const existingFavs = user.FavoriteRecipes || [];
+        const newFav = value;
+
+        if (!existingFavs.some((fav) => fav.title === newFav.title)) {
+          const updatedItems = [...existingFavs, newFav];
+          updateQuery[key] = updatedItems;
+        }
       } else {
         updateQuery[key] = value;
       }
@@ -38,9 +46,9 @@ const deleteSubDocument = async (req, res) => {
     const subDocument = req.body.subDocument;
 
     for (const [key, value] of Object.entries(subDocument)) {
-      if (key === "items") {
+      if (key === "items" || key === "FavoriteRecipes") {
         await User.findByIdAndUpdate(req.user._id, {
-          $pull: { items: value },
+          $pull: { [`${key}`]: value },
         });
       } else {
         await User.findByIdAndUpdate(req.user._id, {
