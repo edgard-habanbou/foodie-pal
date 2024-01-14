@@ -6,7 +6,7 @@ import SwiperCarousel from "../../components/SwiperCarousel";
 import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
-import { faClock, faFire } from "@fortawesome/free-solid-svg-icons";
+import { faClock, faFire, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 function Recipe() {
   const navigate = useNavigate();
@@ -25,6 +25,11 @@ function Recipe() {
         <Header />
         <div className="swiper-div flex center">
           <SwiperCarousel recipes={recipes} row={1} />
+        </div>
+        <div className="margin padding flex right favorite-btn">
+          <button className="btn-menu">
+            <FontAwesomeIcon icon={faHeart} size="2xl" color="grey" />
+          </button>
         </div>
         <div className="recipe-info full-width">
           <div>
