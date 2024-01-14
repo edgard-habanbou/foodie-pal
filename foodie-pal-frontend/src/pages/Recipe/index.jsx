@@ -15,7 +15,7 @@ function Recipe() {
   const selectedRecipe = recipes.find(
     (recipe) => recipe.id === parseInt(id, 10)
   );
-
+  const handleFavoriteBtn = () => {};
   return (
     <div className="flex background">
       <div>
@@ -26,8 +26,8 @@ function Recipe() {
         <div className="swiper-div flex center">
           <SwiperCarousel recipes={recipes} row={1} />
         </div>
-        <div className="margin padding flex right favorite-btn">
-          <button className="btn-menu">
+        <div className="margin padding  favorite-btn">
+          <button className="btn-menu" onClick={handleFavoriteBtn}>
             <FontAwesomeIcon icon={faHeart} size="2xl" color="grey" />
           </button>
         </div>
