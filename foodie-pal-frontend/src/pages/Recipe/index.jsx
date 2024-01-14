@@ -32,6 +32,7 @@ function Recipe() {
           const data = {
             subDocument: {
               FavoriteRecipes: {
+                id: selectedRecipe.id,
                 title: selectedRecipe.title,
                 description: selectedRecipe.description,
                 calories: selectedRecipe.calories,
