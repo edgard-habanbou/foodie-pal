@@ -27,6 +27,9 @@ class UserApi {
   async uploadItemsImage(image) {
     return await api.post("/clarifai/upload", image);
   }
+  async updateUser(updates) {
+    return await api.post("/subdocument", updates);
+  }
 }
 
 export const userApi = new UserApi();
