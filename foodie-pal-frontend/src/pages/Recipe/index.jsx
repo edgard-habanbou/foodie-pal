@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
@@ -15,7 +15,13 @@ function Recipe() {
   const selectedRecipe = recipes.find(
     (recipe) => recipe.id === parseInt(id, 10)
   );
-  const handleFavoriteBtn = () => {};
+
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleFavoriteBtn = () => {
+    setIsFavorite((prevIsFavorite) => !prevIsFavorite);
+  };
+
   return (
     <div className="flex background">
       <div>
@@ -28,7 +34,11 @@ function Recipe() {
         </div>
         <div className="margin padding  favorite-btn">
           <button className="btn-menu" onClick={handleFavoriteBtn}>
-            <FontAwesomeIcon icon={faHeart} size="2xl" color="grey" />
+            <FontAwesomeIcon
+              icon={faHeart}
+              size="2xl"
+              color={isFavorite ? "red" : "grey"}
+            />
           </button>
         </div>
         <div className="recipe-info full-width">
