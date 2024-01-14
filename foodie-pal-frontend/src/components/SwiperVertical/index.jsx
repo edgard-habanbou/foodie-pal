@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 
 function SwiperVertical({
   instructions,
+  items,
   itemsInPic,
   chats,
   slidesPerView = 4.5,
@@ -28,6 +29,13 @@ function SwiperVertical({
         return (
           <SwiperSlide key={i}>
             <div className="instruction">{instruction}</div>
+          </SwiperSlide>
+        );
+      })}
+      {items?.map((item, i) => {
+        return (
+          <SwiperSlide key={i}>
+            <div className="instruction">{item.name}</div>
           </SwiperSlide>
         );
       })}

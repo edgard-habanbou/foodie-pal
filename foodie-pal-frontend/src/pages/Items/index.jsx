@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import SwiperVertical from "../../components/SwiperVertical";
@@ -45,31 +45,39 @@ const Items = () => {
       reader.readAsDataURL(file);
     }
   };
-  const addBtnHandler = (item) => {
-    const data = {
-      subDocument: {
-        items: {
-          name: item,
+
+  const addBtnHandler = async (item) => {
+    setLoading(true);
+    try {
+      const data = {
+        subDocument: {
+          items: {
+            name: item,
+          },
         },
-      },
-    };
-    console.log(data);
+      };
+      await userApi.updateUser(data);
+    } catch (error) {
+      console.error(error);
+    }
+    setLoading(false);
   };
 
-  // const handleGetItems = async () => {
-  //   setLoading(true);
-  //   try {
-  //     const response = await userApi.getUser();
-  //     setItems(response.items);
-  //   } catch (error) {
-  //     setLoading(false);
-  //   }
-  //   setLoading(false);
-  // };
+  const handleGetItems = async () => {
+    setLoading(true);
+    try {
+      const response = await userApi.getUser();
+      setItems(response.items);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+    setLoading(false);
+  };
 
-  // useEffect(() => {
-  //   handleGetItems();
-  // }, []);
+  useEffect(() => {
+    handleGetItems();
+  }, []);
 
   return (
     <div className="flex background">
@@ -113,7 +121,7 @@ const Items = () => {
           </div>
         </div>
         <div className="items-added">
-          <SwiperVertical instructions={items} slidesPerView={4.5} />
+          <SwiperVertical items={items} slidesPerView={4.5} />
         </div>
       </div>
       {Load && <Loading />}
