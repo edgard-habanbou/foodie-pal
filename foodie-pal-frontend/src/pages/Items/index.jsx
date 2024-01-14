@@ -105,11 +105,18 @@ const Items = () => {
             type="text"
             className="input"
             placeholder="Item Name"
+            value={itemName}
             onChange={(e) => {
               setItemName(e.target.value);
             }}
           />
-          <button className="btn" onClick={() => addBtnHandler(itemName)}>
+          <button
+            className="btn"
+            onClick={() => {
+              addBtnHandler(itemName);
+              setItemName("");
+            }}
+          >
             Add Item
           </button>
           <button className="btn" onClick={handleCamerabtn}>
