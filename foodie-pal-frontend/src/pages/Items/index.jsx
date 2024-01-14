@@ -57,6 +57,7 @@ const Items = () => {
         },
       };
       await userApi.updateUser(data);
+      handleGetItems();
     } catch (error) {
       console.error(error);
     }
