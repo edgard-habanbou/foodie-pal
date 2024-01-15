@@ -11,13 +11,21 @@ function Profile() {
       </div>
       <div className="landing">
         <Header />
-        <div className="flex gap center">
+        <div className="flex gap column center">
           <div className="flex gap center">
             <img
               className="recipe-image-large"
               src={`${process.env.REACT_APP_BASE_URL}/images/${user.imageUrl}`}
               alt="profile"
             />
+          </div>
+          <div className="flex gap column">
+            <h3 className="color-white">
+              {user.firstName + " " + user.lastName}
+            </h3>
+            <div></div>
+            <button className="btn">Change Name</button>
+            <button className="btn">Change Profile Photo</button>
           </div>
         </div>
       </div>
