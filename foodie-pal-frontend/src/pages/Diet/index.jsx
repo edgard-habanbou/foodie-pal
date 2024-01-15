@@ -38,6 +38,14 @@ function Diet() {
                       <p>{question.Question}</p>
                       {question.type === "text" ? (
                         <input type="text" className="input" />
+                      ) : question.type === "select" ? (
+                        <select className="input ">
+                          {question.options.map((option, o) => (
+                            <option key={o} value={option.value}>
+                              {option.Name}
+                            </option>
+                          ))}
+                        </select>
                       ) : null}
                     </div>
                   ))}
