@@ -10,7 +10,7 @@ function header() {
     menu.classList.toggle("hidden");
   };
   return (
-    <div className="header flex space-between ">
+    <div className="header flex space-between center">
       <button onClick={showMenu} className="btn-menu">
         <FontAwesomeIcon icon={faBars} size="xl" />
       </button>

@@ -12,6 +12,7 @@ import { userApi } from "../../network/axios";
 
 function Recipe() {
   const [Load, setLoading] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
   const recipes = JSON.parse(localStorage.getItem("recipes"));
@@ -19,30 +20,36 @@ function Recipe() {
     (recipe) => recipe.id === parseInt(id, 10)
   );
 
-  const [isFavorite, setIsFavorite] = useState(false);
-
   const handleFavoriteBtn = async () => {
     setIsFavorite(!isFavorite);
   };
   useEffect(() => {
     const updateFav = async () => {
+      const data = {
+        subDocument: {
+          FavoriteRecipes: {
+            id: selectedRecipe.id,
+            title: selectedRecipe.title,
+            description: selectedRecipe.description,
+            calories: selectedRecipe.calories,
+            time: selectedRecipe.time,
+            instructions: selectedRecipe.instructions,
+            imageUrl: selectedRecipe.imageUrl,
+          },
+        },
+      };
       if (isFavorite) {
         setLoading(true);
         try {
-          const data = {
-            subDocument: {
-              FavoriteRecipes: {
-                id: selectedRecipe.id,
-                title: selectedRecipe.title,
-                description: selectedRecipe.description,
-                calories: selectedRecipe.calories,
-                time: selectedRecipe.time,
-                instructions: selectedRecipe.instructions,
-                imageUrl: selectedRecipe.imageUrl,
-              },
-            },
-          };
           await userApi.updateUser(data);
+        } catch (error) {
+          console.error(error);
+        }
+        setLoading(false);
+      } else {
+        setLoading(true);
+        try {
+          await userApi.deleteFromUser(data);
         } catch (error) {
           console.error(error);
         }
@@ -59,6 +66,7 @@ function Recipe() {
       </div>
       <div className="landing ">
         <Header />
+
         <div className="swiper-div flex center">
           <SwiperCarousel recipes={recipes} row={1} />
         </div>
