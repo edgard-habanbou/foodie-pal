@@ -34,14 +34,21 @@ function Diet() {
             {Object.entries(Questions).map(
               ([sectionName, sectionQuestions], i) => (
                 <SwiperSlide key={i}>
-                  <h3>{sectionName}</h3>
+                  <h3 className="margin">{sectionName}</h3>
                   {sectionQuestions.map((question, j) => (
-                    <div key={j} className="margin flex  column gap">
+                    <div key={j} className="margin flex padding column gap">
                       <p>{question.Question}</p>
                       {question.type === "text" ? (
-                        <input type="text" className="input" />
+                        <input
+                          type="text"
+                          className="input"
+                          placeholder={question.placeholder}
+                        />
                       ) : question.type === "select" ? (
                         <select className="input ">
+                          <option value="" disabled selected>
+                            Select Option
+                          </option>
                           {question.options.map((option, o) => (
                             <option key={o} value={option.value}>
                               {option.Name}
@@ -49,7 +56,11 @@ function Diet() {
                           ))}
                         </select>
                       ) : question.type === "number" ? (
-                        <input className="input" type="number" />
+                        <input
+                          className="input"
+                          type="number"
+                          placeholder={question.placeholder}
+                        />
                       ) : null}
                     </div>
                   ))}

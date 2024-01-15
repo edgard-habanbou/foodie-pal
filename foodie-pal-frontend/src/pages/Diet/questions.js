@@ -84,14 +84,13 @@ const Questions = {
     {
       Question: "What is your typical daily schedule like?",
       type: "text",
-      placeholder:
-        "e.g., 8:00 AM - 5:00 PM (work), 6:00 PM - 10:00 PM (school)",
+      placeholder: "e.g., 8:00 AM - 5:00 PM (work)...",
     },
     {
       Question:
         "Do you have specific times you prefer to eat meals and snacks?",
       type: "text",
-      placeholder: "e.g., 8:00 AM (breakfast), 12:00 PM (lunch)",
+      placeholder: "e.g., 8:00 AM (breakfast)...",
     },
   ],
   "Nutritional Goals:": [
