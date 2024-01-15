@@ -1,9 +1,17 @@
 import React from "react";
 import "./index.css";
-function DietairyPreferences() {
+function DietairyPreferences({ toggleModal }) {
   return (
-    <div>
-      <h1>Batata</h1>
+    <div className="modal-overlay">
+      <div className="modal">
+        <div className="modal-header">
+          <h2>Modal Title</h2>
+          <button onClick={toggleModal}>&times;</button>
+        </div>
+        <div className="modal-content">
+          <p>Modal content</p>
+        </div>
+      </div>
     </div>
   );
 }

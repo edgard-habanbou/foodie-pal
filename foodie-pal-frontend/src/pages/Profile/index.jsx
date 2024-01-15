@@ -1,11 +1,15 @@
 import React from "react";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
+import DietairyPreferences from "../../components/DietairyPreferences";
 import "./index.css";
 
 function Profile() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [showModal, setShowModal] = React.useState(false);
+  const handleShowModal = () => {
+    setShowModal(!showModal);
+  };
   return (
     <div className="flex background">
       <div>
@@ -66,7 +70,9 @@ function Profile() {
             <hr />
           </div>
           <div className="flex gap">
-            <button className="btn">Edit Preferences</button>
+            <button className="btn" onClick={handleShowModal}>
+              Edit Preferences
+            </button>
             <button className="btn danger">Delete Preferences</button>
           </div>
         </div>
@@ -80,6 +86,7 @@ function Profile() {
           </div>
         </div>
       </div>
+      {showModal && <DietairyPreferences toggleModal={handleShowModal} />}
     </div>
   );
 }
