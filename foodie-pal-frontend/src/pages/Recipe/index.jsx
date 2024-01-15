@@ -19,45 +19,43 @@ function Recipe() {
   const selectedRecipe = recipes.find(
     (recipe) => recipe.id === parseInt(id, 10)
   );
-
-  const handleFavoriteBtn = async () => {
-    setIsFavorite(!isFavorite);
-  };
-  useEffect(() => {
-    const updateFav = async () => {
-      const data = {
-        subDocument: {
-          FavoriteRecipes: {
-            id: selectedRecipe.id,
-            title: selectedRecipe.title,
-            description: selectedRecipe.description,
-            calories: selectedRecipe.calories,
-            time: selectedRecipe.time,
-            instructions: selectedRecipe.instructions,
-            imageUrl: selectedRecipe.imageUrl,
-          },
+  const updateFav = async (newIsFavorite) => {
+    const data = {
+      subDocument: {
+        FavoriteRecipes: {
+          id: selectedRecipe.id,
+          title: selectedRecipe.title,
+          description: selectedRecipe.description,
+          calories: selectedRecipe.calories,
+          time: selectedRecipe.time,
+          instructions: selectedRecipe.instructions,
+          imageUrl: selectedRecipe.imageUrl,
         },
-      };
-      if (isFavorite) {
-        setLoading(true);
-        try {
-          await userApi.updateUser(data);
-        } catch (error) {
-          console.error(error);
-        }
-        setLoading(false);
-      } else {
-        setLoading(true);
-        try {
-          await userApi.deleteFromUser(data);
-        } catch (error) {
-          console.error(error);
-        }
-        setLoading(false);
-      }
+      },
     };
-    updateFav();
-  }, [isFavorite]);
+
+    setLoading(true);
+
+    try {
+      if (newIsFavorite) {
+        await userApi.updateUser(data);
+      } else {
+        await userApi.deleteFromUser(data);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+
+    setLoading(false);
+  };
+
+  const handleFavoriteBtn = () => {
+    setIsFavorite((prevIsFavorite) => {
+      const newIsFavorite = !prevIsFavorite;
+      updateFav(newIsFavorite); // Pass the updated value of isFavorite
+      return newIsFavorite;
+    });
+  };
 
   return (
     <div className="flex background">
@@ -67,7 +65,10 @@ function Recipe() {
       <div className="landing ">
         <Header />
 
-        <div className="swiper-div flex center">
+        <div
+          className="swiper-div flex center"
+          onClick={() => setIsFavorite(false)}
+        >
           <SwiperCarousel recipes={recipes} row={1} />
         </div>
         <div className="margin padding  favorite-btn">
@@ -75,7 +76,7 @@ function Recipe() {
             <FontAwesomeIcon
               icon={faHeart}
               size="2xl"
-              color={isFavorite ? "#FF007F" : "grey"}
+              color={isFavorite ? "#c40062" : "grey"}
             />
           </button>
         </div>
