@@ -5,7 +5,7 @@ import "./index.css";
 
 function Profile() {
   const user = JSON.parse(localStorage.getItem("user"));
-
+  const [showModal, setShowModal] = React.useState(false);
   return (
     <div className="flex background">
       <div>
@@ -58,6 +58,16 @@ function Profile() {
           </div>
           <div className="flex center">
             <button className="btn">Change Password</button>
+          </div>
+        </div>
+        <div className="flex gap column credentials padding">
+          <div>
+            <h3 className="color-white">Dietairy Preferences</h3>
+            <hr />
+          </div>
+          <div className="flex gap">
+            <button className="btn">Edit Preferences</button>
+            <button className="btn danger">Delete Preferences</button>
           </div>
         </div>
         <div className="flex gap column credentials padding">
