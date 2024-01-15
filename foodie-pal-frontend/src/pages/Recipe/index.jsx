@@ -75,7 +75,7 @@ function Recipe() {
             <FontAwesomeIcon
               icon={faHeart}
               size="2xl"
-              color={isFavorite ? "red" : "grey"}
+              color={isFavorite ? "#FF007F" : "grey"}
             />
           </button>
         </div>
