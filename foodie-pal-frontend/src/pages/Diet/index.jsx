@@ -12,6 +12,7 @@ import "swiper/css/navigation";
 import "swiper/css/navigation";
 
 function Diet() {
+  console.log(Questions);
   return (
     <div className="flex background">
       <div>
@@ -28,15 +29,21 @@ function Diet() {
             modules={[Pagination, Navigation]}
             className="mySwiper"
           >
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
-            <SwiperSlide>Slide 9</SwiperSlide>
+            {Object.entries(Questions).map(
+              ([sectionName, sectionQuestions], i) => (
+                <SwiperSlide key={i}>
+                  <h3>{sectionName}</h3>
+                  {sectionQuestions.map((question, j) => (
+                    <div key={j} className="margin flex  column gap">
+                      <p>{question.Question}</p>
+                      {question.type === "text" ? (
+                        <input type="text" className="input" />
+                      ) : null}
+                    </div>
+                  ))}
+                </SwiperSlide>
+              )
+            )}
           </Swiper>
         </div>
       </div>

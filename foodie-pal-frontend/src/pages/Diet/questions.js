@@ -8,7 +8,10 @@ const Questions = {
     {
       Question: "What is your gender?",
       type: "select",
-      options: [{ Male: 0 }, { female: 1 }],
+      options: [
+        { Name: "Male", value: 0 },
+        { Name: "Female", value: 1 },
+      ],
     },
     {
       Question: "What is your height?",
@@ -24,11 +27,26 @@ const Questions = {
       Question: "What is your activity level?",
       type: "select",
       options: [
-        { Sedentary: 1.2 },
-        { Lightly: 1.375 },
-        { Moderately: 1.55 },
-        { Very: 1.725 },
-        { Extra: 1.9 },
+        {
+          Name: "Sedentary",
+          value: 1.2,
+        },
+        {
+          Name: "Lightly",
+          value: 1.375,
+        },
+        {
+          Name: "Moderately",
+          value: 1.55,
+        },
+        {
+          Name: "Very",
+          value: 1.725,
+        },
+        {
+          Name: "Extra",
+          value: 1.9,
+        },
       ],
     },
   ],

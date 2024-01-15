@@ -1,12 +1,15 @@
 .questions-section {
   height: 92%;
-  width: 100%;
-  margin-top: 20px;
+  margin: 20px 15px 0 15px;
   color: white;
 }
 .questions-section .swiper {
   height: 100%;
+  width: 100%;
+}
+.questions-section .input {
   width: 90%;
+  margin: 0 10px;
 }
 .swiper-button-prev,
 .swiper-button-next {
