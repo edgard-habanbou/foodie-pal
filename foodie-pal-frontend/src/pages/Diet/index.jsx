@@ -10,6 +10,8 @@ import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
 
 function Diet() {
   console.log(Questions);
@@ -46,6 +48,8 @@ function Diet() {
                             </option>
                           ))}
                         </select>
+                      ) : question.type === "number" ? (
+                        <input className="input" type="number" />
                       ) : null}
                     </div>
                   ))}
@@ -53,6 +57,28 @@ function Diet() {
               )
             )}
           </Swiper>
+          <div className="flex space-between">
+            <button
+              className="btn-menu"
+              onClick={() => {
+                document
+                  .getElementsByClassName("swiper-button-prev")[0]
+                  .click();
+              }}
+            >
+              <FontAwesomeIcon icon={faBackward} size="2xl" color="#fe8a01" />
+            </button>
+            <button
+              className="btn-menu"
+              onClick={() => {
+                document
+                  .getElementsByClassName("swiper-button-next")[0]
+                  .click();
+              }}
+            >
+              <FontAwesomeIcon icon={faForward} size="2xl" color="#fe8a01" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
