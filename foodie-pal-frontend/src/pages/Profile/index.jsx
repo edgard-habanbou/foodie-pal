@@ -1,6 +1,8 @@
 import React from "react";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
+import "./index.css";
+
 function Profile() {
   const user = JSON.parse(localStorage.getItem("user"));
 
