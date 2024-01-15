@@ -138,3 +138,9 @@ button {
 span {
   font-size: 15px;
 }
+.color-primary {
+  color: var(--primarycolor);
+}
+.width-fit {
+  width: fit-content;
+}
