@@ -97,7 +97,7 @@ function Recipe() {
               <p>{selectedRecipe.time}</p>
             </div>
           </div>
-          <div className="recipe-desc flex column gap">
+          <div className="recipe-desc flex column margin gap">
             <div>
               <p>
                 <b>{selectedRecipe.title}</b>
