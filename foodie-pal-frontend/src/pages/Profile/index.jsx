@@ -28,6 +28,22 @@ function Profile() {
             <button className="btn">Change Profile Photo</button>
           </div>
         </div>
+        <div className="credentials">
+          <div>
+            <input type="text" className="input" disabled value={user.email} />
+          </div>
+          <div>
+            <label className="color-white" htmlFor="password">
+              Password
+            </label>
+            <input
+              type="password"
+              placeholder="password"
+              id="password"
+              className="input"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
