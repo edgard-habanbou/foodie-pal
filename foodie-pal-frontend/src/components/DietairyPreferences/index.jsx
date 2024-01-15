@@ -4,10 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 function DietairyPreferences({ toggleModal }) {
   const [selectedRestriction, setSelectedRestriction] = useState("");
+  const [allergies, setAllergies] = useState([]);
+  const [selectedCuisine, setSelectedCuisine] = useState("");
   const [SelectedFlavors, setSelectedFlavors] = useState([]);
   const handleSave = () => {
     console.log(selectedRestriction);
     console.log(SelectedFlavors);
+    console.log(selectedCuisine);
+    console.log(allergies);
     toggleModal();
   };
   const restrictions = [
@@ -23,6 +27,12 @@ function DietairyPreferences({ toggleModal }) {
   const flavorPreferences = ["Spicy", "Sweet", "Savory", "Bitter"];
   const handleFlavorPreferences = (e) => {
     setSelectedFlavors([...SelectedFlavors, e.target.value]);
+  };
+  const handleCuisinePreferences = (e) => {
+    setSelectedCuisine(e.target.value);
+  };
+  const handleAllergies = (e) => {
+    setAllergies(e.target.value);
   };
   return (
     <div className="modal-overlay">
@@ -67,6 +77,8 @@ function DietairyPreferences({ toggleModal }) {
                 type="text"
                 className="input"
                 placeholder="Nuts, Dairy...."
+                value={allergies}
+                onChange={handleAllergies}
               />
             </div>
           </div>
@@ -81,6 +93,8 @@ function DietairyPreferences({ toggleModal }) {
                   type="text"
                   className="input"
                   placeholder="e.g., Italian, Asian, Mediterranean"
+                  value={selectedCuisine}
+                  onChange={handleCuisinePreferences}
                 />
               </div>
               <div className="flex column gap">
