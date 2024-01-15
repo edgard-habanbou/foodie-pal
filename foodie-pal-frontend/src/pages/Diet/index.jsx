@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import Questions from "./questions";
+import "./index.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
@@ -21,7 +22,7 @@ function Diet() {
         <div className="questions-section">
           <Swiper
             pagination={{
-              type: "fraction",
+              clickable: true,
             }}
             navigation={true}
             modules={[Pagination, Navigation]}
