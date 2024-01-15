@@ -13,7 +13,7 @@ function Profile() {
       </div>
       <div className="landing">
         <Header />
-        <div className="flex gap column center">
+        <div className="flex gap  center">
           <div className="flex gap center">
             <img
               className="recipe-image-large"
@@ -30,20 +30,43 @@ function Profile() {
             <button className="btn">Change Profile Photo</button>
           </div>
         </div>
-        <div className="credentials">
-          <div>
-            <input type="text" className="input" disabled value={user.email} />
-          </div>
+        <div className="credentials padding flex gap column">
+          <h3 className="color-white">Credentials</h3>
+          <hr />
           <div>
             <label className="color-white" htmlFor="password">
+              Email
+            </label>
+            <input
+              type="text"
+              className="input"
+              disabled
+              value={user.email}
+              id="email-profile"
+            />
+          </div>
+          <div>
+            <label className="color-white" htmlFor="password-profile">
               Password
             </label>
             <input
               type="password"
               placeholder="password"
-              id="password"
+              id="password-profile"
               className="input"
             />
+          </div>
+          <div className="flex center">
+            <button className="btn">Change Password</button>
+          </div>
+        </div>
+        <div className="flex gap column credentials padding">
+          <div>
+            <h3 className="color-white">Danger Zone</h3>
+            <hr />
+          </div>
+          <div>
+            <button className="btn danger">Delete All Data</button>
           </div>
         </div>
       </div>

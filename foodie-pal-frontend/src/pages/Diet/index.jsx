@@ -46,7 +46,10 @@ function Diet() {
           >
             {sections.map(([sectionName, sectionQuestions], i) => (
               <SwiperSlide key={i}>
-                <h3 className="margin">{sectionName}</h3>
+                <h3 className="margin">
+                  {sectionName} <hr />
+                </h3>
+
                 {sectionQuestions.map((question, j) => (
                   <div key={j} className="margin flex padding column gap">
                     <p>{question.Question}</p>
