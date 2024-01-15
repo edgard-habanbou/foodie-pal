@@ -8,10 +8,6 @@ function DietairyPreferences({ toggleModal }) {
   const [selectedCuisine, setSelectedCuisine] = useState("");
   const [SelectedFlavors, setSelectedFlavors] = useState([]);
   const handleSave = () => {
-    console.log(selectedRestriction);
-    console.log(SelectedFlavors);
-    console.log(selectedCuisine);
-    console.log(allergies);
     toggleModal();
   };
   const restrictions = [
