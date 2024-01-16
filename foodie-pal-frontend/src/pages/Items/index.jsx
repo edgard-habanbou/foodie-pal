@@ -124,7 +124,7 @@ const Items = () => {
           </button>
         </div>
         <div className="margin padding">
-          <h3 className="color-white">Add By Photo</h3>
+          <h4 className="color-white">Add By Photo</h4>
           <hr />
         </div>
         <div className="flex center column">
@@ -156,7 +156,7 @@ const Items = () => {
         </div>
         <div className="items-added flex  column ">
           <div className="margin padding">
-            <h3 className="color-white">Items</h3>
+            <h4 className="color-white">Items</h4>
             <hr />
           </div>
           <SwiperVertical

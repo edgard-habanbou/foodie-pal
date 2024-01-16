@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
+import Popup from "../../components/Popup";
 import DietairyPreferences from "../../components/DietairyPreferences";
 import "./index.css";
 
@@ -9,6 +10,15 @@ function Profile() {
   const [showModal, setShowModal] = React.useState(false);
   const handleShowModal = () => {
     setShowModal(!showModal);
+  };
+  const handleDelete = (text) => {
+    Popup({
+      title: `Are you sure you want to delete all your ${text}?`,
+      text: `This has no undo!`,
+      icon: "error",
+      confirmButtonText: "Confirm",
+      confirmButtonColor: "#FE8A01",
+    });
   };
   return (
     <div className="flex background">
@@ -29,7 +39,6 @@ function Profile() {
             <h3 className="color-white">
               {user.firstName + " " + user.lastName}
             </h3>
-            <div></div>
             <button className="btn">Change Name</button>
             <button className="btn">Change Profile Photo</button>
           </div>
@@ -38,14 +47,14 @@ function Profile() {
           <h3 className="color-white">Credentials</h3>
           <hr />
           <div>
-            <label className="color-white" htmlFor="password">
+            <label className="color-white" htmlFor="email-profile">
               Email
             </label>
             <input
               type="text"
               className="input"
               disabled
-              value={user.email}
+              placeholder={user.email}
               id="email-profile"
             />
           </div>
@@ -73,7 +82,12 @@ function Profile() {
             <button className="btn" onClick={handleShowModal}>
               Edit Preferences
             </button>
-            <button className="btn danger">Delete Preferences</button>
+            <button
+              className="btn danger"
+              onClick={() => handleDelete("preferences")}
+            >
+              Delete Preferences
+            </button>
           </div>
         </div>
         <div className="flex gap column credentials padding">
@@ -82,7 +96,9 @@ function Profile() {
             <hr />
           </div>
           <div>
-            <button className="btn danger">Delete All Data</button>
+            <button className="btn danger" onClick={() => handleDelete("data")}>
+              Delete All Data
+            </button>
           </div>
         </div>
       </div>
