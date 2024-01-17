@@ -37,12 +37,21 @@ function Diet() {
   };
 
   const handleSubmit = async () => {
+    const form = document.getElementById("questionsSection");
+    const inputs = form.getElementsByTagName("input");
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].type === "text" && inputs[i].value.trim() === "") {
+        inputs[i].classList.add("input-error");
+      } else {
+        inputs[i].classList.remove("input-error");
+      }
+    }
     const data = {
       subDocument: {
         DietQuestions: formData,
       },
     };
-    await userApi.updateUser(data);
+    // await userApi.updateUser(data);
   };
 
   const sections = Object.entries(Questions);
@@ -54,7 +63,7 @@ function Diet() {
       </div>
       <div className="landing">
         <Header />
-        <div className="questions-section">
+        <div className="questions-section" id="questionsSection">
           <Swiper
             pagination={{
               clickable: true,
@@ -74,51 +83,66 @@ function Diet() {
                       <p>{question.Question}</p>
                       <div className="flex center">
                         {question.type === "text" ? (
-                          <input
-                            type="text"
-                            className="input"
-                            placeholder={question.placeholder}
-                            onChange={(e) =>
-                              handleInputChange(
-                                sectionName,
-                                question,
-                                e.target.value
-                              )
-                            }
-                          />
+                          <div className="full-width">
+                            <input
+                              type="text"
+                              className="input"
+                              placeholder={question.placeholder}
+                              onChange={(e) =>
+                                handleInputChange(
+                                  sectionName,
+                                  question,
+                                  e.target.value
+                                )
+                              }
+                            />
+                            <span className="color-red span-error hidden">
+                              This field cannot be empty!
+                            </span>
+                          </div>
                         ) : question.type === "select" ? (
-                          <select
-                            className="input"
-                            onChange={(e) =>
-                              handleInputChange(
-                                sectionName,
-                                question,
-                                e.target.value
-                              )
-                            }
-                          >
-                            <option value="" defaultValue>
-                              Select Option
-                            </option>
-                            {question.options.map((option, o) => (
-                              <option key={o} value={option.value}>
-                                {option.Name}
+                          <div className="full-width flex center">
+                            <select
+                              className="input"
+                              onChange={(e) =>
+                                handleInputChange(
+                                  sectionName,
+                                  question,
+                                  e.target.value
+                                )
+                              }
+                            >
+                              <option value="" defaultValue>
+                                Select Option
                               </option>
-                            ))}
-                          </select>
+                              {question.options.map((option, o) => (
+                                <option key={o} value={option.value}>
+                                  {option.Name}
+                                </option>
+                              ))}
+                            </select>
+                            <span className="color-red span-error hidden">
+                              This field cannot be empty!
+                            </span>
+                          </div>
                         ) : question.type === "number" ? (
-                          <input
-                            className="input"
-                            type="number"
-                            placeholder={question.placeholder}
-                            onChange={(e) =>
-                              handleInputChange(
-                                sectionName,
-                                question,
-                                e.target.value
-                              )
-                            }
-                          />
+                          <div className="full-width flex center">
+                            <input
+                              className="input"
+                              type="number"
+                              placeholder={question.placeholder}
+                              onChange={(e) =>
+                                handleInputChange(
+                                  sectionName,
+                                  question,
+                                  e.target.value
+                                )
+                              }
+                            />
+                            <span className="color-red span-error hidden">
+                              This field cannot be empty!
+                            </span>
+                          </div>
                         ) : null}
                       </div>
                     </div>

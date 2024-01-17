@@ -15,3 +15,14 @@
 .swiper-button-next {
   display: none !important;
 }
+.input-error {
+  border: 1px solid red !important;
+}
+.color-red {
+  color: red;
+}
+.span-error {
+  color: red;
+  font-size: 12px;
+  margin-left: 10px;
+}
