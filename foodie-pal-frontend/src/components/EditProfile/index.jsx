@@ -3,13 +3,13 @@ import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 
-function EditProfile({ toggleModal }) {
+function EditProfile({ toggleEditProfile }) {
   return (
     <div className="modal-overlay">
       <div className="modal">
         <div className="modal-header">
           <h2>Edit Profile</h2>
-          <button onClick={toggleModal}>
+          <button onClick={toggleEditProfile}>
             <FontAwesomeIcon icon={faX} color="white" />
           </button>
         </div>
