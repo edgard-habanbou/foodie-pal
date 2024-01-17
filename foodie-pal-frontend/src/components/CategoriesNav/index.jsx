@@ -32,7 +32,13 @@ function CategoriesNav() {
       <div className="flex categories center gap">
         <Flicking renderOnlyVisible={true} align="prev" circular={true}>
           {categories?.map((category, i) => (
-            <div key={i} className="cat-nav-item" onClick={handleCategoryClick}>
+            <div
+              key={i}
+              className={
+                i === 0 ? "cat-nav-item-selected cat-nav-item" : "cat-nav-item"
+              }
+              onClick={handleCategoryClick}
+            >
               {category}
             </div>
           ))}
