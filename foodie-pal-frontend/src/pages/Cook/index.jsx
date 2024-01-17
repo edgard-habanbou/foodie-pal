@@ -29,7 +29,7 @@ function Cook() {
         <Nav />
       </div>
       <div className="landing ">
-        <button className="btn-menu" onClick={handleBack}>
+        <button className="btn-menu margin " onClick={handleBack}>
           <FontAwesomeIcon icon={faArrowLeft} size="2xl" />
         </button>
         <div className="flex gap center instructions-wrapper">
