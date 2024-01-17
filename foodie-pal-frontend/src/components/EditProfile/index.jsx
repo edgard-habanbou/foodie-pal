@@ -19,21 +19,18 @@ function EditProfile({ toggleEditProfile, user }) {
   };
 
   const handleClick = () => {
-    //   handleProfileChange();
     const profileInput = document.getElementById("profileInput");
     if (profileInput) {
       profileInput.click();
     }
   };
-  const handleProfileChange = (event) => {
+  const handleProfileChange = async (event) => {
     const file = event.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = async () => {
-        const image = await userApi.uploadImage({ image: reader.result });
-        setUploadedImage(reader.result);
-      };
-      reader.readAsDataURL(file);
+      const formData = new FormData();
+      formData.append("image", file);
+      const image = await userApi.uploadImage(formData);
+      setUploadedImage(image.image);
     }
   };
   return (
@@ -54,7 +51,7 @@ function EditProfile({ toggleEditProfile, user }) {
                   className="recipe-image-medium"
                   src={
                     uploadedImage
-                      ? uploadedImage
+                      ? `${process.env.REACT_APP_BASE_URL}/images/${uploadedImage}`
                       : `${process.env.REACT_APP_BASE_URL}/images/${user.imageUrl}`
                   }
                   alt="profile"
