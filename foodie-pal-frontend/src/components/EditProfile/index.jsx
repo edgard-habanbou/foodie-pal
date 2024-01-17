@@ -18,7 +18,12 @@ function EditProfile({ toggleEditProfile, user }) {
 
   const handleClick = () => {
     //   handleProfileChange();
+    const profileInput = document.getElementById("profileInput");
+    if (profileInput) {
+      profileInput.click();
+    }
   };
+  const handleProfileChange = () => {};
   return (
     <div className="modal-overlay">
       <div className="modal">
@@ -37,6 +42,13 @@ function EditProfile({ toggleEditProfile, user }) {
                   className="recipe-image-medium"
                   src={`${process.env.REACT_APP_BASE_URL}/images/${user.imageUrl}`}
                   alt="profile"
+                />
+                <input
+                  type="file"
+                  name=""
+                  hidden
+                  id="profileInput"
+                  onChange={handleProfileChange}
                 />
                 <div className="overlay" onClick={handleClick}>
                   <div className="pen">
