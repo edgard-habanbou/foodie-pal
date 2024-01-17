@@ -4,9 +4,12 @@ import Header from "../../components/Header";
 import SwiperCarousel from "../../components/SwiperCarousel";
 import { userApi } from "../../network/axios";
 import Loading from "../../components/Loading";
+import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
+import { useNavigate } from "react-router-dom";
 function Favorites() {
   const [favoriteRecipes, setFavoriteRecipes] = useState([]);
   const [Load, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const getFavoriteRecipes = async () => {
     setLoading(true);
@@ -24,7 +27,13 @@ function Favorites() {
   useEffect(() => {
     getFavoriteRecipes();
   }, []);
-
+  const check = async () => {
+    if (!(await checkIfLoggedIn())) {
+      localStorage.clear();
+      navigate("/");
+    }
+  };
+  check();
   return (
     <div className="flex background">
       <div>
