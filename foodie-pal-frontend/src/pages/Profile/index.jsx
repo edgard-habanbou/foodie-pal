@@ -88,7 +88,7 @@ function Profile() {
         />
       )}
       {showEditProfile && (
-        <EditProfile toggleEditProfile={handleshowEditProfile} />
+        <EditProfile toggleEditProfile={handleshowEditProfile} user={user} />
       )}
     </div>
   );
