@@ -1,9 +1,12 @@
 import React from "react";
 import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare, faX } from "@fortawesome/free-solid-svg-icons";
+import { faPen, faPenToSquare, faX } from "@fortawesome/free-solid-svg-icons";
 
 function EditProfile({ toggleEditProfile, user }) {
+  const handleClick = () => {
+    //   handleProfileChange();
+  };
   return (
     <div className="modal-overlay">
       <div className="modal">
@@ -17,23 +20,28 @@ function EditProfile({ toggleEditProfile, user }) {
         <div className="modal-content flex gap column">
           <div className="flex gap">
             <div className="flex gap center">
-              <img
-                className="recipe-image"
-                src={`${process.env.REACT_APP_BASE_URL}/images/${user.imageUrl}`}
-                alt="profile"
-              />
+              <div className={`profile-image-container hovered`}>
+                <img
+                  className="recipe-image-medium"
+                  src={`${process.env.REACT_APP_BASE_URL}/images/${user.imageUrl}`}
+                  alt="profile"
+                />
+                <div className="overlay" onClick={handleClick}>
+                  <div className="pen">
+                    <FontAwesomeIcon icon={faPen} size="xs" />
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="flex gap center ">
+            <div className="flex  center ">
               <h3 className="color-white">
                 {user.firstName + " " + user.lastName}
               </h3>
-              <button className="btn-menu">
-                <FontAwesomeIcon
-                  icon={faPenToSquare}
-                  size="xl"
-                  color="#fe8a01"
-                />
-              </button>
+              <div className="pen-square">
+                <button className="btn-menu">
+                  <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+                </button>
+              </div>
             </div>
           </div>
 

@@ -1,0 +1,36 @@
+.profile-image-container {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+.pen {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-image-container.hovered .overlay {
+  opacity: 1;
+}
+.recipe-image-medium {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+}
+.pen-square {
+  height: 50%;
+  margin-left: 5px;
+}
