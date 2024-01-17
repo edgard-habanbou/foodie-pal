@@ -6,16 +6,16 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 function DietairyPreferences({ toggleModal, handleDelete }) {
   const user = JSON.parse(localStorage.getItem("user"));
   const [selectedRestriction, setSelectedRestriction] = useState(
-    user.DietairyPreferences[0].restrictions || ""
+    user.DietairyPreferences[0]?.restrictions || ""
   );
   const [allergies, setAllergies] = useState(
-    user.DietairyPreferences[0].allergies || ""
+    user.DietairyPreferences[0]?.allergies || ""
   );
   const [selectedCuisine, setSelectedCuisine] = useState(
-    user.DietairyPreferences[0].cuisinePreferences || ""
+    user.DietairyPreferences[0]?.cuisinePreferences || ""
   );
   const [SelectedFlavors, setSelectedFlavors] = useState(
-    user.DietairyPreferences[0].flavorPreferences || []
+    user.DietairyPreferences[0]?.flavorPreferences || []
   );
   const handleSave = async () => {
     const data = {

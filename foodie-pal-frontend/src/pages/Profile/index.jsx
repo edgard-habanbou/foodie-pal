@@ -5,6 +5,7 @@ import Popup from "../../components/Popup";
 import DietairyPreferences from "../../components/DietairyPreferences";
 import EditProfile from "../../components/EditProfile";
 import "./index.css";
+import { userApi } from "../../network/axios";
 
 function Profile() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -23,6 +24,26 @@ function Profile() {
       icon: "error",
       confirmButtonText: "Confirm",
       confirmButtonColor: "#FE8A01",
+      action: async () => {
+        if (text === "preferences") {
+          const data = {
+            subDocument: {
+              DietairyPreferences: {},
+            },
+          };
+
+          const updatedUser = await userApi.deleteFromUser(data);
+          localStorage.setItem("user", JSON.stringify(updatedUser.user));
+          handleShowModal();
+        }
+        Popup({
+          title: "Deleted!",
+          text: `All your ${text} has been deleted`,
+          icon: "success",
+          confirmButtonText: "Ok",
+          confirmButtonColor: "#FE8A01",
+        });
+      },
     });
   };
   return (
