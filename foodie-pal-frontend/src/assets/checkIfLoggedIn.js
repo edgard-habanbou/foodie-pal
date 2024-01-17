@@ -11,6 +11,8 @@ const checkIfLoggedIn = async () => {
       localStorage.setItem("user", response);
       return true;
     }
+  } else {
+    return false;
   }
 };
 export default checkIfLoggedIn;

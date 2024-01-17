@@ -6,14 +6,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import SwiperVertical from "../../components/SwiperVertical";
+import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
 
 function Chat() {
+  const navigate = useNavigate();
+
+  const check = async () => {
+    if (!(await checkIfLoggedIn())) {
+      localStorage.clear();
+      navigate("/");
+    } else {
+      console.log("batata");
+    }
+  };
+  check();
+
   const [chats, setChats] = useState([
     ["openai", "how can i help"],
     ["user", "hey"],
   ]);
 
-  const navigate = useNavigate();
   const { id } = useParams();
   const recipes = JSON.parse(localStorage.getItem("recipes"));
   const selectedRecipe = recipes.find(
