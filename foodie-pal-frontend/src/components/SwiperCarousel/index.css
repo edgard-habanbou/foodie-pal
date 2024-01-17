@@ -5,3 +5,6 @@
 .swiper-pagination-bullet {
   background: var(--primarycolor) !important;
 }
+.swiper-slide {
+  margin-left: 5px;
+}
