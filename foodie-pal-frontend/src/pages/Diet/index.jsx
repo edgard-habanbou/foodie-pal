@@ -3,6 +3,7 @@ import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import Questions from "./questions";
 import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
@@ -12,10 +13,18 @@ import "swiper/css/navigation";
 import "swiper/css/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
+import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
 
 function Diet() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({});
-
+  const check = async () => {
+    if (!(await checkIfLoggedIn())) {
+      localStorage.clear();
+      navigate("/");
+    }
+  };
+  check();
   const handleInputChange = (sectionName, question, value) => {
     setFormData((prevData) => ({
       ...prevData,

@@ -15,8 +15,6 @@ function Chat() {
     if (!(await checkIfLoggedIn())) {
       localStorage.clear();
       navigate("/");
-    } else {
-      console.log("batata");
     }
   };
   check();

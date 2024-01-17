@@ -27,8 +27,6 @@ function Cook() {
     if (!(await checkIfLoggedIn())) {
       localStorage.clear();
       navigate("/");
-    } else {
-      console.log("batata");
     }
   };
   check();
