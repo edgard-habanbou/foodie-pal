@@ -53,6 +53,10 @@ const Items = () => {
 
   const addBtnHandler = async (item) => {
     setLoading(true);
+    if (item === "") {
+      setLoading(false);
+      return;
+    }
     try {
       const data = {
         subDocument: {
