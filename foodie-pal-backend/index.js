@@ -34,6 +34,10 @@ app.use("/subdocid", authMiddleware, subDocumentId);
 const clarifai = require("./routes/clarifai.routes");
 app.use("/clarifai", authMiddleware, clarifai);
 
+//openAi routes
+const openAi = require("./routes/openai.routes");
+app.use("/openai", authMiddleware, openAi);
+
 // Specify your SSL certificate and private key
 const credentials = {
   key: fs.readFileSync("./ssl/server.key"),
