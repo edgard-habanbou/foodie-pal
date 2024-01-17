@@ -8,6 +8,7 @@ import "./index.css";
 import SwiperVertical from "../../components/SwiperVertical";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
 
 function Cook() {
   const { id } = useParams();
@@ -22,6 +23,15 @@ function Cook() {
   const handleBack = () => {
     navigate(`/home/${id}`);
   };
+  const check = async () => {
+    if (!(await checkIfLoggedIn())) {
+      localStorage.clear();
+      navigate("/");
+    } else {
+      console.log("batata");
+    }
+  };
+  check();
   const instructions = selectedRecipe.instructions;
   return (
     <div className="flex background">
