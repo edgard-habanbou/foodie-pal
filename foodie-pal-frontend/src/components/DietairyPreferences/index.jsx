@@ -9,7 +9,6 @@ function DietairyPreferences({ toggleModal, handleDelete }) {
   const [selectedCuisine, setSelectedCuisine] = useState("");
   const [SelectedFlavors, setSelectedFlavors] = useState([]);
   const handleSave = async () => {
-    // toggleModal();
     const data = {
       subDocument: {
         DietairyPreferences: {},
@@ -29,8 +28,10 @@ function DietairyPreferences({ toggleModal, handleDelete }) {
     if (SelectedFlavors.length > 0) {
       data.subDocument.DietairyPreferences.flavorPreferences = SelectedFlavors;
     }
-    console.log(data);
-    await userApi.updateUser(data);
+
+    const updatedUser = await userApi.updateUser(data);
+    localStorage.setItem("user", JSON.stringify(updatedUser.updatedUser));
+    toggleModal();
   };
   const restrictions = [
     "Vegetarian",
