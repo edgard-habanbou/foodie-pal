@@ -5,8 +5,18 @@ import CategoriesNav from "../../components/CategoriesNav";
 import "./index.css";
 
 import SwiperCarousel from "../../components/SwiperCarousel";
+import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
+import { useNavigate } from "react-router-dom";
 
 function Landing() {
+  const navigate = useNavigate();
+  const check = async () => {
+    if (!(await checkIfLoggedIn())) {
+      localStorage.clear();
+      navigate("/");
+    }
+  };
+  check();
   const [recipes, setRecipes] = useState([
     {
       id: 1,
