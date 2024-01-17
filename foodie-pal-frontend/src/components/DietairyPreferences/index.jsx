@@ -78,46 +78,44 @@ function DietairyPreferences({ toggleModal, handleDelete }) {
               />
             </div>
           </div>
-          <div className="flex gap column">
-            <div className="flex gap column padding">
-              <div className="flex gap column">
-                <div className="width-fit">
-                  <label htmlFor="cuisine-profile">Cuisine Preferences</label>
-                  <hr />
-                </div>
-                <input
-                  type="text"
-                  className="input"
-                  placeholder="e.g., Italian, Asian, Mediterranean"
-                  value={selectedCuisine}
-                  onChange={handleCuisinePreferences}
-                />
+          <div className="flex gap column margin">
+            <div className="flex gap column">
+              <div className="width-fit">
+                <label htmlFor="cuisine-profile">Cuisine Preferences</label>
+                <hr />
               </div>
-              <div className="flex column gap">
-                <div className="width-fit">
-                  <label htmlFor="flavor">Flavor Preferences</label>
-                  <hr />
-                </div>
-                <div id="flavor" className="flex wrap gap">
-                  {flavorPreferences.map((flavor) => {
-                    return (
-                      <div className="flex center gap" key={flavor}>
-                        <input
-                          onClick={handleFlavorPreferences}
-                          value={flavor}
-                          type="checkbox"
-                          id={flavor}
-                          name="flavor"
-                        />
-                        <span htmlFor={flavor}>{flavor}</span>
-                      </div>
-                    );
-                  })}
-                </div>
+              <input
+                type="text"
+                className="input"
+                placeholder="e.g., Italian, Asian, Mediterranean"
+                value={selectedCuisine}
+                onChange={handleCuisinePreferences}
+              />
+            </div>
+            <div className="flex column gap">
+              <div className="width-fit">
+                <label htmlFor="flavor">Flavor Preferences</label>
+                <hr />
+              </div>
+              <div id="flavor" className="flex wrap gap">
+                {flavorPreferences.map((flavor) => {
+                  return (
+                    <div className="flex center gap" key={flavor}>
+                      <input
+                        onClick={handleFlavorPreferences}
+                        value={flavor}
+                        type="checkbox"
+                        id={flavor}
+                        name="flavor"
+                      />
+                      <span htmlFor={flavor}>{flavor}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
-          <div className="flex gap center">
+          <div className="flex gap center margin">
             <button className="btn" onClick={handleSave}>
               Save
             </button>
