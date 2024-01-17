@@ -123,7 +123,7 @@ const Items = () => {
             <FontAwesomeIcon icon={faCamera} />
           </button>
         </div>
-        <div className="margin padding">
+        <div className="title">
           <h4 className="color-white">Add By Photo</h4>
           <hr />
         </div>
@@ -155,7 +155,7 @@ const Items = () => {
           </div>
         </div>
         <div className="items-added flex  column ">
-          <div className="margin padding">
+          <div className="title">
             <h4 className="color-white">Items</h4>
             <hr />
           </div>
