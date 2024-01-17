@@ -44,8 +44,10 @@ function Profile() {
           </div>
         </div>
         <div className="credentials padding flex gap column">
-          <h3 className="color-white">Credentials</h3>
-          <hr />
+          <div>
+            <h3 className="color-white">Credentials</h3>
+            <hr />
+          </div>
           <div>
             <label className="color-white" htmlFor="email-profile">
               Email
@@ -82,18 +84,12 @@ function Profile() {
             <button className="btn" onClick={handleShowModal}>
               Edit Preferences
             </button>
-            <button
-              className="btn danger"
-              onClick={() => handleDelete("preferences")}
-            >
-              Delete Preferences
-            </button>
           </div>
         </div>
         <div className="flex gap column credentials padding">
           <div>
             <h3 className="color-white">Danger Zone</h3>
-            <hr />
+            <hr className="danger" />
           </div>
           <div>
             <button className="btn danger" onClick={() => handleDelete("data")}>
@@ -102,7 +98,12 @@ function Profile() {
           </div>
         </div>
       </div>
-      {showModal && <DietairyPreferences toggleModal={handleShowModal} />}
+      {showModal && (
+        <DietairyPreferences
+          toggleModal={handleShowModal}
+          handleDelete={handleDelete}
+        />
+      )}
     </div>
   );
 }

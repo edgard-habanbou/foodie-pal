@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
-function DietairyPreferences({ toggleModal }) {
+function DietairyPreferences({ toggleModal, handleDelete }) {
   const [selectedRestriction, setSelectedRestriction] = useState("");
   const [allergies, setAllergies] = useState([]);
   const [selectedCuisine, setSelectedCuisine] = useState("");
@@ -117,9 +117,15 @@ function DietairyPreferences({ toggleModal }) {
               </div>
             </div>
           </div>
-          <div className="flex center">
+          <div className="flex gap center">
             <button className="btn" onClick={handleSave}>
               Save
+            </button>
+            <button
+              className="btn danger"
+              onClick={() => handleDelete("preferences")}
+            >
+              Delete Preferences
             </button>
           </div>
         </div>
