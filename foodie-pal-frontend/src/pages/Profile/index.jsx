@@ -6,10 +6,18 @@ import DietairyPreferences from "../../components/DietairyPreferences";
 import EditProfile from "../../components/EditProfile";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
+import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
 import { userApi } from "../../network/axios";
 
 function Profile() {
   const navigate = useNavigate();
+  const check = async () => {
+    if (!(await checkIfLoggedIn())) {
+      localStorage.clear();
+      navigate("/");
+    }
+  };
+  check();
   const user = JSON.parse(localStorage.getItem("user"));
   const [showModal, setShowModal] = React.useState(false);
   const [showEditProfile, setShowEditProfile] = React.useState(false);
