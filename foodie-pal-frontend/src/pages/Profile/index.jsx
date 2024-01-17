@@ -4,10 +4,12 @@ import Header from "../../components/Header";
 import Popup from "../../components/Popup";
 import DietairyPreferences from "../../components/DietairyPreferences";
 import EditProfile from "../../components/EditProfile";
+import { useNavigate } from "react-router-dom";
 import "./index.css";
 import { userApi } from "../../network/axios";
 
 function Profile() {
+  const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
   const [showModal, setShowModal] = React.useState(false);
   const [showEditProfile, setShowEditProfile] = React.useState(false);
@@ -35,6 +37,10 @@ function Profile() {
           const updatedUser = await userApi.deleteFromUser(data);
           localStorage.setItem("user", JSON.stringify(updatedUser.user));
           handleShowModal();
+        } else {
+          await userApi.deleteUser();
+          localStorage.clear();
+          navigate("/");
         }
         Popup({
           title: "Deleted!",

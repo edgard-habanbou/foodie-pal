@@ -33,6 +33,9 @@ class UserApi {
   async deleteFromUser(data) {
     return await api.post("/subdocument/delete", data);
   }
+  async deleteUser() {
+    return await api.delete("/profile/user");
+  }
 }
 
 export const userApi = new UserApi();
