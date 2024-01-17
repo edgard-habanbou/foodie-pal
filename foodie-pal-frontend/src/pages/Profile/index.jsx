@@ -40,24 +40,18 @@ function Profile() {
               alt="profile"
             />
           </div>
-          <div className="flex gap column">
+          <div className="flex gap center column">
             <h3 className="color-white">
               {user.firstName + " " + user.lastName}
             </h3>
+            <div>
+              <button className="btn" onClick={setShowEditProfile}>
+                Edit Profile
+              </button>
+            </div>
           </div>
         </div>
-        <div className="credentials padding flex gap column">
-          <div>
-            <h3 className="color-white">Profile</h3>
-            <hr />
-          </div>
 
-          <div>
-            <button className="btn" onClick={setShowEditProfile}>
-              Edit Profile
-            </button>
-          </div>
-        </div>
         <div className="flex gap column credentials padding">
           <div>
             <h3 className="color-white">Dietairy Preferences</h3>
