@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faPenToSquare, faX } from "@fortawesome/free-solid-svg-icons";
 
 function EditProfile({ toggleEditProfile, user }) {
+  const [firstName, setFirstName] = useState(user.firstName);
+  const [lastName, setLastName] = useState(user.lastName);
+  const [showEditName, setShowEditName] = useState(false);
+
+  const handleFirstNameChange = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const handleLastNameChange = (e) => {
+    setLastName(e.target.value);
+  };
+
   const handleClick = () => {
     //   handleProfileChange();
   };
@@ -34,14 +46,41 @@ function EditProfile({ toggleEditProfile, user }) {
               </div>
             </div>
             <div className="flex  center ">
-              <h3 className="color-white">
-                {user.firstName + " " + user.lastName}
-              </h3>
-              <div className="pen-square">
-                <button className="btn-menu">
-                  <FontAwesomeIcon icon={faPenToSquare} size="lg" />
-                </button>
-              </div>
+              {!showEditName && (
+                <h3 className="color-white">
+                  {user.firstName + " " + user.lastName}
+                </h3>
+              )}
+              {showEditName && (
+                <div className="flex gap">
+                  <input
+                    type="text"
+                    className="input"
+                    placeholder="First Name"
+                    value={firstName}
+                    onChange={handleFirstNameChange}
+                  />
+                  <input
+                    type="text"
+                    className="input"
+                    placeholder="Last Name"
+                    onChange={handleLastNameChange}
+                    value={lastName}
+                  />
+                </div>
+              )}
+              {!showEditName && (
+                <div className="pen-square">
+                  <button
+                    className="btn-menu"
+                    onClick={() => {
+                      setShowEditName(true);
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 
@@ -69,7 +108,7 @@ function EditProfile({ toggleEditProfile, user }) {
             />
           </div>
           <div className="flex center">
-            <button className="btn">Change Password</button>
+            <button className="btn">Save Changes</button>
           </div>
         </div>
       </div>
