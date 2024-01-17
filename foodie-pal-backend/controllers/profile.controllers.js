@@ -26,6 +26,12 @@ const upload_image = async (req, res) => {
   res.status(200).send({ message: "Image uploaded", image: imageName });
 };
 
+const delete_user = async (req, res) => {
+  const userId = req.user._id;
+  await User.findByIdAndDelete(userId);
+  res.send({ message: "User deleted" });
+};
+
 const get_user = async (req, res) => {
   res.send(req.user);
 };
@@ -33,4 +39,5 @@ const get_user = async (req, res) => {
 module.exports = {
   upload_image,
   get_user,
+  delete_user,
 };
