@@ -144,3 +144,11 @@ span {
 .width-fit {
   width: fit-content;
 }
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("https://192.168.2.9:8000/down-arrow.svg");
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px);
+}
