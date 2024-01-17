@@ -6,10 +6,20 @@ import Loading from "../../components/Loading";
 import { userApi } from "../../network/axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
+import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
+import { useNavigate } from "react-router-dom";
 
 import "./index.css";
 
 const Items = () => {
+  const navigate = useNavigate();
+  const check = async () => {
+    if (!(await checkIfLoggedIn())) {
+      localStorage.clear();
+      navigate("/");
+    }
+  };
+  check();
   const [items, setItems] = useState([]);
   const [itemsInPic, setItemsInPic] = useState([
     "Potato",
