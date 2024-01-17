@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { userApi } from "../../network/axios";
 import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
@@ -7,8 +8,29 @@ function DietairyPreferences({ toggleModal, handleDelete }) {
   const [allergies, setAllergies] = useState([]);
   const [selectedCuisine, setSelectedCuisine] = useState("");
   const [SelectedFlavors, setSelectedFlavors] = useState([]);
-  const handleSave = () => {
-    toggleModal();
+  const handleSave = async () => {
+    // toggleModal();
+    const data = {
+      subDocument: {
+        DietairyPreferences: {},
+      },
+    };
+    if (selectedRestriction !== "") {
+      data.subDocument.DietairyPreferences.restrictions = selectedRestriction;
+    }
+
+    if (allergies !== "") {
+      data.subDocument.DietairyPreferences.allergies = allergies;
+    }
+    if (selectedCuisine !== "") {
+      data.subDocument.DietairyPreferences.cuisinePreferences = selectedCuisine;
+    }
+
+    if (SelectedFlavors.length > 0) {
+      data.subDocument.DietairyPreferences.flavorPreferences = SelectedFlavors;
+    }
+    console.log(data);
+    await userApi.updateUser(data);
   };
   const restrictions = [
     "Vegetarian",
@@ -18,11 +40,22 @@ function DietairyPreferences({ toggleModal, handleDelete }) {
     "Nut-Free",
   ];
   const handleRestrictions = (e) => {
-    setSelectedRestriction(e.target.value);
+    setSelectedRestriction(e);
   };
   const flavorPreferences = ["Spicy", "Sweet", "Savory", "Bitter"];
   const handleFlavorPreferences = (e) => {
-    setSelectedFlavors([...SelectedFlavors, e.target.value]);
+    const flavor = e.target.value;
+
+    if (e.target.checked) {
+      // Checkbox is checked, add flavor to the array if not already present
+      if (!SelectedFlavors.includes(flavor)) {
+        setSelectedFlavors([...SelectedFlavors, flavor]);
+      }
+    } else {
+      // Checkbox is not checked, remove flavor from the array if present
+      const updatedFlavors = SelectedFlavors.filter((item) => item !== flavor);
+      setSelectedFlavors(updatedFlavors);
+    }
   };
   const handleCuisinePreferences = (e) => {
     setSelectedCuisine(e.target.value);
@@ -52,7 +85,7 @@ function DietairyPreferences({ toggleModal, handleDelete }) {
                   return (
                     <div className="flex center gap" key={restriction}>
                       <input
-                        onClick={handleRestrictions}
+                        onClick={() => handleRestrictions(restriction)}
                         value={restriction}
                         type="radio"
                         id={restriction}

@@ -1,6 +1,7 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://192.168.2.9:8000";
+axios.defaults.baseURL =
+  process.env.REACT_APP_BASE_URL || "https://localhost:8000";
 axios.defaults.headers["Authorization"] =
   "Bearer " + localStorage.getItem("token");
 
