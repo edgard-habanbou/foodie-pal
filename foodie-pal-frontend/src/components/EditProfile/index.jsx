@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faPenToSquare, faX } from "@fortawesome/free-solid-svg-icons";
+import { userApi } from "../../network/axios";
 
 function EditProfile({ toggleEditProfile, user }) {
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
+  const [uploadedImage, setUploadedImage] = useState(null);
   const [showEditName, setShowEditName] = useState(false);
 
   const handleFirstNameChange = (e) => {
@@ -23,7 +25,17 @@ function EditProfile({ toggleEditProfile, user }) {
       profileInput.click();
     }
   };
-  const handleProfileChange = () => {};
+  const handleProfileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = async () => {
+        const image = await userApi.uploadImage({ image: reader.result });
+        setUploadedImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   return (
     <div className="modal-overlay">
       <div className="modal">
@@ -40,7 +52,11 @@ function EditProfile({ toggleEditProfile, user }) {
               <div className={`profile-image-container hovered`}>
                 <img
                   className="recipe-image-medium"
-                  src={`${process.env.REACT_APP_BASE_URL}/images/${user.imageUrl}`}
+                  src={
+                    uploadedImage
+                      ? uploadedImage
+                      : `${process.env.REACT_APP_BASE_URL}/images/${user.imageUrl}`
+                  }
                   alt="profile"
                 />
                 <input
