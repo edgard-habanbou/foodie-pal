@@ -31,6 +31,8 @@ function EditProfile({ toggleEditProfile, user }) {
       formData.append("image", file);
       const image = await userApi.uploadImage(formData);
       setUploadedImage(image.image);
+      user.imageUrl = image.image;
+      localStorage.setItem("user", JSON.stringify(user));
     }
   };
   return (
