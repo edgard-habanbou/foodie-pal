@@ -48,6 +48,7 @@ function DietairyPreferences({ toggleModal, handleDelete }) {
     "Gluten Free",
     "Dairy-Free",
     "Nut-Free",
+    "None",
   ];
   const handleRestrictions = (e) => {
     setSelectedRestriction(e);
