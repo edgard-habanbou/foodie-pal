@@ -37,21 +37,28 @@ function Diet() {
   };
 
   const handleSubmit = async () => {
+    let addData = true;
     const form = document.getElementById("questionsSection");
-    const inputs = form.getElementsByTagName("input");
+    const inputs = form.getElementsByClassName("input");
+    const spans = form.getElementsByClassName("span-error");
     for (var i = 0; i < inputs.length; i++) {
-      if (inputs[i].type === "text" && inputs[i].value.trim() === "") {
+      if (inputs[i].value.trim() === "") {
         inputs[i].classList.add("input-error");
+        spans[i].classList.remove("hidden");
+        addData = false;
       } else {
         inputs[i].classList.remove("input-error");
+        spans[i].classList.add("hidden");
       }
     }
-    const data = {
-      subDocument: {
-        DietQuestions: formData,
-      },
-    };
-    // await userApi.updateUser(data);
+    if (addData) {
+      const data = {
+        subDocument: {
+          DietQuestions: formData,
+        },
+      };
+      await userApi.updateUser(data);
+    }
   };
 
   const sections = Object.entries(Questions);
@@ -101,44 +108,48 @@ function Diet() {
                             </span>
                           </div>
                         ) : question.type === "select" ? (
-                          <div className="full-width flex center">
-                            <select
-                              className="input"
-                              onChange={(e) =>
-                                handleInputChange(
-                                  sectionName,
-                                  question,
-                                  e.target.value
-                                )
-                              }
-                            >
-                              <option value="" defaultValue>
-                                Select Option
-                              </option>
-                              {question.options.map((option, o) => (
-                                <option key={o} value={option.value}>
-                                  {option.Name}
+                          <div className="full-width  column">
+                            <div className="flex center">
+                              <select
+                                className="input"
+                                onChange={(e) =>
+                                  handleInputChange(
+                                    sectionName,
+                                    question,
+                                    e.target.value
+                                  )
+                                }
+                              >
+                                <option value="" defaultValue>
+                                  Select Option
                                 </option>
-                              ))}
-                            </select>
+                                {question.options.map((option, o) => (
+                                  <option key={o} value={option.value}>
+                                    {option.Name}
+                                  </option>
+                                ))}
+                              </select>
+                            </div>
                             <span className="color-red span-error hidden">
                               This field cannot be empty!
                             </span>
                           </div>
                         ) : question.type === "number" ? (
-                          <div className="full-width flex center">
-                            <input
-                              className="input"
-                              type="number"
-                              placeholder={question.placeholder}
-                              onChange={(e) =>
-                                handleInputChange(
-                                  sectionName,
-                                  question,
-                                  e.target.value
-                                )
-                              }
-                            />
+                          <div className="full-width  column">
+                            <div className="flex center">
+                              <input
+                                className="input"
+                                type="number"
+                                placeholder={question.placeholder}
+                                onChange={(e) =>
+                                  handleInputChange(
+                                    sectionName,
+                                    question,
+                                    e.target.value
+                                  )
+                                }
+                              />
+                            </div>
                             <span className="color-red span-error hidden">
                               This field cannot be empty!
                             </span>
