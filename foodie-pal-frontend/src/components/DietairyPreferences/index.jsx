@@ -4,10 +4,19 @@ import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 function DietairyPreferences({ toggleModal, handleDelete }) {
-  const [selectedRestriction, setSelectedRestriction] = useState("");
-  const [allergies, setAllergies] = useState([]);
-  const [selectedCuisine, setSelectedCuisine] = useState("");
-  const [SelectedFlavors, setSelectedFlavors] = useState([]);
+  const user = JSON.parse(localStorage.getItem("user"));
+  const [selectedRestriction, setSelectedRestriction] = useState(
+    user.DietairyPreferences[0].restrictions || ""
+  );
+  const [allergies, setAllergies] = useState(
+    user.DietairyPreferences[0].allergies || ""
+  );
+  const [selectedCuisine, setSelectedCuisine] = useState(
+    user.DietairyPreferences[0].cuisinePreferences || ""
+  );
+  const [SelectedFlavors, setSelectedFlavors] = useState(
+    user.DietairyPreferences[0].flavorPreferences || []
+  );
   const handleSave = async () => {
     const data = {
       subDocument: {
@@ -46,14 +55,11 @@ function DietairyPreferences({ toggleModal, handleDelete }) {
   const flavorPreferences = ["Spicy", "Sweet", "Savory", "Bitter"];
   const handleFlavorPreferences = (e) => {
     const flavor = e.target.value;
-
     if (e.target.checked) {
-      // Checkbox is checked, add flavor to the array if not already present
       if (!SelectedFlavors.includes(flavor)) {
         setSelectedFlavors([...SelectedFlavors, flavor]);
       }
     } else {
-      // Checkbox is not checked, remove flavor from the array if present
       const updatedFlavors = SelectedFlavors.filter((item) => item !== flavor);
       setSelectedFlavors(updatedFlavors);
     }
@@ -89,6 +95,9 @@ function DietairyPreferences({ toggleModal, handleDelete }) {
                         onClick={() => handleRestrictions(restriction)}
                         value={restriction}
                         type="radio"
+                        {...(selectedRestriction === restriction && {
+                          checked: true,
+                        })}
                         id={restriction}
                         name="restriction"
                       />
@@ -138,6 +147,9 @@ function DietairyPreferences({ toggleModal, handleDelete }) {
                       <input
                         onClick={handleFlavorPreferences}
                         value={flavor}
+                        {...(SelectedFlavors.includes(flavor) && {
+                          checked: true,
+                        })}
                         type="checkbox"
                         id={flavor}
                         name="flavor"
