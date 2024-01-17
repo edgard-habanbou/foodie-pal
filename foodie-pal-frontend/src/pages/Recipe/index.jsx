@@ -9,11 +9,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { faClock, faFire, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { userApi } from "../../network/axios";
+import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
 
 function Recipe() {
+  const navigate = useNavigate();
+  const check = async () => {
+    if (!(await checkIfLoggedIn())) {
+      localStorage.clear();
+      navigate("/");
+    }
+  };
+  check();
   const [Load, setLoading] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
-  const navigate = useNavigate();
   const { id } = useParams();
   const recipes = JSON.parse(localStorage.getItem("recipes"));
   const selectedRecipe = recipes.find(
