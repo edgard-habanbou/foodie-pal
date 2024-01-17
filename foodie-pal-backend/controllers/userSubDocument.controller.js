@@ -30,7 +30,6 @@ const addEditSubDocument = async (req, res) => {
 
       await User.findByIdAndUpdate(req.user._id, updateQuery);
     }
-
     const updatedUser = await User.findById(req.user._id).select(
       "-password -_id -__v"
     );
