@@ -1,13 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
-const EatingHabbit = require("./eatingHabbit.model");
-const Allergy = require("./allergy.model");
-const MedicalCondition = require("./medicalCondition.model");
-const CookingPreference = require("./cookingPreference.model");
-const DietPlanUserInfo = require("./dietPlanUserInfo.model");
 const DietairyPreference = require("./dietairyPreference.model");
-const NutritionGoal = require("./nutritionGoal.model");
 const Item = require("./Item.model");
 const Recipe = require("./recipe.model");
 
@@ -53,34 +47,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "no-profile-picture-icon.png",
   },
-  medications: {
-    type: [String],
-  },
   items: {
     type: [Item.schema],
   },
-  eatingHabbits: {
-    type: [EatingHabbit.schema],
-  },
-  medicalConditions: {
-    type: [mongoose.Schema.Types.ObjectId],
-    ref: MedicalCondition,
-  },
-  allergies: {
-    type: [mongoose.Schema.Types.ObjectId],
-    ref: Allergy,
-  },
-  cookingPreferences: {
-    type: [CookingPreference.schema],
-  },
-  DietPlanUserInfo: {
-    type: [DietPlanUserInfo.schema],
-  },
   DietairyPreferences: {
     type: [DietairyPreference.schema],
-  },
-  NutritionGoals: {
-    type: [NutritionGoal.schema],
   },
   FavoriteRecipes: {
     type: [Recipe.schema],
