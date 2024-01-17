@@ -14,6 +14,7 @@ import "swiper/css/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
 import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
+import { userApi } from "../../network/axios";
 
 function Diet() {
   const navigate = useNavigate();
@@ -33,6 +34,15 @@ function Diet() {
         [question.Question]: value,
       },
     }));
+  };
+
+  const handleSubmit = async () => {
+    const data = {
+      subDocument: {
+        DietQuestions: formData,
+      },
+    };
+    await userApi.updateUser(data);
   };
 
   const sections = Object.entries(Questions);
@@ -115,12 +125,7 @@ function Diet() {
                   ))}
                   {i === sections.length - 1 && (
                     <div className="flex center ">
-                      <button
-                        className="btn"
-                        onClick={() =>
-                          console.log(JSON.stringify(formData, null, 2))
-                        }
-                      >
+                      <button className="btn" onClick={handleSubmit}>
                         Submit
                       </button>
                     </div>
