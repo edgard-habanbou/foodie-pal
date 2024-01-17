@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const DietairyPreference = require("./dietairyPreference.model");
 const Item = require("./Item.model");
 const Recipe = require("./recipe.model");
+const dietQuestions = require("./dietQuestions.model");
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -55,6 +56,9 @@ const userSchema = new mongoose.Schema({
   },
   FavoriteRecipes: {
     type: [Recipe.schema],
+  },
+  DietQuestions: {
+    type: [dietQuestions.schema],
   },
 });
 
