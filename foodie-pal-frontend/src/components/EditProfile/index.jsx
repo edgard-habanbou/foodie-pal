@@ -9,6 +9,7 @@ function EditProfile({ toggleEditProfile, user }) {
   const [lastName, setLastName] = useState(user.lastName);
   const [uploadedImage, setUploadedImage] = useState(null);
   const [showEditName, setShowEditName] = useState(false);
+  const [password, setPassword] = useState("");
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -16,6 +17,9 @@ function EditProfile({ toggleEditProfile, user }) {
 
   const handleLastNameChange = (e) => {
     setLastName(e.target.value);
+  };
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
   };
 
   const handleClick = () => {
@@ -35,6 +39,28 @@ function EditProfile({ toggleEditProfile, user }) {
       localStorage.setItem("user", JSON.stringify(user));
     }
   };
+
+  const saveChanges = async () => {
+    const data = {
+      subDocument: {},
+    };
+
+    if (firstName !== user.firstName) {
+      data.subDocument.firstName = firstName;
+    }
+
+    if (lastName !== user.lastName) {
+      data.subDocument.lastName = lastName;
+    }
+
+    if (password !== "") {
+      data.subDocument.password = password;
+    }
+    const updatedUser = await userApi.updateUser(data);
+    localStorage.setItem("user", JSON.stringify(updatedUser.updatedUser));
+    toggleEditProfile();
+  };
+
   return (
     <div className="modal-overlay">
       <div className="modal">
@@ -132,10 +158,14 @@ function EditProfile({ toggleEditProfile, user }) {
               placeholder="password"
               id="password-profile"
               className="input"
+              value={password}
+              onChange={handlePasswordChange}
             />
           </div>
           <div className="flex center">
-            <button className="btn">Save Changes</button>
+            <button className="btn" onClick={saveChanges}>
+              Save Changes
+            </button>
           </div>
         </div>
       </div>
