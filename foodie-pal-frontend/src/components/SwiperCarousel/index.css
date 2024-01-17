@@ -6,5 +6,5 @@
   background: var(--primarycolor) !important;
 }
 .swiper-slide {
-  margin-left: 5px;
+  padding-left: 5px;
 }

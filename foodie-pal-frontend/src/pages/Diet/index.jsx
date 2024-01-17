@@ -49,71 +49,74 @@ function Diet() {
                 <h3 className="margin">
                   {sectionName} <hr />
                 </h3>
-
-                {sectionQuestions.map((question, j) => (
-                  <div key={j} className="margin flex padding column gap">
-                    <p>{question.Question}</p>
-                    {question.type === "text" ? (
-                      <input
-                        type="text"
-                        className="input"
-                        placeholder={question.placeholder}
-                        onChange={(e) =>
-                          handleInputChange(
-                            sectionName,
-                            question,
-                            e.target.value
-                          )
-                        }
-                      />
-                    ) : question.type === "select" ? (
-                      <select
-                        className="input"
-                        onChange={(e) =>
-                          handleInputChange(
-                            sectionName,
-                            question,
-                            e.target.value
-                          )
+                <div className="flex gap center column margin padding ">
+                  {sectionQuestions.map((question, j) => (
+                    <div key={j} className="flex column full-width">
+                      <p>{question.Question}</p>
+                      <div className="flex center">
+                        {question.type === "text" ? (
+                          <input
+                            type="text"
+                            className="input"
+                            placeholder={question.placeholder}
+                            onChange={(e) =>
+                              handleInputChange(
+                                sectionName,
+                                question,
+                                e.target.value
+                              )
+                            }
+                          />
+                        ) : question.type === "select" ? (
+                          <select
+                            className="input"
+                            onChange={(e) =>
+                              handleInputChange(
+                                sectionName,
+                                question,
+                                e.target.value
+                              )
+                            }
+                          >
+                            <option value="" defaultValue>
+                              Select Option
+                            </option>
+                            {question.options.map((option, o) => (
+                              <option key={o} value={option.value}>
+                                {option.Name}
+                              </option>
+                            ))}
+                          </select>
+                        ) : question.type === "number" ? (
+                          <input
+                            className="input"
+                            type="number"
+                            placeholder={question.placeholder}
+                            onChange={(e) =>
+                              handleInputChange(
+                                sectionName,
+                                question,
+                                e.target.value
+                              )
+                            }
+                          />
+                        ) : null}
+                      </div>
+                    </div>
+                  ))}
+                  {i === sections.length - 1 && (
+                    <div className="flex center ">
+                      <button
+                        className="btn"
+                        onClick={() =>
+                          console.log(JSON.stringify(formData, null, 2))
                         }
                       >
-                        <option value="" defaultValue>
-                          Select Option
-                        </option>
-                        {question.options.map((option, o) => (
-                          <option key={o} value={option.value}>
-                            {option.Name}
-                          </option>
-                        ))}
-                      </select>
-                    ) : question.type === "number" ? (
-                      <input
-                        className="input"
-                        type="number"
-                        placeholder={question.placeholder}
-                        onChange={(e) =>
-                          handleInputChange(
-                            sectionName,
-                            question,
-                            e.target.value
-                          )
-                        }
-                      />
-                    ) : null}
-                  </div>
-                ))}
-                {i === sections.length - 1 && (
-                  <div className="flex center ">
-                    <button
-                      className="btn"
-                      onClick={() =>
-                        console.log(JSON.stringify(formData, null, 2))
-                      }
-                    >
-                      Submit
-                    </button>
-                  </div>
-                )}
+                        Submit
+                      </button>
+                    </div>
+                  )}
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
