@@ -68,7 +68,7 @@ function SwiperVertical({
       })}
       {chats?.map(([sender, chat], i) => (
         <SwiperSlide key={i}>
-          <div className={sender !== "openai" && "flex right"}>
+          <div className={sender !== "openai" ? "flex right" : ""}>
             <div className="message">{chat}</div>
           </div>
         </SwiperSlide>
