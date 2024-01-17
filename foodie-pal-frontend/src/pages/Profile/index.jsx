@@ -44,41 +44,14 @@ function Profile() {
             <h3 className="color-white">
               {user.firstName + " " + user.lastName}
             </h3>
-            <button className="btn">Change Name</button>
-            <button className="btn">Change Profile Photo</button>
           </div>
         </div>
         <div className="credentials padding flex gap column">
           <div>
-            <h3 className="color-white">Credentials</h3>
+            <h3 className="color-white">Profile</h3>
             <hr />
           </div>
-          <div>
-            <label className="color-white" htmlFor="email-profile">
-              Email
-            </label>
-            <input
-              type="text"
-              className="input"
-              disabled
-              placeholder={user.email}
-              id="email-profile"
-            />
-          </div>
-          <div>
-            <label className="color-white" htmlFor="password-profile">
-              Password
-            </label>
-            <input
-              type="password"
-              placeholder="password"
-              id="password-profile"
-              className="input"
-            />
-          </div>
-          <div className="flex center">
-            <button className="btn">Change Password</button>
-          </div>
+
           <div>
             <button className="btn" onClick={setShowEditProfile}>
               Edit Profile
