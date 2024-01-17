@@ -8,7 +8,7 @@ const checkIfLoggedIn = async () => {
     if (!response.user) {
       return false;
     } else {
-      localStorage.setItem("user", response);
+      localStorage.setItem("user", JSON.stringify(response.user));
       return true;
     }
   } else {
