@@ -23,7 +23,7 @@ const upload_image = async (req, res) => {
     imageUrl: imageName,
   });
 
-  res.status(200).send("Image uploaded");
+  res.status(200).send({ message: "Image uploaded", image: imageName });
 };
 
 const get_user = async (req, res) => {
