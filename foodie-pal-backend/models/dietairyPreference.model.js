@@ -2,16 +2,16 @@ const mongoose = require("mongoose");
 
 const dietairyPreferencesSchema = new mongoose.Schema({
   restrictions: {
-    type: [mongoose.Schema.Types.ObjectId],
-    required: true,
-  },
-  mealsPerDay: {
-    type: Number,
-    required: true,
-  },
-  dailySchedule: {
     type: String,
-    required: true,
+  },
+  allergies: {
+    type: String,
+  },
+  cuisinePreferences: {
+    type: String,
+  },
+  flavorPreferences: {
+    type: [String],
   },
 });
 
