@@ -1,10 +1,10 @@
 const User = require("../models/user.model");
+const bcrypt = require("bcrypt");
 
 const addEditSubDocument = async (req, res) => {
   try {
     const user = req.user;
     const subDocument = req.body.subDocument;
-
     for (const [key, value] of Object.entries(subDocument)) {
       let updateQuery = {};
 
@@ -24,6 +24,10 @@ const addEditSubDocument = async (req, res) => {
           const updatedItems = [...existingFavs, newFav];
           updateQuery[key] = updatedItems;
         }
+      } else if (key === "password") {
+        const salt = await bcrypt.genSalt(10);
+        const hashedPass = await bcrypt.hash(value, salt);
+        updateQuery[key] = hashedPass;
       } else {
         updateQuery[key] = value;
       }

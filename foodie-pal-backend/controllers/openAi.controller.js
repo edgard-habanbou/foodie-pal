@@ -75,6 +75,13 @@ const getRecipes = async (req, res) => {
   }
 };
 
+const makeDietPlan = async (req, res) => {
+  const user = req.body.user;
+  const dietQuestionsAndAnswers = user.dietQuestions;
+  console.log(dietQuestionsAndAnswers);
+};
+
 module.exports = {
   getRecipes,
+  makeDietPlan,
 };
