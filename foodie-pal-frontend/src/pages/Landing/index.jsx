@@ -19,18 +19,18 @@ function Landing() {
     }
   };
   check();
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState(null);
   const [Load, setLoading] = useState(false);
 
-  const getRecipes = async () => {
-    setLoading(true);
-    const recipes = await userApi.getRecipes();
-    localStorage.setItem("recipes", JSON.stringify(recipes?.recipes));
-    setRecipes(recipes?.recipes);
-    setLoading(false);
-  };
   useEffect(() => {
-    getRecipes();
+    const getRecipes = async () => {
+      setLoading(true);
+      const recipes = await userApi.getRecipes();
+      localStorage.setItem("recipes", JSON.stringify(recipes?.recipes));
+      setRecipes(recipes?.recipes);
+      setLoading(false);
+    };
+    if (localStorage.getItem("token") !== null) getRecipes();
   }, []);
 
   return (
@@ -44,7 +44,7 @@ function Landing() {
           <CategoriesNav />
         </div>
 
-        <SwiperCarousel recipes={recipes} row={3} />
+        {recipes && <SwiperCarousel recipes={recipes} row={3} />}
       </div>
       {Load && <Loading />}
     </div>
