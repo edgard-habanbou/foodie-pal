@@ -3,18 +3,22 @@ const axios = require("axios");
 
 const getRecipes = async (req, res) => {
   let items = "items:";
+  if (req.user.items.length !== 0) {
+    req.user.items.forEach((item) => {
+      items = items + item.name + ", ";
+    });
+  }
   let DietairyPreferences = "DietaryPreferences: ";
-  req.user.items.forEach((item) => {
-    items = items + item.name + ", ";
-  });
   const pref = req.user.DietairyPreferences[0];
-  const arr = Object.entries(pref._doc);
+  if (pref !== undefined) {
+    const arr = Object.entries(pref._doc);
 
-  arr.forEach((element) => {
-    if (element[0] !== "_id") {
-      DietairyPreferences += element[0] + ":" + element[1] + ", ";
-    }
-  });
+    arr.forEach((element) => {
+      if (element[0] !== "_id") {
+        DietairyPreferences += element[0] + ":" + element[1] + ", ";
+      }
+    });
+  }
   try {
     const openai = new OpenAI({
       apiKey: process.env.OPENAI_API_KEY,
