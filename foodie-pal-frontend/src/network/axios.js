@@ -36,6 +36,9 @@ class UserApi {
   async deleteUser() {
     return await api.delete("/profile/user");
   }
+  async getRecipes() {
+    return await api.get("/openai/getrecipes");
+  }
 }
 
 export const userApi = new UserApi();

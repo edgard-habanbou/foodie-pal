@@ -17,10 +17,7 @@ class base {
 
   async get(url) {
     try {
-      const response = await Promise.race([
-        axios.get(url),
-        this.createTimeoutPromise(),
-      ]);
+      const response = await axios.get(url);
       return response?.data;
     } catch (error) {
       return error;
