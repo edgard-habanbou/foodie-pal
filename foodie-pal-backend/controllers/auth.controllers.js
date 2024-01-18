@@ -24,7 +24,7 @@ const login = async (req, res) => {
     res.status(400).send({ message: "Invalid email/password" });
     return;
   }
-  const { password: hashedPassword, _id, ...userDetails } = user.toJSON();
+  const { password: hashedPassword, ...userDetails } = user.toJSON();
 
   // generate JWT token
   const token = jwt.sign(
@@ -149,7 +149,7 @@ const checkToken = async (req, res) => {
   }
 };
 
-const checkAuthToken = (req, res) => {
+const checkAuthToken = async (req, res) => {
   const { token } = req.body;
   if (!token) {
     res.status(400).send({ message: "token is required" });
@@ -158,7 +158,8 @@ const checkAuthToken = (req, res) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    res.status(200).send({ user: decoded });
+    const user = await User.findOne({ _id: decoded._id });
+    res.status(200).send({ user: user });
   } catch (e) {
     res.status(400).send({ message: "Invalid token" });
   }
