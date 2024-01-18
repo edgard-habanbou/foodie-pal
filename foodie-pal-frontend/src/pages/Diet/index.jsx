@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import Questions from "./questions";
@@ -19,6 +19,8 @@ import { userApi } from "../../network/axios";
 function Diet() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
+  const [Load, setLoad] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
   const check = async () => {
     if (!(await checkIfLoggedIn())) {
       localStorage.clear();
@@ -26,6 +28,14 @@ function Diet() {
     }
   };
   check();
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user && user.DietQuestions) {
+      setShowMessage(true);
+    }
+  }, []);
+
   const handleInputChange = (sectionName, question, value) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -37,6 +47,7 @@ function Diet() {
   };
 
   const handleSubmit = async () => {
+    setLoad(true);
     let addData = true;
     const form = document.getElementById("questionsSection");
     const inputs = form.getElementsByClassName("input");
@@ -58,6 +69,8 @@ function Diet() {
         },
       };
       await userApi.updateUser(data);
+      setLoad(false);
+      setShowMessage(true);
     }
   };
 
@@ -70,76 +83,31 @@ function Diet() {
       </div>
       <div className="landing">
         <Header />
-        <div className="questions-section" id="questionsSection">
-          <Swiper
-            pagination={{
-              clickable: true,
-            }}
-            navigation={true}
-            modules={[Pagination, Navigation]}
-            className="mySwiper"
-          >
-            {sections.map(([sectionName, sectionQuestions], i) => (
-              <SwiperSlide key={i}>
-                <h3 className="margin">
-                  {sectionName} <hr />
-                </h3>
-                <div className="flex gap center column margin padding ">
-                  {sectionQuestions.map((question, j) => (
-                    <div key={j} className="flex column full-width">
-                      <p>{question.Question}</p>
-                      <div className="flex center">
-                        {question.type === "text" ? (
-                          <div className="full-width">
-                            <input
-                              type="text"
-                              className="input"
-                              placeholder={question.placeholder}
-                              onChange={(e) =>
-                                handleInputChange(
-                                  sectionName,
-                                  question,
-                                  e.target.value
-                                )
-                              }
-                            />
-                            <span className="color-red span-error hidden">
-                              This field cannot be empty!
-                            </span>
-                          </div>
-                        ) : question.type === "select" ? (
-                          <div className="full-width  column">
-                            <div className="flex center">
-                              <select
-                                className="input"
-                                onChange={(e) =>
-                                  handleInputChange(
-                                    sectionName,
-                                    question,
-                                    e.target.value
-                                  )
-                                }
-                              >
-                                <option value="" defaultValue>
-                                  Select Option
-                                </option>
-                                {question.options.map((option, o) => (
-                                  <option key={o} value={option.value}>
-                                    {option.Name}
-                                  </option>
-                                ))}
-                              </select>
-                            </div>
-                            <span className="color-red span-error hidden">
-                              This field cannot be empty!
-                            </span>
-                          </div>
-                        ) : question.type === "number" ? (
-                          <div className="full-width  column">
-                            <div className="flex center">
+        {!showMessage && (
+          <div className="questions-section" id="questionsSection">
+            <Swiper
+              pagination={{
+                clickable: true,
+              }}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              className="mySwiper"
+            >
+              {sections.map(([sectionName, sectionQuestions], i) => (
+                <SwiperSlide key={i}>
+                  <h3 className="margin">
+                    {sectionName} <hr />
+                  </h3>
+                  <div className="flex gap center column margin padding ">
+                    {sectionQuestions.map((question, j) => (
+                      <div key={j} className="flex column full-width">
+                        <p>{question.Question}</p>
+                        <div className="flex center">
+                          {question.type === "text" ? (
+                            <div className="full-width">
                               <input
+                                type="text"
                                 className="input"
-                                type="number"
                                 placeholder={question.placeholder}
                                 onChange={(e) =>
                                   handleInputChange(
@@ -149,49 +117,110 @@ function Diet() {
                                   )
                                 }
                               />
+                              <span className="color-red span-error hidden">
+                                This field cannot be empty!
+                              </span>
                             </div>
-                            <span className="color-red span-error hidden">
-                              This field cannot be empty!
-                            </span>
-                          </div>
-                        ) : null}
+                          ) : question.type === "select" ? (
+                            <div className="full-width  column">
+                              <div className="flex center">
+                                <select
+                                  className="input"
+                                  onChange={(e) =>
+                                    handleInputChange(
+                                      sectionName,
+                                      question,
+                                      e.target.value
+                                    )
+                                  }
+                                >
+                                  <option value="" defaultValue>
+                                    Select Option
+                                  </option>
+                                  {question.options.map((option, o) => (
+                                    <option key={o} value={option.value}>
+                                      {option.Name}
+                                    </option>
+                                  ))}
+                                </select>
+                              </div>
+                              <span className="color-red span-error hidden">
+                                This field cannot be empty!
+                              </span>
+                            </div>
+                          ) : question.type === "number" ? (
+                            <div className="full-width  column">
+                              <div className="flex center">
+                                <input
+                                  className="input"
+                                  type="number"
+                                  placeholder={question.placeholder}
+                                  onChange={(e) =>
+                                    handleInputChange(
+                                      sectionName,
+                                      question,
+                                      e.target.value
+                                    )
+                                  }
+                                />
+                              </div>
+                              <span className="color-red span-error hidden">
+                                This field cannot be empty!
+                              </span>
+                            </div>
+                          ) : null}
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                  {i === sections.length - 1 && (
-                    <div className="flex center ">
-                      <button className="btn" onClick={handleSubmit}>
-                        Submit
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div className="flex space-between">
-            <button
-              className="btn-menu"
-              onClick={() => {
-                document
-                  .getElementsByClassName("swiper-button-prev")[0]
-                  .click();
-              }}
-            >
-              <FontAwesomeIcon icon={faBackward} size="2xl" color="#fe8a01" />
-            </button>
-            <button
-              className="btn-menu"
-              onClick={() => {
-                document
-                  .getElementsByClassName("swiper-button-next")[0]
-                  .click();
-              }}
-            >
-              <FontAwesomeIcon icon={faForward} size="2xl" color="#fe8a01" />
-            </button>
+                    ))}
+                    {i === sections.length - 1 && (
+                      <div className="flex center ">
+                        <button className="btn" onClick={handleSubmit}>
+                          Submit
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div className="flex space-between">
+              <button
+                className="btn-menu"
+                onClick={() => {
+                  document
+                    .getElementsByClassName("swiper-button-prev")[0]
+                    .click();
+                }}
+              >
+                <FontAwesomeIcon icon={faBackward} size="2xl" color="#fe8a01" />
+              </button>
+              <button
+                className="btn-menu"
+                onClick={() => {
+                  document
+                    .getElementsByClassName("swiper-button-next")[0]
+                    .click();
+                }}
+              >
+                <FontAwesomeIcon icon={faForward} size="2xl" color="#fe8a01" />
+              </button>
+            </div>
           </div>
-        </div>
+        )}
+        {showMessage && (
+          <div className="flex center message-diet column color-white">
+            <h3 className="margin ">
+              Thank you for providing all this information.
+            </h3>
+            <p className="text-center margin padding">
+              We will carefully review your responses and work on creating a
+              personalized nutrition plan for you. We appreciate your patience,
+              and we'll get back to you soon with the details. If you have any
+              additional questions or concerns in the meantime, feel free to
+              reach out. Thank you!
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
