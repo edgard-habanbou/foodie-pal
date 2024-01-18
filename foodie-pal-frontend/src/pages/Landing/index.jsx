@@ -21,6 +21,7 @@ function Landing() {
   check();
   const [recipes, setRecipes] = useState(null);
   const [Load, setLoading] = useState(false);
+  const [category, setCategory] = useState(null);
 
   useEffect(() => {
     const getRecipes = async () => {
@@ -35,7 +36,9 @@ function Landing() {
       getRecipes();
     }
   }, []);
-
+  useEffect(() => {
+    console.log(category);
+  }, [category]);
   return (
     <div className="flex background">
       <div>
@@ -44,7 +47,7 @@ function Landing() {
       <div className="landing ">
         <Header />
         <div className="flex center">
-          <CategoriesNav />
+          <CategoriesNav setCategory={setCategory} />
         </div>
 
         {recipes && <SwiperCarousel recipes={recipes} row={3} />}

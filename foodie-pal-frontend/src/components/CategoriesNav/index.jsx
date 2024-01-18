@@ -2,7 +2,7 @@ import Flicking from "@egjs/react-flicking";
 import "@egjs/react-flicking/dist/flicking-inline.css";
 import "./index.css";
 
-function CategoriesNav() {
+function CategoriesNav({ setCategory }) {
   const categories = [
     "All",
     "Indian",
@@ -16,7 +16,7 @@ function CategoriesNav() {
   ];
   const handleCategoryClick = (e) => {
     const selectedCategory = e.target.innerText;
-
+    setCategory(selectedCategory);
     const catNavItems = document.querySelectorAll(".cat-nav-item");
     catNavItems.forEach((item) => {
       if (item.innerText === selectedCategory) {
