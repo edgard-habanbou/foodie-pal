@@ -1,8 +1,9 @@
 const OpenAI = require("openai");
+const axios = require("axios");
 
 const getRecipes = async (req, res) => {
   let items = "items:";
-  let DietairyPreferences = "DietairyPreferences: ";
+  let DietairyPreferences = "DietaryPreferences: ";
   req.user.items.forEach((item) => {
     items = items + item.name + ", ";
   });
@@ -22,10 +23,10 @@ const getRecipes = async (req, res) => {
       messages: [
         {
           role: "user",
-          content: `Consider yourself a machine learning model that returns  recipes based on items i will give you
+          content: `Consider yourself a machine learning model that returns recipes based on items I will give you
                 give me 10 recipes
                 the recipes ingredients should only contain the items given
-                I might also give you dietairy preferences
+                I might also give you dietary preferences
                 you should return only a JSON object with this format: [{"id":id(from 0 and add 1 for each item), "title": recipe name, "description":desc, "calories": how many calories, "time": how much time (45m, 1hr...), "instructions":["instruction1", "instruction2"...](make sure to add each instruction by itself), "ingredients": ["ingredient1", "ingredient2" ...]}]
                 don't add anything else to the object
                 ${items}
@@ -37,13 +38,36 @@ const getRecipes = async (req, res) => {
       model: "gpt-3.5-turbo-1106",
       max_tokens: 3700,
     });
+    const recipes = JSON.parse(chatCompletion.choices[0].message.content);
+
+    const fetchImagePromises = recipes.map(async (recipe, index) => {
+      const encodedTitle = encodeURIComponent(recipe.title);
+
+      await new Promise((resolve) => setTimeout(resolve, index * 500));
+
+      const res = await axios.get(
+        "https://api.bing.microsoft.com/v7.0/images/search?q=" + encodedTitle,
+        {
+          headers: {
+            "Ocp-Apim-Subscription-Key": process.env.BING_API_KEY,
+          },
+        }
+      );
+
+      recipe.imageUrl = res.data.value[0].thumbnailUrl;
+    });
+
+    await Promise.all(fetchImagePromises);
+
+    // Send the response with the recipes containing image URLs
     res.send({
-      recipes: JSON.parse(chatCompletion.choices[0].message.content),
+      recipes: recipes,
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+
 module.exports = {
   getRecipes,
 };
