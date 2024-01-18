@@ -30,7 +30,10 @@ function Landing() {
       setRecipes(recipes?.recipes);
       setLoading(false);
     };
-    if (localStorage.getItem("token") !== null) getRecipes();
+    if (localStorage.getItem("token") !== null) {
+      console.log(localStorage.getItem("token"));
+      getRecipes();
+    }
   }, []);
 
   return (

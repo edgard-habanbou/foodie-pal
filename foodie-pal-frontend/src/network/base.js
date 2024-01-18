@@ -2,7 +2,7 @@ import axios from "axios";
 
 axios.defaults.baseURL =
   process.env.REACT_APP_BASE_URL || "https://localhost:8000";
-if (localStorage.getItem("token"))
+if (localStorage.getItem("token") !== null)
   axios.defaults.headers["Authorization"] =
     "Bearer " + localStorage.getItem("token");
 
@@ -18,7 +18,11 @@ class base {
 
   async get(url) {
     try {
-      const response = await axios.get(url);
+      const response = await axios.get(url, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      });
       return response?.data;
     } catch (error) {
       return error;
