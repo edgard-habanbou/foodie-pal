@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
 import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
 import { userApi } from "../../network/axios";
+import Loading from "../../components/Loading";
 
 function Diet() {
   const navigate = useNavigate();
@@ -222,6 +223,7 @@ function Diet() {
           </div>
         )}
       </div>
+      {Load && <Loading />}
     </div>
   );
 }
