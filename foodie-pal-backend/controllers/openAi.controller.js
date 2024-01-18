@@ -10,7 +10,7 @@ const getRecipes = async (req, res) => {
       items = items + item.name + ", ";
     });
   }
-  let DietairyPreferences = "DietaryPreferences: ";
+  let DietairyPreferences = "DietaryPreferences: " + category + ", ";
   const pref = req.user.DietairyPreferences[0];
   if (pref !== undefined) {
     const arr = Object.entries(pref._doc);
@@ -18,9 +18,6 @@ const getRecipes = async (req, res) => {
     arr.forEach((element) => {
       if (element[0] !== "_id") {
         DietairyPreferences += element[0] + ":" + element[1] + ", ";
-        if (element[0] === "cuisinePreferences") {
-          DietairyPreferences += category + ", ";
-        }
       }
     });
   }
