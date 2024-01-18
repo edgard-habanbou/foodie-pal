@@ -24,21 +24,18 @@ function Landing() {
   const [category, setCategory] = useState(null);
 
   useEffect(() => {
-    const getRecipes = async () => {
+    const getRecipes = async (category) => {
       setLoading(true);
-      const recipes = await userApi.getRecipes();
+      const recipes = await userApi.getRecipes(category);
       localStorage.setItem("recipes", JSON.stringify(recipes?.recipes));
       setRecipes(recipes?.recipes);
       setLoading(false);
     };
     if (localStorage.getItem("token") !== null) {
-      console.log(localStorage.getItem("token"));
-      getRecipes();
+      getRecipes(category);
     }
-  }, []);
-  useEffect(() => {
-    console.log(category);
   }, [category]);
+
   return (
     <div className="flex background">
       <div>

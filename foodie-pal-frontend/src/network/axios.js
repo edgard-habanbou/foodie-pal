@@ -36,8 +36,11 @@ class UserApi {
   async deleteUser() {
     return await api.delete("/profile/user");
   }
-  async getRecipes() {
-    return await api.get("/openai/getrecipes");
+  async getRecipes(category) {
+    if (category === null) {
+      return await api.get(`/openai/getrecipes`);
+    }
+    return await api.get(`/openai/getrecipes/${category}`);
   }
 }
 
