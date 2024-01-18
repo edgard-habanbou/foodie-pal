@@ -42,6 +42,9 @@ class UserApi {
     }
     return await api.get(`/openai/getrecipes/${category}`);
   }
+  async makeDietPlan(data) {
+    return await api.post("/openai/dietplan", data);
+  }
 }
 
 export const userApi = new UserApi();
