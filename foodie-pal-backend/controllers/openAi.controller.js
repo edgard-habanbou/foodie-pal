@@ -67,7 +67,6 @@ const getRecipes = async (req, res) => {
 
     await Promise.all(fetchImagePromises);
 
-    // Send the response with the recipes containing image URLs
     res.send({
       recipes: recipes,
     });
