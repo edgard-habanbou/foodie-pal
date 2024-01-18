@@ -2,6 +2,8 @@ const OpenAI = require("openai");
 const axios = require("axios");
 
 const getRecipes = async (req, res) => {
+  const category = req.params.category;
+
   let items = "items:";
   if (req.user.items.length !== 0) {
     req.user.items.forEach((item) => {
@@ -16,6 +18,9 @@ const getRecipes = async (req, res) => {
     arr.forEach((element) => {
       if (element[0] !== "_id") {
         DietairyPreferences += element[0] + ":" + element[1] + ", ";
+        if (element[0] === "cuisinePreferences") {
+          DietairyPreferences += category + ", ";
+        }
       }
     });
   }

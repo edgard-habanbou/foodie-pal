@@ -4,6 +4,6 @@ const { getRecipes } = require("../controllers/openAi.controller");
 
 const router = express.Router();
 
-router.get("/getrecipes", getRecipes);
+router.get("/getrecipes/:category", getRecipes);
 
 module.exports = router;
