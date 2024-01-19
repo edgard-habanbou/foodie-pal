@@ -7,7 +7,6 @@ const getRecipes = async (req, res) => {
   const category = req.params.category;
   const items = req.user.items;
   const ItemsAndPreferences = makeItemsAndPreferences(items, pref, category);
-  console.log(ItemsAndPreferences);
   try {
     const message = `Consider yourself a machine-learning model that returns recipes based on items I will give you.
     the recipe's ingredients should only contain the items given but you can add spices.
@@ -16,35 +15,16 @@ const getRecipes = async (req, res) => {
     You should return only a JSON object with this format: [{"id": id(from 0 and add 1 for each item), "title": recipe name, "description":description, "calories": how many calories, "time": how much time (45m) (don't give me in hours), "instructions":["instruction1", "instruction2"...](make sure to add each instruction by itself), "ingredients": ["ingredient1", "ingredient2" ...]}]
     Don't add anything else to the object
     ${ItemsAndPreferences}
+    make sure to close the JSON file at the end
     your answer MUST BE 10 RECIPIES
     Give me only the JSON object and remove all texts before and after it.`;
 
     const recipes = await chatCompletion(message);
 
-    const fetchImagePromises = recipes.map(async (recipe, index) => {
-      const encodedTitle = encodeURIComponent(recipe.title);
-
-      try {
-        await new Promise((resolve, rej) => setTimeout(resolve, 500));
-        const res = await axios.get(
-          "https://api.bing.microsoft.com/v7.0/images/search?q=" + encodedTitle,
-          {
-            headers: {
-              "Ocp-Apim-Subscription-Key": process.env.BING_API_KEY,
-            },
-          }
-        );
-        const thumbnailUrl = res.data.value[0].thumbnailUrl;
-        recipe.imageUrl = thumbnailUrl;
-      } catch (e) {
-        recipe.imageUrl = `${process.env.SERVER_LINK}/default-item.png`;
-      }
-    });
-
-    await Promise.all(fetchImagePromises);
+    const recipesWithImages = await addImages(recipes);
 
     res.send({
-      recipes: recipes,
+      recipes: recipesWithImages,
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -128,4 +108,31 @@ const makeItemsAndPreferences = (userItems, pref, category) => {
     });
   }
   return items + " " + DietairyPreferences;
+};
+
+const addImages = async (recipes) => {
+  const recipesWithImages = JSON.parse(JSON.stringify(recipes));
+  const fetchImagePromises = recipesWithImages.map(async (recipe, index) => {
+    const encodedTitle = encodeURIComponent(recipe.title);
+    try {
+      await new Promise((resolve, rej) => setTimeout(resolve, 500));
+      const res = await axios.get(
+        "https://api.bing.microsoft.com/v7.0/images/search?q=" + encodedTitle,
+        {
+          headers: {
+            "Ocp-Apim-Subscription-Key": process.env.BING_API_KEY,
+          },
+        }
+      );
+      const thumbnailUrl = res.data.value[0].thumbnailUrl;
+      recipe.imageUrl = thumbnailUrl;
+    } catch (e) {
+      recipe.imageUrl = `${process.env.SERVER_LINK}/default-item.png`;
+    }
+  });
+
+  await Promise.all(fetchImagePromises);
+  console.log(recipesWithImages);
+
+  return recipesWithImages;
 };
