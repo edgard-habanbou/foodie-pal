@@ -49,7 +49,9 @@ function Landing() {
 
         {recipes && <SwiperCarousel recipes={recipes} row={3} />}
       </div>
-      {Load && <Loading />}
+      {Load && (
+        <Loading message="Crafting recipes based on your items please be patient..." />
+      )}
     </div>
   );
 }

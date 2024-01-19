@@ -10,3 +10,8 @@
   z-index: 1;
   animation: animate 1s linear infinite;
 }
+.loading-message {
+  font-size: 15px;
+  text-align: center;
+  text-shadow: 0 0 10px #000;
+}
