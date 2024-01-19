@@ -42,8 +42,8 @@ class UserApi {
     }
     return await api.get(`/openai/getrecipes/${category}`);
   }
-  async makeDietPlan(data) {
-    return await api.post("/openai/dietplan", data);
+  async makeDietPlan() {
+    api.get("/openai/makedietplan");
   }
 }
 
