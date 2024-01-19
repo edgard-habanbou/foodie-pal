@@ -1,5 +1,6 @@
 const OpenAI = require("openai");
 const axios = require("axios");
+const User = require("../models/user.model");
 
 const getRecipes = async (req, res) => {
   const pref = req.user.DietairyPreferences[0];
@@ -15,7 +16,7 @@ const getRecipes = async (req, res) => {
     You should return only a JSON object with this format: [{"id": id(from 0 and add 1 for each item), "title": recipe name, "description":description, "calories": how many calories, "time": how much time (45m) (don't give me in hours), "instructions":["instruction1", "instruction2"...](make sure to add each instruction by itself), "ingredients": ["ingredient1", "ingredient2" ...]}]
     Don't add anything else to the object
     ${ItemsAndPreferences}
-    Please make sure that you don't give me less than 10 recipes and don't give me more than 20
+    your answer MUST BE 10 RECIPIES
     Give me only the JSON object and remove all texts before and after it.`;
 
     const recipes = await chatCompletion(message);
@@ -55,14 +56,19 @@ const makeDietPlan = async (req, res) => {
 
   const DietQuestions = JSON.stringify(user.DietQuestions);
   const meals = ["breakfast", "lunch", "dinner", "snack"];
+  let dietPlans = {};
 
   try {
-    meals.forEach(async (meal) => {
+    for (const meal of meals) {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       const message = makeMessage(meal, DietQuestions);
       const recipes = await chatCompletion(message);
-      user.DietPlan[meal] = recipes;
-    });
-  } catch (e) {
+      dietPlans[meal] = JSON.parse(JSON.stringify(recipes));
+    }
+    res.status(200).json({ dietPlans });
+  } catch (error) {
+    console.error(error);
     res.status(500).json({ error: error.message });
   }
 };
@@ -77,8 +83,9 @@ const makeMessage = (meal, DietQuestions) => {
   Consider yourself a dietitian that gives a diet plan after having questions and their answers
   I will give you the answers to the questions and you will return a JSON object with the meals for ${meal}
   your answer MUST BE 10 RECIPIES
-  the JSON object should be in this format: [{"id": id(from 0 and add 1 for each item), "title": recipe name, "description":description, "calories": how many calories, "time": how much time (45m) (don't give me in hours), "instructions":["instruction1", "instruction2"...](make sure to add each instruction by itself), "ingredients": ["ingredient1", "ingredient2" ...]}]
-  Don't add anything else to the object and make sure to remove all texts before and after it.
+  You should return only a JSON object with this format: [{"id": id(from 0 and add 1 for each item), "title": recipe name, "description":description, "calories": how many calories, "time": how much time (45m) (don't give me in hours), "instructions":["instruction1", "instruction2"...](make sure to add each instruction by itself), "ingredients": ["ingredient1", "ingredient2" ...]}]
+  Give me only the JSON object and remove all texts before and after it.
+  make sure to close the JSON file at the end
   the questions and their answers are: ${DietQuestions}
   `;
 };
