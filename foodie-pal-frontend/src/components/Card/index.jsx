@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,7 +23,11 @@ function Card({ id, title, imageUrl, calories, time, description }) {
       >
         <div>
           <img
-            src={imageSrc}
+            src={
+              imageSrc
+                ? imageSrc
+                : `${process.env.REACT_APP_BASE_URL}/default-item.png`
+            }
             alt="recipeImage"
             className="recipe-image"
             onError={handleImageError}
