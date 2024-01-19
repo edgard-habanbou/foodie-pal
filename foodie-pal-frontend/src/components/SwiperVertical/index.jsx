@@ -7,9 +7,11 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
 import "swiper/css";
 import "swiper/css/pagination";
+import SwiperCarousel from "../SwiperCarousel";
 
 function SwiperVertical({
   instructions,
+  mappedDietPlan,
   items,
   itemsInPic,
   chats,
@@ -27,6 +29,21 @@ function SwiperVertical({
       modules={[Pagination]}
       className="instructions"
     >
+      {mappedDietPlan?.map(([meal, recipes], index) => {
+        return (
+          <SwiperSlide key={index}>
+            <div className="flex column gap">
+              <div className="padding margin">
+                <h3 className="color-white ">{meal}</h3>
+                <hr />
+              </div>
+              <div className=" flex swiper-div center">
+                <SwiperCarousel slidesPerView={1.7} recipes={recipes} row={1} />
+              </div>
+            </div>
+          </SwiperSlide>
+        );
+      })}
       {instructions?.map((instruction, i) => {
         return (
           <SwiperSlide key={i}>
