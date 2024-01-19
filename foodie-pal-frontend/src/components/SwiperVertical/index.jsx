@@ -27,7 +27,7 @@ function SwiperVertical({
         clickable: true,
       }}
       modules={[Pagination]}
-      className="instructions"
+      className={mappedDietPlan ? "mapped-diet-plan" : "instructions"}
     >
       {mappedDietPlan?.map(([meal, recipes], index) => {
         return (
