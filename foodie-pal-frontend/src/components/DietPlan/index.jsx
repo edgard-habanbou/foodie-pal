@@ -8,6 +8,10 @@ function DietPlan() {
   const mappedDietPlan = Object.entries(dietPlan);
   return (
     <div className="diet-plan">
+      <div className="flex center column">
+        <h3 className="color-white margin ">Diet Plan</h3>
+        <p className="color-white">Choose one of each</p>
+      </div>
       <SwiperVertical mappedDietPlan={mappedDietPlan} slidesPerView={2.5} />
     </div>
   );

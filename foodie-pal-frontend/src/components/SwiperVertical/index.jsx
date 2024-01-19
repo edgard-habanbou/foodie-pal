@@ -32,13 +32,13 @@ function SwiperVertical({
       {mappedDietPlan?.map(([meal, recipes], index) => {
         return (
           <SwiperSlide key={index}>
-            <div className="flex column gap">
+            <div className="flex column margin">
               <div className="padding margin">
                 <h3 className="color-white ">{meal}</h3>
                 <hr />
               </div>
               <div className=" flex swiper-div center">
-                <SwiperCarousel slidesPerView={1.7} recipes={recipes} row={1} />
+                <SwiperCarousel slidesPerView={1.8} recipes={recipes} row={1} />
               </div>
             </div>
           </SwiperSlide>

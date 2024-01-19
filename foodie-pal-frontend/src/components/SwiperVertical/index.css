@@ -26,3 +26,10 @@
   height: 40px;
   border-radius: 10px;
 }
+.instructions {
+  background-color: #2d2d2d;
+  color: white;
+  border-radius: 10px;
+  height: 90%;
+  margin: 10px;
+}
