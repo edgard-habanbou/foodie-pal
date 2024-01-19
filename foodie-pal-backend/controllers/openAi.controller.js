@@ -48,7 +48,10 @@ const makeDietPlan = async (req, res) => {
 
       dietPlans[meal] = JSON.parse(JSON.stringify(recipesWithImages));
     }
-    res.status(200).json({ dietPlans });
+    User.findByIdAndUpdate(user._id, { DietPlan: dietPlans });
+    const updatedUser = User.findById(user._id);
+
+    res.status(200).json({ updatedUser });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message });
