@@ -59,6 +59,9 @@ const userSchema = new mongoose.Schema({
   DietQuestions: {
     type: Object,
   },
+  DietPlan: {
+    type: Object,
+  },
 });
 
 userSchema.pre(
