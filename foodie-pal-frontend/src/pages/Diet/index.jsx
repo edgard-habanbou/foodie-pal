@@ -70,6 +70,7 @@ function Diet() {
         },
       };
       await userApi.updateUser(data);
+      userApi.makeDietPlan();
       setLoad(false);
       setShowMessage(true);
     }
