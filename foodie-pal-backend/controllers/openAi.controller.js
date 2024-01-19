@@ -31,16 +31,16 @@ const getRecipes = async (req, res) => {
       messages: [
         {
           role: "user",
-          content: `Consider yourself a machine learning model that returns recipes based on items I will give you
-                give me 10 recipes
-                the recipes ingredients should only contain the items given
-                I might also give you dietary preferences
-                you should return only a JSON object with this format: [{"id":id(from 0 and add 1 for each item), "title": recipe name, "description":desc, "calories": how many calories, "time": how much time (45m) (don't give me in hours), "instructions":["instruction1", "instruction2"...](make sure to add each instruction by itself), "ingredients": ["ingredient1", "ingredient2" ...]}]
-                don't add anything else to the object
-                ${items}
-                ${DietairyPreferences}
-                don't give me less than 10 recipes
-                give me only the JSON object remove all texts before and after and between it `,
+          content: `Consider yourself a machine-learning model that returns recipes based on items I will give you.
+          the recipe's ingredients should only contain the items given but you can add spices.
+          give small instructions for example: "Boil the water" or "Cut the onion into cubes".
+          I might also give you dietary preferences
+          You should return only a JSON object with this format: [{"id": id(from 0 and add 1 for each item), "title": recipe name, "description":description, "calories": how many calories, "time": how much time (45m) (don't give me in hours), "instructions":["instruction1", "instruction2"...](make sure to add each instruction by itself), "ingredients": ["ingredient1", "ingredient2" ...]}]
+          Don't add anything else to the object
+          ${items}
+          ${DietairyPreferences}
+          Please make sure that you don't give me less than 10 recipes and don't give me more than 20
+          Give me only the JSON object and remove all texts before and after it.`,
         },
       ],
       model: "gpt-3.5-turbo-1106",
@@ -51,18 +51,25 @@ const getRecipes = async (req, res) => {
     const fetchImagePromises = recipes.map(async (recipe, index) => {
       const encodedTitle = encodeURIComponent(recipe.title);
 
-      await new Promise((resolve) => setTimeout(resolve, index * 500));
-
-      const res = await axios.get(
-        "https://api.bing.microsoft.com/v7.0/images/search?q=" + encodedTitle,
-        {
-          headers: {
-            "Ocp-Apim-Subscription-Key": process.env.BING_API_KEY,
-          },
+      try {
+        await new Promise((resolve, rej) => setTimeout(resolve, 500));
+        const res = await axios.get(
+          "https://api.bing.microsoft.com/v7.0/images/search?q=" + encodedTitle,
+          {
+            headers: {
+              "Ocp-Apim-Subscription-Key": process.env.BING_API_KEY,
+            },
+          }
+        );
+        const thumbnailUrl = res.data.value[0].thumbnailUrl;
+        if (!thumbnailUrl.includes("tse2.mm")) {
+          recipe.imageUrl = thumbnailUrl;
+        } else {
+          recipe.imageUrl = `${process.env.SERVER_LINK}/default-item.png`;
         }
-      );
-
-      recipe.imageUrl = res.data.value[0].thumbnailUrl;
+      } catch (e) {
+        recipe.imageUrl = `${process.env.SERVER_LINK}/default-item.png`;
+      }
     });
 
     await Promise.all(fetchImagePromises);
@@ -73,13 +80,6 @@ const getRecipes = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-};
-
-const makeDietPlan = async (req, res) => {
-  const user = req.user;
-
-  const dietQuestionsAndAnswers = user.DietQuestions;
-  console.log(dietQuestionsAndAnswers);
 };
 
 module.exports = {
