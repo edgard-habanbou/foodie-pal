@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import Questions from "./questions";
+import DietPlan from "../../components/DietPlan";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
 
@@ -231,11 +232,7 @@ function Diet() {
             </p>
           </div>
         )}
-        {showDietPlan && (
-          <div className="flex center message-diet column color-white">
-            Diet Plan
-          </div>
-        )}
+        {showDietPlan && <DietPlan />}
       </div>
       {Load && <Loading />}
     </div>
