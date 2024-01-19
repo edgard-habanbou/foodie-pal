@@ -22,18 +22,26 @@ function Diet() {
   const [formData, setFormData] = useState({});
   const [Load, setLoad] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
-  const check = async () => {
-    if (!(await checkIfLoggedIn())) {
-      localStorage.clear();
-      navigate("/");
-    }
-  };
-  check();
+  const [showDietQuestions, setShowDietQuestions] = useState(false);
+  const [showDietPlan, setShowDietPlan] = useState(false);
 
   useEffect(() => {
+    const check = async () => {
+      if (!(await checkIfLoggedIn())) {
+        localStorage.clear();
+        navigate("/");
+      }
+    };
+    check();
     const user = JSON.parse(localStorage.getItem("user"));
-    if (user && user.DietQuestions) {
+    if (!user.DietQuestions && !user.DietPlan) {
+      setShowDietQuestions(true);
+    }
+    if (user && user.DietQuestions && !user.DietPlan) {
       setShowMessage(true);
+    }
+    if (user && user.DietPlan) {
+      setShowDietPlan(true);
     }
   }, []);
 
@@ -85,7 +93,7 @@ function Diet() {
       </div>
       <div className="landing">
         <Header />
-        {!showMessage && (
+        {showDietQuestions && (
           <div className="questions-section" id="questionsSection">
             <Swiper
               pagination={{
@@ -221,6 +229,11 @@ function Diet() {
               additional questions or concerns in the meantime, feel free to
               reach out. Thank you!
             </p>
+          </div>
+        )}
+        {showDietPlan && (
+          <div className="flex center message-diet column color-white">
+            Diet Plan
           </div>
         )}
       </div>
