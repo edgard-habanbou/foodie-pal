@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,6 +6,10 @@ import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { faFire } from "@fortawesome/free-solid-svg-icons";
 
 function Card({ id, title, imageUrl, calories, time, description }) {
+  const [imageSrc, setImageSrc] = useState(imageUrl);
+  const handleImageError = () => {
+    setImageSrc(`${process.env.REACT_APP_BASE_URL}/default-item.png`);
+  };
   const navigate = useNavigate();
 
   const handleCardClick = () => {
@@ -18,7 +22,12 @@ function Card({ id, title, imageUrl, calories, time, description }) {
         onClick={handleCardClick}
       >
         <div>
-          <img src={imageUrl} alt="recipeImage" className="recipe-image" />
+          <img
+            src={imageSrc}
+            alt="recipeImage"
+            className="recipe-image"
+            onError={handleImageError}
+          />
         </div>
         <div className="card-title">
           <p>{title}</p>
