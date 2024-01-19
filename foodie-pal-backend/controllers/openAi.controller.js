@@ -44,7 +44,9 @@ const makeDietPlan = async (req, res) => {
 
       const message = makeMessage(meal, DietQuestions);
       const recipes = await chatCompletion(message);
-      dietPlans[meal] = JSON.parse(JSON.stringify(recipes));
+      const recipesWithImages = await addImages(recipes);
+
+      dietPlans[meal] = JSON.parse(JSON.stringify(recipesWithImages));
     }
     res.status(200).json({ dietPlans });
   } catch (error) {
