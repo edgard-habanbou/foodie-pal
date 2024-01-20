@@ -45,6 +45,9 @@ class UserApi {
   async makeDietPlan() {
     api.get("/openai/makedietplan");
   }
+  async sendQuestion(question) {
+    return await api.post("/openai/sendquestion", question);
+  }
 }
 
 export const userApi = new UserApi();
