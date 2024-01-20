@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +14,18 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const handleLogin = async () => {
     setLoading(true);
     try {
@@ -55,6 +67,7 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
   };
   return (
     <div>
+      {screenWidth > 768 && <div>{screenWidth}</div>}
       <div className="flex column gap center login full-height">
         <div>
           <h2>Login</h2>
