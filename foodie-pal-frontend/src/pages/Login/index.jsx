@@ -68,19 +68,7 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
   return (
     <div>
       <div className="flex login full-height">
-        {screenWidth > 768 && (
-          <div className="image-sidebar flex center">
-            <div className="text-center flex gap column">
-              <h2>Welcome to Foodie-Pal!</h2>
-              <p>
-                Embark on a culinary adventure with Foodie-Pal, your
-                personalized cooking companion. From the simplest ingredients to
-                gourmet delights, discover a world of flavors right at your
-                fingertips.
-              </p>
-            </div>
-          </div>
-        )}
+        {screenWidth > 768 && <div className="image-sidebar flex center"></div>}
         <div className="flex column gap center login-form full-height">
           <div>
             <h2>Login</h2>
