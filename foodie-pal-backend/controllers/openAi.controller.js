@@ -71,6 +71,22 @@ const makeDietPlan = async (req, res) => {
   }
 };
 
+const sendQuestion = async (req, res) => {
+  const firstName = req.user.firstName;
+  const question = req.body.question;
+  const recipe = req.body.recipe;
+  const message = `Consider yourself a chef that  answers  questions about recipes.
+  I will give you a question and a recipe and you will return the answer to the question.
+  the question is: ${question}
+  the recipe is: ${recipe}
+  the user first name is: ${firstName}
+  your answer must start with Hello ${firstName} and end with a dot.
+  you should return only the answer to the question
+  the answer should me a JSON object with this format: [{"answer": answer(a string)}]
+  make sure to close the JSON file at the end
+  Give me only the answer and remove all texts before and after it.`;
+};
+console.log(message);
 module.exports = {
   getRecipes,
   makeDietPlan,
