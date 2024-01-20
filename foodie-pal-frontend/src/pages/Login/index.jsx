@@ -72,7 +72,9 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
       <div className="flex login full-height">
         {screenWidth > 768 && (
           <div className="image-sidebar flex center">
-            <SwiperAuto texts={texts} />
+            <div className="margin padding flex center full-width">
+              <SwiperAuto texts={texts} />
+            </div>
           </div>
         )}
         <div className="flex column gap center login-form full-height">
