@@ -105,6 +105,9 @@ body {
 .half-width {
   width: 50%;
 }
+.half-width-screen {
+  width: 50vw;
+}
 .select {
   border-radius: 10px;
   padding: 5px 20px;
