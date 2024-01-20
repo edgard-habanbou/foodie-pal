@@ -16,7 +16,7 @@ function SwiperCarousel({ recipes, row, slidesPerView = 2 }) {
       }}
       pagination={{ dynamicBullets: true, clickable: true }}
       modules={[Grid, Pagination]}
-      className="mySwiper"
+      className="mySwiper swiper-carousel"
     >
       {recipes.map((recipe, i) => (
         <SwiperSlide key={i}>
