@@ -67,74 +67,78 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
   };
   return (
     <div>
-      {screenWidth > 768 && <div>{screenWidth}</div>}
-      <div className="flex column gap center login full-height">
-        <div>
-          <h2>Login</h2>
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Email"
-            className="input"
-            onChange={(e) => setEmail(e.target.value.toLowerCase())}
-          />
-        </div>
-        <div className="flex column gap">
-          <div className="flex center">
-            <div>
-              {showPassword ? (
-                <input
-                  type="text"
-                  placeholder="Password"
-                  className="input"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              ) : (
-                <input
-                  type="password"
-                  placeholder="Password"
-                  className="input"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              )}
-            </div>
-            <div>
-              {!showPassword ? (
-                <FontAwesomeIcon
-                  className="password-icon"
-                  onClick={handleShowPassword}
-                  icon={faEye}
-                />
-              ) : (
-                <FontAwesomeIcon
-                  className="password-icon"
-                  icon={faEyeSlash}
-                  onClick={handleShowPassword}
-                />
-              )}
-            </div>
-          </div>
-
-          <div className="flex right ">
-            <a href="/" className="link" onClick={handleForgotPasswordBtn}>
-              Forgot Password?
-            </a>
-          </div>
-        </div>
-        <div className="flex column gap">
+      <div className="flex login full-height">
+        {screenWidth > 768 && (
+          <div className="flex center full-height">{screenWidth}</div>
+        )}
+        <div className="flex column gap center login-form  full-height">
           <div>
-            <button className="btn" onClick={handleLogin}>
-              Login
-            </button>
+            <h2>Login</h2>
           </div>
-          <div className="flex right">
-            <span className="span">
-              don't have an account?{" "}
-              <a href="/" className="link" onClick={handleRegister}>
-                Sign Up
+          <div>
+            <input
+              type="text"
+              placeholder="Email"
+              className="input"
+              onChange={(e) => setEmail(e.target.value.toLowerCase())}
+            />
+          </div>
+          <div className="flex column gap">
+            <div className="flex center">
+              <div>
+                {showPassword ? (
+                  <input
+                    type="text"
+                    placeholder="Password"
+                    className="input"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                ) : (
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    className="input"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                )}
+              </div>
+              <div>
+                {!showPassword ? (
+                  <FontAwesomeIcon
+                    className="password-icon"
+                    onClick={handleShowPassword}
+                    icon={faEye}
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    className="password-icon"
+                    icon={faEyeSlash}
+                    onClick={handleShowPassword}
+                  />
+                )}
+              </div>
+            </div>
+
+            <div className="flex right ">
+              <a href="/" className="link" onClick={handleForgotPasswordBtn}>
+                Forgot Password?
               </a>
-            </span>
+            </div>
+          </div>
+          <div className="flex column gap">
+            <div>
+              <button className="btn" onClick={handleLogin}>
+                Login
+              </button>
+            </div>
+            <div className="flex right">
+              <span className="span">
+                don't have an account?{" "}
+                <a href="/" className="link" onClick={handleRegister}>
+                  Sign Up
+                </a>
+              </span>
+            </div>
           </div>
         </div>
       </div>
