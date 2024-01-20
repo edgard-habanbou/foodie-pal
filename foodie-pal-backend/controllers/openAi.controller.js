@@ -15,8 +15,8 @@ const getRecipes = async (req, res) => {
     You should return only a JSON object with this format: [{"id": id(from 0 and add 1 for each item), "title": recipe name, "description":description, "calories": how many calories, "time": how much time (45m) (don't give me in hours), "instructions":["instruction1", "instruction2"...](make sure to add each instruction by itself), "ingredients": ["ingredient1", "ingredient2" ...]}]
     Don't add anything else to the object
     ${ItemsAndPreferences}
-    make sure to close the JSON file at the end
-    your answer MUST BE 10 RECIPIES
+    THE JSON FILE MUST ME PARSABLE
+    your answer MUST BE 12 RECIPIES
     Give me only the JSON object and remove all texts before and after it.`;
 
     const recipes = await chatCompletion(message);
@@ -132,7 +132,7 @@ const addImages = async (recipes) => {
   const fetchImagePromises = recipesWithImages.map(async (recipe, index) => {
     const encodedTitle = encodeURIComponent(recipe.title);
     try {
-      await new Promise((resolve, rej) => setTimeout(resolve, 500));
+      await new Promise((resolve, rej) => setTimeout(resolve, 700));
       const res = await axios.get(
         "https://api.bing.microsoft.com/v7.0/images/search?q=" + encodedTitle,
         {
@@ -144,6 +144,7 @@ const addImages = async (recipes) => {
       const thumbnailUrl = res.data.value[0].thumbnailUrl;
       recipe.imageUrl = thumbnailUrl;
     } catch (e) {
+      console.log(e.message);
       recipe.imageUrl = `${process.env.SERVER_LINK}/default-item.png`;
     }
   });
