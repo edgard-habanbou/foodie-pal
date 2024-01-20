@@ -5,6 +5,8 @@ import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { userApi } from "../../network/axios";
 import Popup from "../../components/Popup";
+import texts from "./texts";
+import SwiperAuto from "../../components/SwiperAuto";
 
 function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
   const [email, setEmail] = useState("");
@@ -68,7 +70,11 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
   return (
     <div>
       <div className="flex login full-height">
-        {screenWidth > 768 && <div className="image-sidebar flex center"></div>}
+        {screenWidth > 768 && (
+          <div className="image-sidebar flex center">
+            <SwiperAuto texts={texts} />
+          </div>
+        )}
         <div className="flex column gap center login-form full-height">
           <div>
             <h2>Login</h2>

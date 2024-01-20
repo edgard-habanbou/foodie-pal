@@ -18,7 +18,7 @@ function SwiperCarousel({ texts }) {
       {texts.map((text, i) => (
         <SwiperSlide key={i}>
           <div className="text-center flex gap column">
-            <h2>{text.tilte}</h2>
+            <h2>{text.title}</h2>
             <p>{text.description}</p>
           </div>
         </SwiperSlide>

@@ -1,6 +1,6 @@
 const texts = [
   {
-    tilte: "Welcome to Foodie-Pal!",
+    title: "Welcome to Foodie-Pal!",
     description:
       "Embark on a culinary adventure with Foodie-Pal, your personalized cooking companion. From the simplest ingredients to gourmet delights, discover a world of flavors right at your fingertips.",
   },
