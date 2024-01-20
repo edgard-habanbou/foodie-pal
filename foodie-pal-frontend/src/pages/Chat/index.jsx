@@ -39,8 +39,10 @@ function Chat() {
       question: userMessage,
       recipe: selectedRecipe,
     });
-    console.log(openAiResponse);
-    setChats([...chats, { sender: `openai`, chat: openAiResponse.answer }]);
+    setChats([
+      ...chats,
+      { sender: `openai`, chat: openAiResponse.result[0].answer },
+    ]);
   };
 
   const handleBack = () => {
