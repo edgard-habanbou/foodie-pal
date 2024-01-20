@@ -38,16 +38,18 @@ app.use("/clarifai", authMiddleware, clarifai);
 const openAi = require("./routes/openai.routes");
 app.use("/openai", authMiddleware, openAi);
 
-// Specify your SSL certificate and private key
 const credentials = {
   key: fs.readFileSync("./ssl/server.key"),
   cert: fs.readFileSync("./ssl/server.crt"),
 };
 
-// Use the 'https' module to create an HTTPS server
 const server = https.createServer(credentials, app);
 
 server.listen(process.env.PORT, () => {
   console.log("Server listening on PORT: ", process.env.PORT);
   connectToMongoDB();
+});
+server.on("clientError", (err, socket) => {
+  console.error("Client error:", err.message);
+  socket.destroy();
 });

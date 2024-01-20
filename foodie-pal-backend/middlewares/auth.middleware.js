@@ -8,9 +8,7 @@ const authMiddleware = async (req, res, next) => {
   } else {
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      const user = await User.findOne({ email: decoded.email }).select(
-        "-password"
-      );
+      const user = await User.findOne({ _id: decoded._id }).select("-password");
       req.user = user;
       next();
     } catch (e) {

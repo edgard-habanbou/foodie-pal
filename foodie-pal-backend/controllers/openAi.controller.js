@@ -3,32 +3,33 @@ const axios = require("axios");
 const User = require("../models/user.model");
 
 const getRecipes = async (req, res) => {
-  const pref = req.user.DietairyPreferences[0];
-  const category = req.params.category;
-  const items = req.user.items;
-  const ItemsAndPreferences = makeItemsAndPreferences(items, pref, category);
-  try {
-    const message = `Consider yourself a machine-learning model that returns recipes based on items I will give you.
-    the recipe's ingredients should only contain the items given but you can add spices.
-    give small instructions for example: "Boil the water" or "Cut the onion into cubes".
-    I might also give you dietary preferences
-    You should return only a JSON object with this format: [{"id": id(from 0 and add 1 for each item), "title": recipe name, "description":description, "calories": how many calories, "time": how much time (45m) (don't give me in hours), "instructions":["instruction1", "instruction2"...](make sure to add each instruction by itself), "ingredients": ["ingredient1", "ingredient2" ...]}]
-    Don't add anything else to the object
-    ${ItemsAndPreferences}
-    make sure to close the JSON file at the end
-    your answer MUST BE 10 RECIPIES
-    Give me only the JSON object and remove all texts before and after it.`;
+  console.log(req.user);
+  // const pref = req.user.DietairyPreferences[0];
+  // const category = req.params.category;
+  // const items = req.user.items;
+  // const ItemsAndPreferences = makeItemsAndPreferences(items, pref, category);
+  // try {
+  //   const message = `Consider yourself a machine-learning model that returns recipes based on items I will give you.
+  //   the recipe's ingredients should only contain the items given but you can add spices.
+  //   give small instructions for example: "Boil the water" or "Cut the onion into cubes".
+  //   I might also give you dietary preferences
+  //   You should return only a JSON object with this format: [{"id": id(from 0 and add 1 for each item), "title": recipe name, "description":description, "calories": how many calories, "time": how much time (45m) (don't give me in hours), "instructions":["instruction1", "instruction2"...](make sure to add each instruction by itself), "ingredients": ["ingredient1", "ingredient2" ...]}]
+  //   Don't add anything else to the object
+  //   ${ItemsAndPreferences}
+  //   make sure to close the JSON file at the end
+  //   your answer MUST BE 10 RECIPIES
+  //   Give me only the JSON object and remove all texts before and after it.`;
 
-    const recipes = await chatCompletion(message);
+  //   const recipes = await chatCompletion(message);
 
-    const recipesWithImages = await addImages(recipes);
+  //   const recipesWithImages = await addImages(recipes);
 
-    res.send({
-      recipes: recipesWithImages,
-    });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
+  //   res.send({
+  //     recipes: recipesWithImages,
+  //   });
+  // } catch (error) {
+  //   res.status(500).json({ error: error.message });
+  // }
 };
 
 const makeDietPlan = async (req, res) => {
@@ -92,17 +93,21 @@ const chatCompletion = async (message) => {
   const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
   });
-  const chatCompletion = await openai.chat.completions.create({
-    messages: [
-      {
-        role: "user",
-        content: message,
-      },
-    ],
-    model: "gpt-3.5-turbo-1106",
-    max_tokens: 3700,
-  });
-  return JSON.parse(chatCompletion.choices[0].message.content);
+  try {
+    const chatCompletion = await openai.chat.completions.create({
+      messages: [
+        {
+          role: "user",
+          content: message,
+        },
+      ],
+      model: "gpt-3.5-turbo-1106",
+      max_tokens: 3700,
+    });
+    return JSON.parse(chatCompletion.choices[0].message.content);
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 const addImages = async (recipes) => {

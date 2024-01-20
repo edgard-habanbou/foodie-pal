@@ -24,12 +24,12 @@ const login = async (req, res) => {
     res.status(400).send({ message: "Invalid email/password" });
     return;
   }
-  const { password: hashedPassword, ...userDetails } = user.toJSON();
+  const { password: hashedPassword, _id, ...userDetails } = user.toJSON();
 
   // generate JWT token
   const token = jwt.sign(
     {
-      ...userDetails,
+      _id: _id,
     },
     process.env.JWT_SECRET,
     { expiresIn: "2 days" }
