@@ -85,8 +85,8 @@ const sendQuestion = async (req, res) => {
   the answer should me a JSON object with this format: [{"answer": answer(a string)}]
   make sure to close the JSON file at the end
   Give me only the answer and remove all texts before and after it.`;
+  console.log(message);
 };
-console.log(message);
 module.exports = {
   getRecipes,
   makeDietPlan,
