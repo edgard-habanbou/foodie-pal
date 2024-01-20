@@ -86,7 +86,7 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
             />
           </div>
           <div className="flex column gap">
-            <div className="flex center">
+            <div className="flex center password-input">
               <div>
                 {showPassword ? (
                   <input
