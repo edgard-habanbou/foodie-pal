@@ -40,6 +40,7 @@ function Chat() {
       recipe: selectedRecipe,
     });
     console.log(openAiResponse);
+    setChats([...chats, { sender: `openai`, chat: openAiResponse.answer }]);
   };
 
   const handleBack = () => {
