@@ -20,6 +20,7 @@ function Recipe() {
     }
   };
   check();
+
   const [Load, setLoading] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const { id } = useParams();
@@ -65,6 +66,11 @@ function Recipe() {
     });
   };
 
+  const [imageSrc, setImageSrc] = useState(selectedRecipe.imageUrl);
+  const handleImageError = () => {
+    setImageSrc(`${process.env.REACT_APP_BASE_URL}/default-item.png`);
+  };
+
   return (
     <div className="flex background">
       <div>
@@ -92,8 +98,9 @@ function Recipe() {
           <div>
             <img
               className="recipe-image-large"
-              src={selectedRecipe.imageUrl}
+              src={imageSrc}
               alt="recipeImage"
+              onError={handleImageError}
             />
           </div>
           <div className="flex row gap">
