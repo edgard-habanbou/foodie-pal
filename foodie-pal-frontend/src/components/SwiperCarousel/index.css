@@ -1,6 +1,7 @@
 .mySwiper {
-  width: 90%;
+  width: 80%;
   height: 85%;
+  padding-left: 5px;
 }
 .swiper-pagination-bullet {
   background: var(--primarycolor) !important;
