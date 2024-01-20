@@ -10,6 +10,7 @@ import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
 
 function Chat() {
   const navigate = useNavigate();
+  const [userMessage, setUserMessage] = useState([]);
 
   const check = async () => {
     if (!(await checkIfLoggedIn())) {
@@ -20,9 +21,13 @@ function Chat() {
   check();
 
   const [chats, setChats] = useState([
-    ["openai", "how can i help"],
-    ["user", "hey"],
+    { sender: "openai", chat: "how can i help" },
+    { sender: "user", chat: "hey" },
   ]);
+  const handleSend = () => {
+    setChats([...chats, { sender: "user", chat: userMessage }]);
+    setUserMessage("");
+  };
 
   const { id } = useParams();
   const recipes = JSON.parse(localStorage.getItem("recipes"));
@@ -61,8 +66,16 @@ function Chat() {
             <SwiperVertical chats={chats} />
           </div>
           <div className="flex gap">
-            <input type="text" className="input" placeholder="Question?" />
-            <button className="btn">
+            <input
+              type="text"
+              className="input"
+              placeholder="Question?"
+              value={userMessage}
+              onChange={(e) => {
+                setUserMessage(e.target.value);
+              }}
+            />
+            <button className="btn" onClick={handleSend}>
               Send <FontAwesomeIcon icon={faPaperPlane} />
             </button>
           </div>
