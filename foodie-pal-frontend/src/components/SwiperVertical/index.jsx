@@ -34,7 +34,7 @@ function SwiperVertical({
           <SwiperSlide
             key={index}
             onClick={() => {
-              localStorage.setItem("recipes", JSON.s(recipes));
+              localStorage.setItem("recipes", JSON.stringify(recipes));
             }}
           >
             <div className="flex column margin">
