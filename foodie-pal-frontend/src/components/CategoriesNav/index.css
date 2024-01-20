@@ -1,8 +1,9 @@
 .cat-nav {
   background-color: #606060;
-  width: 80%;
   padding: 10px 20px;
   border-radius: 20px;
+  width: 80%;
+  max-width: 733px;
 }
 .cat-nav-item {
   color: #929292;
