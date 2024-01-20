@@ -7,6 +7,7 @@ import { faArrowLeft, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import SwiperVertical from "../../components/SwiperVertical";
 import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
+import { userApi } from "../../network/axios";
 
 function Chat() {
   const navigate = useNavigate();
@@ -20,20 +21,27 @@ function Chat() {
   };
   check();
 
-  const [chats, setChats] = useState([
-    { sender: "openai", chat: "how can i help" },
-    { sender: "user", chat: "hey" },
-  ]);
-  const handleSend = () => {
-    setChats([...chats, { sender: "user", chat: userMessage }]);
-    setUserMessage("");
-  };
-
   const { id } = useParams();
   const recipes = JSON.parse(localStorage.getItem("recipes"));
   const selectedRecipe = recipes.find(
     (recipe) => recipe.id === parseInt(id, 10)
   );
+
+  const [chats, setChats] = useState([
+    { sender: "openai", chat: "how can i help" },
+    { sender: "user", chat: "hey" },
+  ]);
+
+  const handleSend = async () => {
+    setChats([...chats, { sender: "user", chat: userMessage }]);
+    setUserMessage("");
+    const openAiResponse = await userApi.sendQuestion({
+      question: userMessage,
+      recipe: selectedRecipe,
+    });
+    console.log(openAiResponse);
+  };
+
   const handleBack = () => {
     navigate(`/cook/${id}`);
   };
