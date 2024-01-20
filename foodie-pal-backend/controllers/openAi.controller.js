@@ -90,6 +90,7 @@ console.log(message);
 module.exports = {
   getRecipes,
   makeDietPlan,
+  sendQuestion,
 };
 
 const makeMessage = (meal, DietQuestions) => {
