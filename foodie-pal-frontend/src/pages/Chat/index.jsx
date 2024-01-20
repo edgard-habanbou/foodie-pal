@@ -26,14 +26,14 @@ function Chat() {
   const selectedRecipe = recipes.find(
     (recipe) => recipe.id === parseInt(id, 10)
   );
-
+  const user = JSON.parse(localStorage.getItem("user"));
   const [chats, setChats] = useState([
-    { sender: "openai", chat: "how can i help" },
-    { sender: "user", chat: "hey" },
+    { sender: "openai", chat: "How can i help?" },
+    { sender: "openai", chat: "Please send the question in one message!" },
   ]);
 
   const handleSend = async () => {
-    setChats([...chats, { sender: "user", chat: userMessage }]);
+    setChats([...chats, { sender: `${user.firstName}`, chat: userMessage }]);
     setUserMessage("");
     const openAiResponse = await userApi.sendQuestion({
       question: userMessage,
