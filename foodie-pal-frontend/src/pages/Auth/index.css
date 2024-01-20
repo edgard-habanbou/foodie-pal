@@ -53,3 +53,8 @@
     width: 30vw;
   }
 }
+@media screen and (min-width: 950px) {
+  .form-control {
+    width: 20vw;
+  }
+}

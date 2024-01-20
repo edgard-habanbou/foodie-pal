@@ -79,7 +79,7 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
           <div>
             <h2>Login</h2>
           </div>
-          <div>
+          <div className="form-control">
             <input
               type="text"
               placeholder="Email"
@@ -87,9 +87,9 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
               onChange={(e) => setEmail(e.target.value.toLowerCase())}
             />
           </div>
-          <div className="flex column gap">
+          <div className="flex column gap ">
             <div className="flex center password-input">
-              <div>
+              <div className="form-control">
                 {showPassword ? (
                   <input
                     type="text"
@@ -129,8 +129,8 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
               </a>
             </div>
           </div>
-          <div className="flex column gap">
-            <div>
+          <div className="flex column gap ">
+            <div className="form-control">
               <button className="btn" onClick={handleLogin}>
                 Login
               </button>
