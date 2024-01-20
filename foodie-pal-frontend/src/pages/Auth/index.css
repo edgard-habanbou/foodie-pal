@@ -15,14 +15,14 @@
 }
 
 .image-sidebar {
-  background-image: url("../../assets/images/wp9506513.jpg");
-  filter: blur(2px) brightness(0.7);
+  background-image: url("../../assets/images/low-brightness.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   width: 30vw;
 }
+
 .image {
   background-image: url("../../assets/images/wp9506513.jpg");
   filter: blur(6px);
@@ -32,6 +32,7 @@
   height: 100vh;
   width: 100vw;
 }
+
 .password-icon {
   position: absolute;
   right: 8%;

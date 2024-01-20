@@ -69,8 +69,7 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
     <div>
       <div className="flex login full-height">
         {screenWidth > 768 && (
-          <div className=" ">
-            <div className="image-sidebar"></div>
+          <div className="image-sidebar flex center">
             <div>{screenWidth}</div>
           </div>
         )}
