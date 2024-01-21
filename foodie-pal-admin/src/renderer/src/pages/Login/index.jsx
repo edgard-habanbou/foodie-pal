@@ -7,6 +7,7 @@ import { userApi } from '../../network/axios'
 import Popup from '../../components/Popup'
 import texts from './texts'
 import SwiperAuto from '../../components/SwiperAuto'
+import PropTypes from 'prop-types'
 
 function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
   const [email, setEmail] = useState('')
@@ -139,7 +140,7 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
             </div>
             <div className="flex right">
               <span className="span">
-                don't have an account?{' '}
+                don&apos;t have an account?{' '}
                 <a href="/" className="link" onClick={handleRegister}>
                   Sign Up
                 </a>
@@ -150,6 +151,12 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
       </div>
     </div>
   )
+}
+
+Login.propTypes = {
+  handleRegister: PropTypes.func,
+  handleForgotPasswordBtn: PropTypes.func,
+  setLoading: PropTypes.any
 }
 
 export default Login

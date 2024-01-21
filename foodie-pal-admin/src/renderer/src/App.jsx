@@ -1,11 +1,13 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, HashRouter } from 'react-router-dom'
 import Login from './pages/Login'
 function App() {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Login />} />
-      </Routes>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+        </Routes>
+      </HashRouter>
     </div>
   )
 }
