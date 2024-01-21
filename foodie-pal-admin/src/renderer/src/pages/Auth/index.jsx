@@ -16,7 +16,7 @@ function Auth() {
         token: localStorage.getItem('token')
       })
       if (response.user) {
-        navigate('/home')
+        navigate('/landing')
       }
     }
   }
