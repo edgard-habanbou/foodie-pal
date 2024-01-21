@@ -114,71 +114,73 @@ const Items = () => {
       </div>
       <div className="landing">
         <Header />
-        <div className="flex margin gap center">
-          <input
-            type="text"
-            className="input"
-            placeholder="Item Name"
-            value={itemName}
-            onChange={(e) => {
-              setItemName(e.target.value);
-            }}
-          />
-          <button
-            className="btn"
-            onClick={() => {
-              addBtnHandler(itemName);
-              setItemName("");
-            }}
-          >
-            Add Item
-          </button>
-          <button className="btn" onClick={handleCamerabtn}>
-            <FontAwesomeIcon icon={faCamera} />
-          </button>
-        </div>
-        <div className="items-wraper">
-          <div className="title">
-            <h4 className="color-white">Add By Photo</h4>
-            <hr />
-          </div>
-          <div className="flex center column">
-            <div className="camera-items flex">
+        <div className="flex center column full-width  add-items">
+          <div className="items-wraper">
+            <div className="flex margin gap  center">
               <input
-                type="file"
-                name=""
-                hidden
-                id="fileInput"
-                onChange={handleFileChange}
+                type="text"
+                className="input"
+                placeholder="Item Name"
+                value={itemName}
+                onChange={(e) => {
+                  setItemName(e.target.value);
+                }}
               />
-              <img
-                src={
-                  uploadedImage
-                    ? uploadedImage
-                    : `${process.env.REACT_APP_BASE_URL}/default-item.png`
-                }
-                className="items-img"
-                alt="Uploaded"
-              />
-              <div className=" full-width">
-                <SwiperVertical
-                  itemsInPic={itemsInPic}
-                  slidesPerView={3}
-                  addBtnHandler={addBtnHandler}
+              <button
+                className="btn"
+                onClick={() => {
+                  addBtnHandler(itemName);
+                  setItemName("");
+                }}
+              >
+                Add Item
+              </button>
+              <button className="btn" onClick={handleCamerabtn}>
+                <FontAwesomeIcon icon={faCamera} />
+              </button>
+            </div>
+            <div className="title">
+              <h4 className="color-white">Add By Photo</h4>
+              <hr />
+            </div>
+            <div className="flex center column">
+              <div className="camera-items flex">
+                <input
+                  type="file"
+                  name=""
+                  hidden
+                  id="fileInput"
+                  onChange={handleFileChange}
                 />
+                <img
+                  src={
+                    uploadedImage
+                      ? uploadedImage
+                      : `${process.env.REACT_APP_BASE_URL}/default-item.png`
+                  }
+                  className="items-img"
+                  alt="Uploaded"
+                />
+                <div className=" full-width">
+                  <SwiperVertical
+                    itemsInPic={itemsInPic}
+                    slidesPerView={3}
+                    addBtnHandler={addBtnHandler}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div className="title">
-            <h4 className="color-white">Items</h4>
-            <hr />
-          </div>
-          <div className="items-added flex column ">
-            <SwiperVertical
-              items={items}
-              deleteBtnHandler={deleteBtnHandler}
-              slidesPerView={4.5}
-            />
+            <div className="title">
+              <h4 className="color-white">Items</h4>
+              <hr />
+            </div>
+            <div className="title items-added flex column ">
+              <SwiperVertical
+                items={items}
+                deleteBtnHandler={deleteBtnHandler}
+                slidesPerView={4.5}
+              />
+            </div>
           </div>
         </div>
       </div>

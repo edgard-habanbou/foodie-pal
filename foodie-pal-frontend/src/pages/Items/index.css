@@ -14,9 +14,7 @@
 .items-added {
   height: 55%;
 }
-.items-added .swiper {
-  width: 95%;
-}
+
 .items-in-pic {
   margin: 20px 10px;
   padding: 5px 10px;
@@ -36,6 +34,10 @@ hr {
   margin: 20px 20px 5px 20px;
 }
 .items-wraper {
-  height: 90%;
+  height: 100%;
   width: 100%;
+  max-width: 800px;
+}
+.add-items {
+  height: 85%;
 }
