@@ -6,6 +6,7 @@ import { userApi } from "../../network/axios";
 import Loading from "../../components/Loading";
 import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
 import { useNavigate } from "react-router-dom";
+import "./index.css";
 function Favorites() {
   const [favoriteRecipes, setFavoriteRecipes] = useState([]);
   const [Load, setLoading] = useState(false);
@@ -45,7 +46,9 @@ function Favorites() {
           <h3 className="color-white ">Favorites</h3>
           <hr />
         </div>
-        <SwiperCarousel recipes={favoriteRecipes} row={3} />
+        <div className="full-width favorites">
+          <SwiperCarousel recipes={favoriteRecipes} row={3} />
+        </div>
       </div>
       {Load && <Loading />}
     </div>
