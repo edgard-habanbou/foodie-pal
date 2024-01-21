@@ -32,7 +32,7 @@ const login = async (req, res) => {
       res.status(200).send({ user: user, role: "admin" });
       return;
     } else {
-      res.status(400).send({ message: "Invalid token" });
+      res.status(400).send({ message: "Invalid email/password" });
       return;
     }
   } else {
