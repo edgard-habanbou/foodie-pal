@@ -16,5 +16,6 @@ router.post("/forgot-password", forgotPassword);
 router.post("/reset-password", resetPassword);
 router.post("/check-token", checkToken);
 router.post("/check", checkAuthToken);
+router.post("/check/admin", checkAuthToken);
 
 module.exports = router;

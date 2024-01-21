@@ -157,6 +157,7 @@ const checkToken = async (req, res) => {
 
 const checkAuthToken = async (req, res) => {
   const { token } = req.body;
+  const type = req.params.type;
   if (!token) {
     res.status(400).send({ message: "token is required" });
     return;
@@ -165,6 +166,13 @@ const checkAuthToken = async (req, res) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const user = await User.findOne({ _id: decoded._id });
+    if (type === "admin") {
+      if (user.userRole.equals(new ObjectId(process.env.ADMIN_ID))) {
+        res.status(200).send({ user: user });
+      } else {
+        res.status(400).send({ message: "Invalid token" });
+      }
+    }
     res.status(200).send({ user: user });
   } catch (e) {
     res.status(400).send({ message: "Invalid token" });
