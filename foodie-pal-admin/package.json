@@ -24,6 +24,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.6.5",
     "electron-updater": "^6.1.1",
+    "ldrs": "^1.0.1",
     "prop-types": "^15.8.1",
     "react-router-dom": "^6.21.3",
     "sweetalert2": "^11.10.3",
