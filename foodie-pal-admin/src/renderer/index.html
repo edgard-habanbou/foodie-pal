@@ -5,7 +5,12 @@
     <title>Foodie Pal Admin</title>
     <meta
       http-equiv="Content-Security-Policy"
-      content="img-src 'self' https://localhost:8000/; default-src 'self'; script-src 'self' https://cdn.example.com; style-src 'self' 'unsafe-inline'; connect-src 'self' https://localhost:8000; font-src 'self' data: https://fonts.googleapis.com;"
+      content="img-src 'self' https://localhost:8000/;
+               default-src 'self';
+               script-src 'self' https://cdn.example.com;
+               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com ;
+               connect-src 'self' https://localhost:8000;
+               font-src 'unsafe-inline' data: https://fonts.googleapis.com https://fonts.gstatic.com;"
     />
   </head>
 
