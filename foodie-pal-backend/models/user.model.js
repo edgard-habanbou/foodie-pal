@@ -35,6 +35,7 @@ const userSchema = new mongoose.Schema(
     resetPasswordCode: {
       type: String,
       default: "",
+      timestamps: true,
     },
     resetPasswordCodeUsed: {
       type: Boolean,
@@ -50,18 +51,23 @@ const userSchema = new mongoose.Schema(
     },
     items: {
       type: [Item.schema],
+      timestamps: true,
     },
     DietairyPreferences: {
       type: [DietairyPreference.schema],
+      timestamps: true,
     },
     FavoriteRecipes: {
       type: [Recipe.schema],
+      timestamps: true,
     },
     DietQuestions: {
       type: Object,
+      timestamps: true,
     },
     DietPlan: {
       type: Object,
+      timestamps: true,
     },
   },
   {

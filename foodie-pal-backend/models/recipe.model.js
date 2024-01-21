@@ -4,7 +4,6 @@ const RecipesSchema = new mongoose.Schema(
   {
     id: {
       type: Number,
-      unique: true,
       required: true,
     },
     title: {
