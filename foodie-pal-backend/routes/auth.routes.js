@@ -9,6 +9,7 @@ const {
 } = require("../controllers/auth.controllers");
 const router = express.Router();
 
+router.post("/login/:type", login);
 router.post("/login", login);
 router.post("/register", register);
 router.post("/forgot-password", forgotPassword);
