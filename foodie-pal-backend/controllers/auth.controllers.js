@@ -28,9 +28,15 @@ const login = async (req, res) => {
   }
   const { password: hashedPassword, _id, ...userDetails } = user.toJSON();
   if (type === "admin") {
-    console.log(
-      userDetails.userRole.equals(new ObjectId(process.env.ADMIN_ID))
-    );
+    if (user.userRole.equals(new ObjectId(process.env.ADMIN_ID))) {
+      res.status(200).send({ user: user, role: "admin" });
+      return;
+    } else {
+      res.status(400).send({ message: "Invalid token" });
+      return;
+    }
+  } else {
+    res.status(200).send({ user: user });
   }
   // generate JWT token
   const token = jwt.sign(
@@ -168,12 +174,15 @@ const checkAuthToken = async (req, res) => {
     const user = await User.findOne({ _id: decoded._id });
     if (type === "admin") {
       if (user.userRole.equals(new ObjectId(process.env.ADMIN_ID))) {
-        res.status(200).send({ user: user });
+        res.status(200).send({ user: user, role: "admin" });
+        return;
       } else {
         res.status(400).send({ message: "Invalid token" });
+        return;
       }
+    } else {
+      res.status(200).send({ user: user });
     }
-    res.status(200).send({ user: user });
   } catch (e) {
     res.status(400).send({ message: "Invalid token" });
   }
