@@ -3,8 +3,10 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const validator = require("validator");
 const { sendMail } = require("./mail.controllers");
+const { ObjectId } = require("mongodb");
 
 const login = async (req, res) => {
+  const type = req.params.type;
   const { email, password } = req.body;
   if (!email || !password) {
     res.status(400).send({ message: "all fields are required" });
@@ -25,7 +27,11 @@ const login = async (req, res) => {
     return;
   }
   const { password: hashedPassword, _id, ...userDetails } = user.toJSON();
-
+  if (type === "admin") {
+    console.log(
+      userDetails.userRole.equals(new ObjectId(process.env.ADMIN_ID))
+    );
+  }
   // generate JWT token
   const token = jwt.sign(
     {
