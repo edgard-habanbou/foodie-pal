@@ -27,17 +27,6 @@ const login = async (req, res) => {
     return;
   }
   const { password: hashedPassword, _id, ...userDetails } = user.toJSON();
-  if (type === "admin") {
-    if (user.userRole.equals(new ObjectId(process.env.ADMIN_ID))) {
-      res.status(200).send({ user: user, role: "admin" });
-      return;
-    } else {
-      res.status(400).send({ message: "Invalid email/password" });
-      return;
-    }
-  } else {
-    res.status(200).send({ user: user });
-  }
   // generate JWT token
   const token = jwt.sign(
     {
@@ -46,11 +35,20 @@ const login = async (req, res) => {
     process.env.JWT_SECRET,
     { expiresIn: "2 days" }
   );
-
-  res.status(200).send({
-    user: userDetails,
-    token,
-  });
+  if (type === "admin") {
+    if (user.userRole.equals(new ObjectId(process.env.ADMIN_ID))) {
+      res.status(200).send({ user: userDetails, role: "admin", token });
+      return;
+    } else {
+      res.status(400).send({ message: "Invalid email/password" });
+      return;
+    }
+  } else {
+    res.status(200).send({
+      user: userDetails,
+      token,
+    });
+  }
 };
 
 const register = async (req, res) => {
