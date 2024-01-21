@@ -5,64 +5,69 @@ const DietairyPreference = require("./dietairyPreference.model");
 const Item = require("./Item.model");
 const Recipe = require("./recipe.model");
 
-const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
+const userSchema = new mongoose.Schema(
+  {
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: 6,
+    },
+    firstName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    gender: {
+      type: Boolean,
+      required: true,
+    },
+    resetPasswordCode: {
+      type: String,
+      default: "",
+    },
+    resetPasswordCodeUsed: {
+      type: Boolean,
+      default: false,
+    },
+    userRole: {
+      type: mongoose.Schema.Types.ObjectId,
+      default: new mongoose.Types.ObjectId("657f052bf4aaced6b5b8d7b0"),
+    },
+    imageUrl: {
+      type: String,
+      default: "no-profile-picture-icon.png",
+    },
+    items: {
+      type: [Item.schema],
+    },
+    DietairyPreferences: {
+      type: [DietairyPreference.schema],
+    },
+    FavoriteRecipes: {
+      type: [Recipe.schema],
+    },
+    DietQuestions: {
+      type: Object,
+    },
+    DietPlan: {
+      type: Object,
+    },
   },
-  password: {
-    type: String,
-    required: true,
-    minlength: 6,
-  },
-  firstName: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  gender: {
-    type: Boolean,
-    required: true,
-  },
-  resetPasswordCode: {
-    type: String,
-    default: "",
-  },
-  resetPasswordCodeUsed: {
-    type: Boolean,
-    default: false,
-  },
-  userRole: {
-    type: mongoose.Schema.Types.ObjectId,
-    default: new mongoose.Types.ObjectId("657f052bf4aaced6b5b8d7b0"),
-  },
-  imageUrl: {
-    type: String,
-    default: "no-profile-picture-icon.png",
-  },
-  items: {
-    type: [Item.schema],
-  },
-  DietairyPreferences: {
-    type: [DietairyPreference.schema],
-  },
-  FavoriteRecipes: {
-    type: [Recipe.schema],
-  },
-  DietQuestions: {
-    type: Object,
-  },
-  DietPlan: {
-    type: Object,
-  },
-});
+  {
+    timestamps: true,
+  }
+);
 
 userSchema.pre(
   "save",
