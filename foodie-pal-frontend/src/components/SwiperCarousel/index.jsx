@@ -20,19 +20,27 @@ function SwiperCarousel({ recipes, row }) {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   const calculateSlidesPerView = (width) => {
-    if (width >= 1200) {
+    if (width >= 2000) {
+      setSlidesPerView(9);
+    } else if (width >= 1800) {
+      setSlidesPerView(8);
+    } else if (width >= 1400) {
+      setSlidesPerView(7);
+    } else if (width >= 1200) {
       setSlidesPerView(5);
-    } else if (width >= 992) {
+    } else if (width >= 850) {
       setSlidesPerView(4);
-    } else if (width >= 768) {
+    } else if (width >= 630) {
       setSlidesPerView(3);
-    } else if (width >= 400) {
+    } else if (width >= 430) {
       setSlidesPerView(2);
     } else {
       setSlidesPerView(1);
     }
   };
+
   useEffect(() => {
     calculateSlidesPerView(screenWidth);
   }, [screenWidth]);
