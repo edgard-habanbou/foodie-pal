@@ -37,7 +37,7 @@ function Login({ setLoading }) {
       if (response.token && response.user && response.role === 'admin') {
         localStorage.setItem('token', response.token)
         localStorage.setItem('user', JSON.stringify(response.user))
-        navigate('/home')
+        navigate('/landing')
       } else if (response.message === 'Request failed with status code 400') {
         Popup({
           title: 'Error',
