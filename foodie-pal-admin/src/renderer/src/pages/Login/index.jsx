@@ -9,7 +9,7 @@ import texts from './texts'
 import SwiperAuto from '../../components/SwiperAuto'
 import PropTypes from 'prop-types'
 
-function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
+function Login({ setLoading }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
@@ -140,8 +140,6 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
 }
 
 Login.propTypes = {
-  handleRegister: PropTypes.func,
-  handleForgotPasswordBtn: PropTypes.func,
   setLoading: PropTypes.any
 }
 
