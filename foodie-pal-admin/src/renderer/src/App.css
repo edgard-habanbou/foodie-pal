@@ -1,0 +1,157 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+body {
+  font-family: "Montserrat";
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primarycolor: #fe8a01;
+  --secondarycolor: #372702;
+}
+.flex {
+  display: flex;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+.row {
+  flex-direction: row;
+}
+.column {
+  flex-direction: column;
+}
+.center {
+  justify-content: center;
+  align-items: center;
+}
+.right {
+  justify-content: flex-end;
+}
+.space-between {
+  justify-content: space-between;
+}
+.space-around {
+  justify-content: space-around;
+}
+
+.full-width {
+  width: 100%;
+}
+.full-height {
+  height: 100%;
+}
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+}
+.full-height-screen {
+  height: 100vh;
+}
+.full-width-screen {
+  width: 100vw;
+}
+.gap {
+  gap: 1rem;
+}
+.mt-2 {
+  margin-top: 2rem;
+}
+.btn {
+  border-radius: 10px;
+  padding: 0.7rem 0rem;
+  width: 200px;
+  border: none;
+  background-color: var(--primarycolor);
+  color: white;
+  font-size: 15px;
+  text-decoration: none;
+}
+.btn:hover {
+  cursor: pointer;
+  background-color: #4caf50;
+}
+.danger {
+  background-color: red;
+}
+.input {
+  border-radius: 10px;
+  border: none;
+  padding: 0.8rem 1rem;
+  color: white;
+  width: 100%;
+  background-color: #a1a1a1ab;
+}
+.input::placeholder {
+  color: rgba(218, 218, 218, 0.445);
+}
+.link {
+  text-decoration: none;
+  color: white;
+  font-weight: 100;
+  color: var(--primarycolor);
+  font-size: 10px;
+}
+.span {
+  font-weight: 100;
+  font-size: 10px;
+}
+.input:focus {
+  border: 2px solid var(--secondarycolor);
+}
+.half-width {
+  width: 50%;
+}
+.half-width-screen {
+  width: 50vw;
+}
+.select {
+  border-radius: 10px;
+  padding: 5px 20px;
+  color: white;
+  background-color: slategray;
+  font-size: 15px;
+}
+.margin {
+  margin: 5px 10px;
+}
+.padding {
+  padding: 5px 10px;
+}
+.padding-top {
+  padding-top: 10px;
+}
+.hidden {
+  display: none;
+}
+.btn-menu {
+  background: none;
+  border: none;
+  color: white;
+}
+.color-white {
+  color: white;
+}
+button {
+  font-weight: bold;
+}
+span {
+  font-size: 15px;
+}
+.color-primary {
+  color: var(--primarycolor);
+}
+.width-fit {
+  width: fit-content;
+}
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("https://localhost:8000/down-arrow.svg");
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px);
+}

@@ -1,0 +1,58 @@
+.login {
+  overflow: hidden;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.login-form {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+}
+
+.image-sidebar {
+  background-image: url("../../assets/images/low-brightness.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 30vw;
+}
+
+.image {
+  background-image: url("../../assets/images/wp9506513.jpg");
+  filter: blur(6px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+.password-icon {
+  position: absolute;
+  right: 2%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.password-input {
+  width: fit-content;
+  position: relative;
+}
+
+@media screen and (min-width: 950px) {
+  .image {
+    background-image: url("../../assets/images/background-large.jpg");
+    filter: blur(0px);
+  }
+  .login-form {
+    width: 30vw;
+  }
+  .form-control {
+    width: 20vw;
+  }
+}
