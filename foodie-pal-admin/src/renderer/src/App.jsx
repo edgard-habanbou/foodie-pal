@@ -1,5 +1,5 @@
 import { Route, Routes, HashRouter } from 'react-router-dom'
-import Auth from './pages/Aith'
+import Auth from './pages/Auth'
 import './app.css'
 function App() {
   return (
