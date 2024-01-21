@@ -1,3 +1,6 @@
 .diet-plan {
   height: 95%;
 }
+.diet-plan .swiper-slide {
+  display: block;
+}

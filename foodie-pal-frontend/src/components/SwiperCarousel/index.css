@@ -9,11 +9,13 @@
 .swiper-slide {
   padding-left: 2.5px;
   padding-right: 2.5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 @media screen and (min-width: 950px) {
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .mySwiper {
     width: 60%;
     height: 85%;
