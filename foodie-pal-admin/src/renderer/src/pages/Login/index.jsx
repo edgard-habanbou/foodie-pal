@@ -33,7 +33,6 @@ function Login({ setLoading }) {
     setLoading(true)
     try {
       const response = await userApi.loginUser({ email, password })
-      console.log(response)
       if (response.token && response.user && response.role === 'admin') {
         localStorage.setItem('token', response.token)
         localStorage.setItem('user', JSON.stringify(response.user))
