@@ -1,72 +1,72 @@
-import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
-import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
-import { userApi } from "../../network/axios";
-import Popup from "../../components/Popup";
-import texts from "./texts";
-import SwiperAuto from "../../components/SwiperAuto";
+import { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye } from '@fortawesome/free-solid-svg-icons'
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom'
+import { userApi } from '../../network/axios'
+import Popup from '../../components/Popup'
+import texts from './texts'
+import SwiperAuto from '../../components/SwiperAuto'
 
 function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
+  const navigate = useNavigate()
   const handleShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
+    setShowPassword(!showPassword)
+  }
 
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
   useEffect(() => {
     const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
+      setScreenWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleResize)
     return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   const handleLogin = async () => {
-    setLoading(true);
+    setLoading(true)
     try {
-      const response = await userApi.loginUser({ email, password });
+      const response = await userApi.loginUser({ email, password })
       if (response.token && response.user) {
-        localStorage.setItem("token", response.token);
-        localStorage.setItem("user", JSON.stringify(response.user));
-        navigate("/home");
-      } else if (response.message === "Request failed with status code 400") {
+        localStorage.setItem('token', response.token)
+        localStorage.setItem('user', JSON.stringify(response.user))
+        navigate('/home')
+      } else if (response.message === 'Request failed with status code 400') {
         Popup({
-          title: "Error",
+          title: 'Error',
           text: `Wrong Credentials`,
-          icon: "error",
-          confirmButtonText: "Ok",
-          confirmButtonColor: "#FE8A01",
-        });
-      } else if (response.message === "Invalid email") {
+          icon: 'error',
+          confirmButtonText: 'Ok',
+          confirmButtonColor: '#FE8A01'
+        })
+      } else if (response.message === 'Invalid email') {
         Popup({
-          title: "Error",
+          title: 'Error',
           text: `Invalid Email`,
-          icon: "error",
-          confirmButtonText: "Ok",
-          confirmButtonColor: "#FE8A01",
-        });
+          icon: 'error',
+          confirmButtonText: 'Ok',
+          confirmButtonColor: '#FE8A01'
+        })
       } else {
         Popup({
-          title: "Error",
+          title: 'Error',
           text: `Something went wrong`,
-          icon: "error",
-          confirmButtonText: "Ok",
-          confirmButtonColor: "#FE8A01",
-        });
-        setLoading(false);
+          icon: 'error',
+          confirmButtonText: 'Ok',
+          confirmButtonColor: '#FE8A01'
+        })
+        setLoading(false)
       }
     } catch (error) {
-      setLoading(false);
+      setLoading(false)
     }
-    setLoading(false);
-  };
+    setLoading(false)
+  }
   return (
     <div>
       <div className="flex login full-height">
@@ -139,7 +139,7 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
             </div>
             <div className="flex right">
               <span className="span">
-                don't have an account?{" "}
+                don't have an account?{' '}
                 <a href="/" className="link" onClick={handleRegister}>
                   Sign Up
                 </a>
@@ -149,7 +149,7 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Login;
+export default Login
