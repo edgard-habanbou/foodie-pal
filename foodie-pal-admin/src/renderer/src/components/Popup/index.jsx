@@ -1,4 +1,4 @@
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2'
 
 export default function Popup({
   title,
@@ -6,17 +6,17 @@ export default function Popup({
   icon,
   confirmButtonText,
   confirmButtonColor,
-  action,
+  action
 }) {
   Swal.fire({
     title: title,
     text: text,
     icon: icon,
     confirmButtonColor: confirmButtonColor,
-    confirmButtonText: confirmButtonText,
+    confirmButtonText: confirmButtonText
   }).then((result) => {
     if (result.isConfirmed && action) {
-      action();
+      action()
     }
-  });
+  })
 }

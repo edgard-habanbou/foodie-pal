@@ -125,26 +125,12 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
                 )}
               </div>
             </div>
-
-            <div className="flex right ">
-              <a href="/" className="link" onClick={handleForgotPasswordBtn}>
-                Forgot Password?
-              </a>
-            </div>
           </div>
           <div className="flex column gap ">
             <div className="form-control">
               <button className="btn" onClick={handleLogin}>
                 Login
               </button>
-            </div>
-            <div className="flex right">
-              <span className="span">
-                don&apos;t have an account?{' '}
-                <a href="/" className="link" onClick={handleRegister}>
-                  Sign Up
-                </a>
-              </span>
             </div>
           </div>
         </div>
