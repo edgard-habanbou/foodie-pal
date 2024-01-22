@@ -10,7 +10,8 @@ function ItemsByPhoto({ addBtnHandler }) {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = async () => {
-        await userApi.uploadItemsImage({ image: reader.result });
+        const result = await userApi.uploadItemsImage({ image: reader.result });
+        setItemsInPic(result);
         setUploadedImage(reader.result);
       };
       reader.readAsDataURL(file);
