@@ -30,26 +30,32 @@ function SwiperVertical({
       className={mappedDietPlan ? "mapped-diet-plan" : "instructions"}
     >
       {mappedDietPlan?.map(([meal, recipes], index) => {
-        return (
-          <SwiperSlide
-            key={index}
-            onClick={() => {
-              localStorage.setItem("recipes", JSON.stringify(recipes));
-            }}
-          >
-            <div className="flex column margin">
-              <div className="padding margin">
-                <h3 className="color-white">
-                  {meal.charAt(0).toUpperCase() + meal.slice(1)}
-                </h3>
-                <hr />
+        if (meal !== "createdAt" && meal !== "updatedAt") {
+          return (
+            <SwiperSlide
+              key={index}
+              onClick={() => {
+                localStorage.setItem("recipes", JSON.stringify(recipes));
+              }}
+            >
+              <div className="flex column margin">
+                <div className="padding margin">
+                  <h3 className="color-white">
+                    {meal.charAt(0).toUpperCase() + meal.slice(1)}
+                  </h3>
+                  <hr />
+                </div>
+                <div className=" flex swiper-div center">
+                  <SwiperCarousel
+                    slidesPerView={1.8}
+                    recipes={recipes}
+                    row={1}
+                  />
+                </div>
               </div>
-              <div className=" flex swiper-div center">
-                <SwiperCarousel slidesPerView={1.8} recipes={recipes} row={1} />
-              </div>
-            </div>
-          </SwiperSlide>
-        );
+            </SwiperSlide>
+          );
+        }
       })}
       {instructions?.map((instruction, i) => {
         return (
