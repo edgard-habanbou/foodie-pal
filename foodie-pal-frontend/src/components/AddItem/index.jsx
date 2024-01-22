@@ -1,6 +1,12 @@
 import React from "react";
 
 function AddItem() {
+  const handleCamerabtn = () => {
+    const fileInput = document.getElementById("fileInput");
+    if (fileInput) {
+      fileInput.click();
+    }
+  };
   return (
     <>
       <div className="flex margin gap  center">
