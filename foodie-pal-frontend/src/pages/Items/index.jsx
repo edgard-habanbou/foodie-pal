@@ -23,7 +23,6 @@ const Items = () => {
   check();
   const [items, setItems] = useState([]);
   const [Load, setLoading] = useState(false);
-  const [itemName, setItemName] = useState("");
 
   const addBtnHandler = async (item) => {
     setLoading(true);
