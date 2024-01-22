@@ -38,6 +38,10 @@ app.use("/clarifai", authMiddleware, clarifai);
 const openAi = require("./routes/openai.routes");
 app.use("/openai", authMiddleware, openAi);
 
+//stats routes
+const stats = require("./routes/stats.routes");
+app.use("/stats", authMiddleware, stats);
+
 const credentials = {
   key: fs.readFileSync("./ssl/server.key"),
   cert: fs.readFileSync("./ssl/server.crt"),
