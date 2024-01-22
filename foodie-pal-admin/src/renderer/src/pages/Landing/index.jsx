@@ -57,7 +57,7 @@ const Landing = () => {
       <div className="flex space-around">
         <Card title="Total Diet Plans" data={dietPlanCount} />
         <Card title="Total Items Added" data={totalItemsCount} />
-        <Card title="Total User" data={userCount} />
+        <Card title="Total Users" data={userCount} />
       </div>
       {loading ? (
         <Loading />
