@@ -21,7 +21,6 @@ const Landing = () => {
         setDietPlanCount(stats.dietPlanCount)
         setTotalItemsCount(stats.totalItemsCount)
         setUserCount(stats.userCount)
-        console.log(stats)
         const formattedUserCreationData = formatUserCreationData(stats.userCreationTimes)
         setUserCreationData(formattedUserCreationData)
         const formattedDietPlanCreationTimes = formatUserCreationData(stats.dietPlanCreationTimes)
