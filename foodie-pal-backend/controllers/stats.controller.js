@@ -44,12 +44,9 @@ const getDietPlanCount = async () => {
       DietPlan: { $exists: true, $ne: null },
     }).select("createdAt DietPlan firstName lastName");
     const dietPlanCount = usersWithDietPlan.length;
-    const dietPlanCreationTimes = usersWithDietPlan.map((user) => {
-      return {
-        userId: user.firstName + " " + user.lastName,
-        createdAt: user.DietPlan.createdAt,
-      };
-    });
+    const dietPlanCreationTimes = usersWithDietPlan.map(
+      (user) => user.DietPlan.createdAt
+    );
 
     return { dietPlanCount, dietPlanCreationTimes };
   } catch (error) {
