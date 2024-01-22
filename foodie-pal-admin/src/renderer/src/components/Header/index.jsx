@@ -8,7 +8,6 @@ function Header() {
     localStorage.removeItem('token')
     navigate('/')
   }
-  console.log(import.meta.env)
   return (
     <div className="header flex space-between center">
       <button className="btn danger" onClick={handleLogout}>

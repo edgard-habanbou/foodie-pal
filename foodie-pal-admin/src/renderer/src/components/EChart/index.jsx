@@ -2,7 +2,7 @@ import ReactECharts from 'echarts-for-react'
 
 import PropTypes from 'prop-types'
 
-function EChart({ title, legend, xAxis, series }) {
+function EChart({ title, legend, xAxis, series, yAxis }) {
   const option = {
     title: {
       text: title
@@ -14,14 +14,12 @@ function EChart({ title, legend, xAxis, series }) {
         restore: {}
       }
     },
-    tooltip: {},
-    legend: {
-      data: legend
+    tooltip: {
+      trigger: 'axis'
     },
-    xAxis: {
-      data: xAxis
-    },
-    yAxis: {},
+    legend: legend,
+    xAxis: xAxis,
+    yAxis: yAxis,
     series: series
   }
 
@@ -36,6 +34,7 @@ EChart.propTypes = {
   title: PropTypes.string.isRequired,
   legend: PropTypes.array.isRequired,
   xAxis: PropTypes.array.isRequired,
+  yAxis: PropTypes.object.isRequired,
   series: PropTypes.array.isRequired
 }
 
