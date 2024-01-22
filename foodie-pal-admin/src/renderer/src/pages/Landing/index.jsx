@@ -20,6 +20,7 @@ const Landing = () => {
       try {
         const stats = await userApi.getStats()
         setDietPlanCount(stats.dietPlanCount)
+        setMaleCount(stats.male)
         setTotalItemsCount(stats.totalItemsCount)
         setUserCount(stats.userCount)
         const formattedUserCreationData = formatUserCreationData(stats.userCreationTimes)
