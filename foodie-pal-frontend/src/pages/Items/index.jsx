@@ -10,6 +10,7 @@ import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
 import { useNavigate } from "react-router-dom";
 
 import "./index.css";
+import ItemsByPhoto from "../../components/ItemsByPhoto";
 
 const Items = () => {
   const navigate = useNavigate();
@@ -119,6 +120,7 @@ const Items = () => {
                 <FontAwesomeIcon icon={faCamera} />
               </button>
             </div>
+            <ItemsByPhoto />
             <div className="title">
               <h4 className="color-white">Your Items</h4>
               <hr />
