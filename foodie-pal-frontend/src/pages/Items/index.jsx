@@ -70,7 +70,7 @@ const Items = () => {
         <Header />
         <div className="flex center column full-width  add-items">
           <div className="items-wraper">
-            <AddItem />
+            <AddItem addBtnHandler={addBtnHandler} />
             <ItemsByPhoto addBtnHandler={addBtnHandler} />
             <YourItems
               setLoading={setLoading}
