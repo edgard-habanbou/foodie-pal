@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { userApi } from "../../network/axios";
 import SwiperVertical from "../SwiperVertical";
 
-function ItemsByPhoto() {
+function ItemsByPhoto({ addBtnHandler }) {
   const [itemsInPic, setItemsInPic] = useState([]);
   const [uploadedImage, setUploadedImage] = useState(null);
   const handleFileChange = (event) => {
