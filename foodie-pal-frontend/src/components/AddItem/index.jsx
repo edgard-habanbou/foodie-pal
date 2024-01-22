@@ -1,6 +1,8 @@
 import React from "react";
 
 function AddItem() {
+  const [itemName, setItemName] = useState("");
+
   const handleCamerabtn = () => {
     const fileInput = document.getElementById("fileInput");
     if (fileInput) {
