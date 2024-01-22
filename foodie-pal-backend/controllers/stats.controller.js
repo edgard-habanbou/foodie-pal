@@ -7,8 +7,9 @@ const getStats = async (req, res) => {
       res.status(403).send({ message: "Not Authorized" });
       return;
     }
-    const { userCount } = await getuserCount();
-    res.status(200).send({ role: "admin", userCount });
+    const { userCount, userCreationTimes } =
+      await getuserCountAndCreationTime();
+    res.status(200).send({ role: "admin", userCount, userCreationTimes });
   } catch (error) {
     console.error(error);
     res.status(500).send({ message: "Internal Server Error" });
@@ -18,11 +19,12 @@ const getStats = async (req, res) => {
 module.exports = {
   getStats,
 };
-const getuserCount = async () => {
+const getuserCountAndCreationTime = async () => {
   const startDate = new Date(0);
   const users = await User.find({
     createdAt: { $gte: startDate },
   }).select("createdAt");
   const userCount = users.length;
-  return { userCount };
+  const userCreationTimes = users.map((user) => user.createdAt);
+  return { userCount, userCreationTimes };
 };
