@@ -104,7 +104,11 @@ const Items = () => {
               </button>
             </div>
             <ItemsByPhoto addBtnHandler={addBtnHandler} />
-            <YourItems />
+            <YourItems
+              setLoading={setLoading}
+              handleGetItems={handleGetItems}
+              items={items}
+            />
           </div>
         </div>
       </div>
