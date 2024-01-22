@@ -3,15 +3,23 @@ import EChart from '../../components/EChart'
 import Header from '../../components/Header'
 import { userApi } from '../../network/axios'
 import Loading from '../../components/Loading'
+import Card from '../../components/Card'
+import './index.css'
 
 const Landing = () => {
   const [userCreationData, setUserCreationData] = useState([])
+  const [dietPlanCount, setDietPlanCount] = useState('')
+  const [totalItemsCount, setTotalItemsCount] = useState('')
+  const [userCount, setUserCount] = useState('')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const getStatistics = async () => {
       try {
         const stats = await userApi.getStats()
+        setDietPlanCount(stats.dietPlanCount)
+        setTotalItemsCount(stats.totalItemsCount)
+        setUserCount(stats.userCount)
         console.log(stats)
         const formattedUserCreationData = formatUserCreationData(stats.userCreationTimes)
         setUserCreationData(formattedUserCreationData)
@@ -39,8 +47,13 @@ const Landing = () => {
   }
 
   return (
-    <div className="flex column gap">
+    <div className="landing-page flex column gap">
       <Header />
+      <div className="flex gap">
+        <Card title="Total Diet Plans" data={dietPlanCount} />
+        <Card title="Total Items Added" data={totalItemsCount} />
+        <Card title="Total User" data={userCount} />
+      </div>
       {loading ? (
         <Loading />
       ) : (
