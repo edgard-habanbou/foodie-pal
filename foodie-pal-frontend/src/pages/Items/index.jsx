@@ -3,8 +3,6 @@ import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import Loading from "../../components/Loading";
 import { userApi } from "../../network/axios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
 import { useNavigate } from "react-router-dom";
 
