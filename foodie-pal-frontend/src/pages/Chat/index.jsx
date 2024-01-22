@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import SwiperVertical from "../../components/SwiperVertical";
 import checkIfLoggedIn from "../../assets/checkIfLoggedIn";
 import { userApi } from "../../network/axios";
+import { useEffect } from "react";
 
 function Chat() {
   const navigate = useNavigate();
@@ -33,13 +34,13 @@ function Chat() {
   ]);
 
   const handleSend = async () => {
-    const updatedChats = [
-      ...chats,
+    setChats((prevChat) => [
+      ...prevChat,
       { sender: `${user.firstName}`, chat: userMessage },
-    ];
-    await setChats(updatedChats);
+    ]);
+    const message = userMessage;
     setUserMessage("");
-    await sendToOpenAI(userMessage);
+    await sendToOpenAI(message);
   };
 
   const sendToOpenAI = async (message) => {
@@ -48,8 +49,8 @@ function Chat() {
       recipe: selectedRecipe,
     });
     if (openAiResponse.result) {
-      setChats([
-        ...chats,
+      setChats((prevChat) => [
+        ...prevChat,
         { sender: `openai`, chat: openAiResponse.result[0]?.answer },
       ]);
     } else {
@@ -57,6 +58,9 @@ function Chat() {
     }
   };
 
+  useEffect(() => {
+    console.log(chats);
+  }, [chats]);
   const handleBack = () => {
     navigate(`/cook/${id}`);
   };
