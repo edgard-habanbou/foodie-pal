@@ -121,10 +121,7 @@ const Items = () => {
               </button>
             </div>
             <ItemsByPhoto addBtnHandler={addBtnHandler} />
-            <div className="title">
-              <h4 className="color-white">Your Items</h4>
-              <hr />
-            </div>
+
             <div className="title items-added flex column ">
               <SwiperVertical
                 items={items}
