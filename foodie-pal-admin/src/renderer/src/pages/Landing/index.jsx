@@ -43,10 +43,12 @@ const Landing = () => {
       acc[date] = (acc[date] || 0) + 1
       return acc
     }, {})
-    return Object.entries(userCountsPerDay).map(([date, count]) => ({
-      date,
-      count
-    }))
+
+    const sortedUserCounts = Object.entries(userCountsPerDay)
+      .map(([date, count]) => ({ date, count }))
+      .sort((a, b) => new Date(a.date) - new Date(b.date))
+
+    return sortedUserCounts
   }
 
   return (
