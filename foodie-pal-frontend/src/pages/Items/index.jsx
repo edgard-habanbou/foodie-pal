@@ -120,7 +120,7 @@ const Items = () => {
                 <FontAwesomeIcon icon={faCamera} />
               </button>
             </div>
-            <ItemsByPhoto />
+            <ItemsByPhoto addBtnHandler={addBtnHandler} />
             <div className="title">
               <h4 className="color-white">Your Items</h4>
               <hr />
