@@ -60,7 +60,7 @@ const Landing = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="flex gap">
+        <div className="flex column gap">
           <EChart
             title="User Creation"
             xAxis={{
