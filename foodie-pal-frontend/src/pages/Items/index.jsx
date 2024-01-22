@@ -133,10 +133,7 @@ const Items = () => {
                 <FontAwesomeIcon icon={faCamera} />
               </button>
             </div>
-            <div className="title">
-              <h4 className="color-white">Add By Photo</h4>
-              <hr />
-            </div>
+
             <div className="flex center column">
               <div className="camera-items flex">
                 <input
