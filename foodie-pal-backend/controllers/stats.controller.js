@@ -68,8 +68,11 @@ const getTotalItemsCount = async () => {
 const getGenderCounts = async () => {
   try {
     const maleCount = await User.countDocuments({ gender: false });
+    const femaleCount = await User.countDocuments({ gender: true });
+
     return {
       male: maleCount,
+      female: femaleCount,
     };
   } catch (error) {
     console.error("Error in getGenderCounts:", error);
