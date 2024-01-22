@@ -2,7 +2,7 @@ import React from "react";
 import { userApi } from "../../network/axios";
 import SwiperVertical from "../SwiperVertical";
 
-function YourItems({ setLoading, handleGetItems }) {
+function YourItems({ setLoading, handleGetItems, items }) {
   const deleteBtnHandler = async (item) => {
     setLoading(true);
     try {
