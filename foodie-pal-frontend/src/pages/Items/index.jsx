@@ -79,29 +79,6 @@ const Items = () => {
         <Header />
         <div className="flex center column full-width  add-items">
           <div className="items-wraper">
-            <div className="flex margin gap  center">
-              <input
-                type="text"
-                className="input"
-                placeholder="Item Name"
-                value={itemName}
-                onChange={(e) => {
-                  setItemName(e.target.value);
-                }}
-              />
-              <button
-                className="btn"
-                onClick={() => {
-                  addBtnHandler(itemName);
-                  setItemName("");
-                }}
-              >
-                Add Item
-              </button>
-              <button className="btn" onClick={handleCamerabtn}>
-                <FontAwesomeIcon icon={faCamera} />
-              </button>
-            </div>
             <ItemsByPhoto addBtnHandler={addBtnHandler} />
             <YourItems
               setLoading={setLoading}
