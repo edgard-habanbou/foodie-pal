@@ -1,6 +1,6 @@
 import React from "react";
 
-function YourItems() {
+function YourItems({ setLoading }) {
   const deleteBtnHandler = async (item) => {
     setLoading(true);
     try {
