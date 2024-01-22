@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./index.css";
 import ItemsByPhoto from "../../components/ItemsByPhoto";
+import YourItems from "../../components/YourItems";
 
 const Items = () => {
   const navigate = useNavigate();
@@ -103,6 +104,7 @@ const Items = () => {
               </button>
             </div>
             <ItemsByPhoto addBtnHandler={addBtnHandler} />
+            <YourItems />
           </div>
         </div>
       </div>
