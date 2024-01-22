@@ -121,14 +121,6 @@ const Items = () => {
               </button>
             </div>
             <ItemsByPhoto addBtnHandler={addBtnHandler} />
-
-            <div className="title items-added flex column ">
-              <SwiperVertical
-                items={items}
-                deleteBtnHandler={deleteBtnHandler}
-                slidesPerView={4.5}
-              />
-            </div>
           </div>
         </div>
       </div>
