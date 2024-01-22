@@ -6,6 +6,9 @@ class UserApi {
   async checkIfLoggedIn(token) {
     return await api.post('/auth/check/admin', token)
   }
+  async getStats() {
+    return await api.post('/stats/getstats')
+  }
 }
 
 export const userApi = new UserApi()
