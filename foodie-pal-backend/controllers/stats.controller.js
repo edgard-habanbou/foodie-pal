@@ -10,6 +10,7 @@ const getStats = async (req, res) => {
     const { userCount, userCreationTimes } =
       await getuserCountAndCreationTime();
     const { dietPlanCount, dietPlanCreationTimes } = await getDietPlanCount();
+    const { male, female } = await getGenderCounts();
     const totalItemsCount = await getTotalItemsCount();
     res.status(200).send({
       role: "admin",
