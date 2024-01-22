@@ -1,4 +1,5 @@
 import React from "react";
+import { userApi } from "../../network/axios";
 
 function ItemsByPhoto() {
   const handleFileChange = (event) => {
