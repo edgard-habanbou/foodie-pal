@@ -54,24 +54,6 @@ const Items = () => {
     setLoading(false);
   };
 
-  const deleteBtnHandler = async (item) => {
-    setLoading(true);
-    try {
-      const data = {
-        subDocument: {
-          items: {
-            name: item,
-          },
-        },
-      };
-      await userApi.deleteFromUser(data);
-      handleGetItems();
-    } catch (error) {
-      console.error(error);
-    }
-    setLoading(false);
-  };
-
   const handleGetItems = async () => {
     setLoading(true);
     try {
