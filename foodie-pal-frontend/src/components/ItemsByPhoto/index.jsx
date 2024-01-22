@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { userApi } from "../../network/axios";
+import SwiperVertical from "../SwiperVertical";
 
 function ItemsByPhoto() {
   const [itemsInPic, setItemsInPic] = useState([]);
