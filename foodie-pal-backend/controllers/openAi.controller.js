@@ -81,11 +81,13 @@ const sendQuestion = async (req, res) => {
   the recipe is: ${recipe}
   the user first name is: ${firstName}
   your answer must start with Hello ${firstName} and end with a dot.
-  you should return only the answer to the question
-  the answer should me a JSON object with this format: [{"answer": answer(a string)}]
+  you MUST return only the answer to the question
+  the answer MUST me a JSON object with this format: [{"answer": answer(a string)}]
   make sure to close the JSON file at the end
-  Give me only the JSON object and remove all texts before and after it.`;
-  const result = await chatCompletion(message);
+  Give me only the JSON object and remove all texts before and after it even dots
+  your answer must be a JSON object with this format: [{"answer": answer(a string)}] and nothing else
+  `;
+  const result = await chatCompletion(message, true);
   res.status(200).json({ result });
 };
 module.exports = {
@@ -106,7 +108,7 @@ const makeMessage = (meal, DietQuestions) => {
   `;
 };
 
-const chatCompletion = async (message) => {
+const chatCompletion = async (message, chat = false) => {
   const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
   });
@@ -123,6 +125,7 @@ const chatCompletion = async (message) => {
     });
     return JSON.parse(chatCompletion.choices[0].message.content);
   } catch (e) {
+    if (chat) return [{ answer: "Sorry, I don't know how to answer that." }];
     console.log(e);
   }
 };
