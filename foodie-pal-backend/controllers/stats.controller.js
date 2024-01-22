@@ -15,6 +15,8 @@ const getStats = async (req, res) => {
     res.status(200).send({
       role: "admin",
       userCount,
+      male,
+      female,
       userCreationTimes,
       dietPlanCount,
       dietPlanCreationTimes,
