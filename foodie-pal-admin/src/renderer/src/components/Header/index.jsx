@@ -10,9 +10,6 @@ function Header() {
   }
   return (
     <div className="header flex space-between center">
-      <button className="btn danger" onClick={handleLogout}>
-        Logout
-      </button>
       <div>
         <img
           src={`https://localhost:8000/images/${userImage}`}
@@ -20,6 +17,9 @@ function Header() {
           className="user-image"
         />
       </div>
+      <button className="btn danger" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   )
 }
