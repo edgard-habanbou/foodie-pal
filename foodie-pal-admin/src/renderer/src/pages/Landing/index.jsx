@@ -12,6 +12,7 @@ const Landing = () => {
     const getStatistics = async () => {
       try {
         const stats = await userApi.getStats()
+        console.log(stats)
         const formattedUserCreationData = formatUserCreationData(stats.userCreationTimes)
         setUserCreationData(formattedUserCreationData)
       } catch (error) {
