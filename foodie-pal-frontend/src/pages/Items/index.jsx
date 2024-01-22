@@ -21,9 +21,7 @@ const Items = () => {
   };
   check();
   const [items, setItems] = useState([]);
-  const [itemsInPic, setItemsInPic] = useState([]);
   const [Load, setLoading] = useState(false);
-  const [uploadedImage, setUploadedImage] = useState(null);
   const [itemName, setItemName] = useState("");
 
   const handleCamerabtn = () => {
