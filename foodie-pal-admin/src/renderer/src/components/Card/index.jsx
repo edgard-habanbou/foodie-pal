@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import './index.css'
 function Card({ title, data }) {
   return (
     <div className="card">

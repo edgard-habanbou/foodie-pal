@@ -2,11 +2,10 @@ import ReactECharts from 'echarts-for-react'
 import PropTypes from 'prop-types'
 
 function EChart({ title, legend, xAxis, series, yAxis }) {
-  const darkThemeColors = ['#2F4F4F', '#708090', '#696969', '#D3D3D3', '#778899']
-
   const option = {
     title: {
       text: title,
+      left: 'center',
       textStyle: {
         color: '#D3D3D3'
       }
@@ -52,10 +51,10 @@ function EChart({ title, legend, xAxis, series, yAxis }) {
         color: '#D3D3D3'
       }
     },
-    series: series.map((s, index) => ({
+    series: series.map((s) => ({
       ...s,
       itemStyle: {
-        color: darkThemeColors[index % darkThemeColors.length]
+        color: '#fe8a01'
       }
     })),
     backgroundColor: '#1E1E1E'
