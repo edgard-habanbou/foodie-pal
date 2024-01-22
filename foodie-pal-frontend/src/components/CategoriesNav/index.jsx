@@ -5,6 +5,7 @@ import "./index.css";
 function CategoriesNav({ setCategory }) {
   const categories = [
     "All",
+    "Lebanese",
     "Indian",
     "Italian",
     "Chinese",
