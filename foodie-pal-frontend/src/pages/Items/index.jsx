@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
-import SwiperVertical from "../../components/SwiperVertical";
 import Loading from "../../components/Loading";
 import { userApi } from "../../network/axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
