@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import "./index.css";
 import ItemsByPhoto from "../../components/ItemsByPhoto";
 import YourItems from "../../components/YourItems";
+import AddItem from "../../components/AddItem";
 
 const Items = () => {
   const navigate = useNavigate();
@@ -69,6 +70,7 @@ const Items = () => {
         <Header />
         <div className="flex center column full-width  add-items">
           <div className="items-wraper">
+            <AddItem />
             <ItemsByPhoto addBtnHandler={addBtnHandler} />
             <YourItems
               setLoading={setLoading}
