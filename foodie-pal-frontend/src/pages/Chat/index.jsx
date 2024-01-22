@@ -33,16 +33,28 @@ function Chat() {
   ]);
 
   const handleSend = async () => {
-    setChats([...chats, { sender: `${user.firstName}`, chat: userMessage }]);
+    const updatedChats = [
+      ...chats,
+      { sender: `${user.firstName}`, chat: userMessage },
+    ];
+    await setChats(updatedChats);
     setUserMessage("");
+    await sendToOpenAI(userMessage);
+  };
+
+  const sendToOpenAI = async (message) => {
     const openAiResponse = await userApi.sendQuestion({
-      question: userMessage,
+      question: message,
       recipe: selectedRecipe,
     });
-    setChats([
-      ...chats,
-      { sender: `openai`, chat: openAiResponse.result[0].answer },
-    ]);
+    if (openAiResponse.result) {
+      setChats([
+        ...chats,
+        { sender: `openai`, chat: openAiResponse.result[0]?.answer },
+      ]);
+    } else {
+      sendToOpenAI(message);
+    }
   };
 
   const handleBack = () => {

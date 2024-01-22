@@ -94,7 +94,7 @@ function SwiperVertical({
         <SwiperSlide key={i}>
           <div className={sender !== "openai" ? "flex right" : ""}>
             <div className={sender !== "openai" ? "message-user" : "message"}>
-              {chat}
+              {chat && chat}
             </div>
           </div>
         </SwiperSlide>

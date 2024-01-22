@@ -2,9 +2,8 @@ import axios from "axios";
 
 axios.defaults.baseURL =
   process.env.REACT_APP_BASE_URL || "https://localhost:8000";
-if (localStorage.getItem("token") !== null)
-  axios.defaults.headers["Authorization"] =
-    "Bearer " + localStorage.getItem("token");
+axios.defaults.headers["Authorization"] =
+  "Bearer " + localStorage.getItem("token");
 
 class base {
   createTimeoutPromise() {
@@ -32,7 +31,11 @@ class base {
   async post(url, data) {
     try {
       const response = await Promise.race([
-        axios.post(url, data),
+        axios.post(url, data, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }),
         this.createTimeoutPromise(),
       ]);
       return response?.data;
