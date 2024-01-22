@@ -59,6 +59,7 @@ const Landing = () => {
         <Card title="Total Diet Plans" data={dietPlanCount} />
         <Card title="Total Items Added" data={totalItemsCount} />
         <Card title="Total Users" data={userCount} />
+        <Card title="Male Users" data={maleCount} />
       </div>
       {loading ? (
         <Loading />
