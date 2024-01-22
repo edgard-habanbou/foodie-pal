@@ -8,6 +8,7 @@ import './index.css'
 
 const Landing = () => {
   const [userCreationData, setUserCreationData] = useState([])
+  const [dietPlanCreationTimes, setDietPlanCreationTimes] = useState([])
   const [dietPlanCount, setDietPlanCount] = useState('')
   const [totalItemsCount, setTotalItemsCount] = useState('')
   const [userCount, setUserCount] = useState('')
@@ -23,6 +24,8 @@ const Landing = () => {
         console.log(stats)
         const formattedUserCreationData = formatUserCreationData(stats.userCreationTimes)
         setUserCreationData(formattedUserCreationData)
+        const formattedDietPlanCreationTimes = formatUserCreationData(stats.dietPlanCreationTimes)
+        setDietPlanCreationTimes(formattedDietPlanCreationTimes)
       } catch (error) {
         console.error('Error fetching statistics:', error)
       } finally {
@@ -49,7 +52,7 @@ const Landing = () => {
   return (
     <div className="landing-page flex column gap">
       <Header />
-      <div className="flex gap">
+      <div className="flex space-around">
         <Card title="Total Diet Plans" data={dietPlanCount} />
         <Card title="Total Items Added" data={totalItemsCount} />
         <Card title="Total User" data={userCount} />
@@ -57,23 +60,42 @@ const Landing = () => {
       {loading ? (
         <Loading />
       ) : (
-        <EChart
-          title="User Creation Times"
-          xAxis={{
-            type: 'category',
-            data: userCreationData.map((data) => data.date)
-          }}
-          legend={{
-            data: ['User Creation Times']
-          }}
-          yAxis={{ type: 'value' }}
-          series={[
-            {
-              type: 'line',
-              data: userCreationData.map((data) => data.count)
-            }
-          ]}
-        />
+        <div className="flex gap">
+          <EChart
+            title="User Creation"
+            xAxis={{
+              type: 'category',
+              data: userCreationData.map((data) => data.date)
+            }}
+            legend={{
+              data: ['User Creation Times']
+            }}
+            yAxis={{ type: 'value' }}
+            series={[
+              {
+                type: 'line',
+                data: userCreationData.map((data) => data.count)
+              }
+            ]}
+          />
+          <EChart
+            title="Diet Plan Creation"
+            xAxis={{
+              type: 'category',
+              data: dietPlanCreationTimes.map((data) => data.date)
+            }}
+            legend={{
+              data: ['User Creation Times']
+            }}
+            yAxis={{ type: 'value' }}
+            series={[
+              {
+                type: 'line',
+                data: dietPlanCreationTimes.map((data) => data.count)
+              }
+            ]}
+          />
+        </div>
       )}
     </div>
   )

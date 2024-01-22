@@ -63,7 +63,7 @@ function EChart({ title, legend, xAxis, series, yAxis }) {
 
   return (
     <div>
-      <ReactECharts option={option} style={{ height: 400 }} opts={{ locale: 'En' }} />
+      <ReactECharts option={option} style={{ height: 300 }} opts={{ locale: 'En' }} />
     </div>
   )
 }
