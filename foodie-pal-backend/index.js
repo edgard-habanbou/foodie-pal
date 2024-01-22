@@ -26,10 +26,6 @@ app.use("/profile", authMiddleware, profileRoutes);
 const subDocument = require("./routes/SubDocument.routes");
 app.use("/subdocument", authMiddleware, subDocument);
 
-//sub document ids routes
-const subDocumentId = require("./routes/subDocIds.routes");
-app.use("/subdocid", authMiddleware, subDocumentId);
-
 //byteScale routes
 const clarifai = require("./routes/clarifai.routes");
 app.use("/clarifai", authMiddleware, clarifai);
