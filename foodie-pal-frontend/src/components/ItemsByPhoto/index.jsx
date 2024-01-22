@@ -1,6 +1,17 @@
 import React from "react";
 
 function ItemsByPhoto() {
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = async () => {
+        await userApi.uploadItemsImage({ image: reader.result });
+        setUploadedImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   return (
     <>
       <div className="title">
