@@ -2,6 +2,8 @@ import React from "react";
 import { userApi } from "../../network/axios";
 
 function ItemsByPhoto() {
+  const [itemsInPic, setItemsInPic] = useState([]);
+  const [uploadedImage, setUploadedImage] = useState(null);
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
