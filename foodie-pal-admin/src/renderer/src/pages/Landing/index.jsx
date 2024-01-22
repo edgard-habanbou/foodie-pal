@@ -1,18 +1,9 @@
 import EChart from '../../components/EChart'
-import { useNavigate } from 'react-router-dom'
-
+import Header from '../../components/Header'
 const Landing = () => {
-  const navigate = useNavigate()
-  const handleLogout = () => {
-    localStorage.removeItem('user')
-    localStorage.removeItem('token')
-    navigate('/')
-  }
   return (
-    <>
-      <button className="btn danger" onClick={handleLogout}>
-        Logout
-      </button>
+    <div className="flex column gap">
+      <Header />
       <EChart
         title="Test"
         legend={['test1', 'test2']}
@@ -30,7 +21,7 @@ const Landing = () => {
           }
         ]}
       />
-    </>
+    </div>
   )
 }
 
