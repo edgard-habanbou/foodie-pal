@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function AddItem() {
+function AddItem({ addBtnHandler }) {
   const [itemName, setItemName] = useState("");
 
   const handleCamerabtn = () => {
