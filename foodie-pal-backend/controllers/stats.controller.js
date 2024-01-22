@@ -65,3 +65,4 @@ const getTotalItemsCount = async () => {
     console.error("Error retrieving total items count:", error);
   }
 };
+const getGenderCounts = async () => {};
