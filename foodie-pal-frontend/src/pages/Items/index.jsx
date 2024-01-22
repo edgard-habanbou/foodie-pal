@@ -165,7 +165,7 @@ const Items = () => {
               </div>
             </div>
             <div className="title">
-              <h4 className="color-white">Items</h4>
+              <h4 className="color-white">Your Items</h4>
               <hr />
             </div>
             <div className="title items-added flex column ">
