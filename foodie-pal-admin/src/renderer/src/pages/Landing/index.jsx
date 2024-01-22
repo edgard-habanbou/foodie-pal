@@ -8,6 +8,7 @@ import './index.css'
 
 const Landing = () => {
   const [userCreationData, setUserCreationData] = useState([])
+  const [maleCount, setMaleCount] = useState([])
   const [dietPlanCreationTimes, setDietPlanCreationTimes] = useState([])
   const [dietPlanCount, setDietPlanCount] = useState('')
   const [totalItemsCount, setTotalItemsCount] = useState('')
