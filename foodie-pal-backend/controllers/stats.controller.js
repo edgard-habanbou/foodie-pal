@@ -10,12 +10,14 @@ const getStats = async (req, res) => {
     const { userCount, userCreationTimes } =
       await getuserCountAndCreationTime();
     const { dietPlanCount, dietPlanCreationTimes } = await getDietPlanCount();
+    const totalItemsCount = await getTotalItemsCount();
     res.status(200).send({
       role: "admin",
       userCount,
       userCreationTimes,
       dietPlanCount,
       dietPlanCreationTimes,
+      totalItemsCount,
     });
   } catch (error) {
     console.error(error);
@@ -52,5 +54,17 @@ const getDietPlanCount = async () => {
     return { dietPlanCount, dietPlanCreationTimes };
   } catch (error) {
     console.error("Error in getDietPlanCount:", error);
+  }
+};
+const getTotalItemsCount = async () => {
+  try {
+    const users = await User.find();
+    let sum = 0;
+    users.map((user) => {
+      sum += user.items.length;
+    });
+    return sum;
+  } catch (error) {
+    console.error("Error retrieving total items count:", error);
   }
 };
