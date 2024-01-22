@@ -25,13 +25,6 @@ const Items = () => {
   const [Load, setLoading] = useState(false);
   const [itemName, setItemName] = useState("");
 
-  const handleCamerabtn = () => {
-    const fileInput = document.getElementById("fileInput");
-    if (fileInput) {
-      fileInput.click();
-    }
-  };
-
   const addBtnHandler = async (item) => {
     setLoading(true);
     if (item === "") {
