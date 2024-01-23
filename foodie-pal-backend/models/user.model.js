@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const DietairyPreference = require("./dietairyPreference.model");
-const Item = require("./Item.model");
+const Item = require("./item.model");
 const Recipe = require("./recipe.model");
 
 const userSchema = new mongoose.Schema(
