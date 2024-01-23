@@ -55,6 +55,8 @@ function SwiperVertical({
               </div>
             </SwiperSlide>
           );
+        } else {
+          return null;
         }
       })}
       {instructions?.map((instruction, i) => {
