@@ -1,25 +1,27 @@
-import { useNavigate } from 'react-router-dom'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './index.css'
 function Header() {
-  const navigate = useNavigate()
   const userImage = JSON.parse(localStorage.getItem('user')).imageUrl
-  const handleLogout = () => {
-    localStorage.removeItem('user')
-    localStorage.removeItem('token')
-    navigate('/')
+  const showMenu = () => {
+    const menu = document.getElementById('menu')
+    menu.classList.toggle('showing')
+    menu.classList.toggle('hidden')
   }
   return (
     <div className="header flex space-between center">
-      <div>
-        <img
-          src={`https://localhost:8000/images/${userImage}`}
-          alt="userImage"
-          className="user-image"
-        />
-      </div>
-      <button className="btn danger" onClick={handleLogout}>
-        Logout
+      <button onClick={showMenu} className="btn-menu">
+        <FontAwesomeIcon icon={faBars} size="xl" />
       </button>
+      <div>
+        <a href="/profile">
+          <img
+            src={`${process.env.REACT_APP_BASE_URL}/images/` + userImage}
+            alt="userImage"
+            className="user-image"
+          />
+        </a>
+      </div>
     </div>
   )
 }
