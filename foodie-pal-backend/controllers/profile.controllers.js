@@ -27,7 +27,12 @@ const upload_image = async (req, res) => {
 };
 
 const delete_user = async (req, res) => {
-  const userId = req.user._id;
+  let userId;
+  if (req.user.userRole === process.env.ADMIN_ID) {
+    userId = req.body.userIdToDelete;
+  } else {
+    userId = req.user._id;
+  }
   await User.findByIdAndDelete(userId);
   res.send({ message: "User deleted" });
 };
