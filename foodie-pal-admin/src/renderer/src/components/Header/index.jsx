@@ -15,7 +15,7 @@ function Header() {
       </button>
       <div>
         <img
-          src={`${process.env.REACT_APP_BASE_URL}/images/` + userImage}
+          src={`https://localhost:8000/images/${userImage}`}
           alt="userImage"
           className="user-image"
         />
