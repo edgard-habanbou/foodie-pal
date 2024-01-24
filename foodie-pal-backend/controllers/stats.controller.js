@@ -34,7 +34,11 @@ const getUsers = async (req, res) => {
   }
   try {
     const users = await User.find();
-    res.status(200).json(users);
+    const filteredUsers = users.filter(
+      (user) => !user._id.equals(req.user._id)
+    );
+
+    res.status(200).json(filteredUsers);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
