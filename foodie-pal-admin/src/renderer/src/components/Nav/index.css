@@ -1,0 +1,57 @@
+.menu {
+  background-color: #2d2d2d;
+  padding-top: 3rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+.menu-logo {
+  width: 3rem;
+  height: 3rem;
+}
+
+.menu-item p {
+  font-size: 0.8rem;
+  color: white;
+}
+.menu-item a {
+  text-decoration: none;
+  color: white;
+}
+.logout p {
+  color: red;
+}
+.logout a {
+  color: red;
+}
+.menu-item {
+  padding-top: 1rem;
+}
+.selected {
+  background-color: #fe8a01;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding-top: 0rem;
+}
+.selected p {
+  color: black;
+}
+.selected a {
+  color: black;
+}
+.menu-items {
+  height: 94%;
+}
+
+.showing {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
