@@ -22,7 +22,7 @@ function UsersScroll({ setLoading, handleGetUsers, users }) {
         <hr />
       </div>
       <div className="title items-added flex column ">
-        <SwiperVertical items={users} deleteBtnHandler={deleteBtnHandler} slidesPerView={4.5} />
+        <SwiperVertical users={users} deleteBtnHandler={deleteBtnHandler} slidesPerView={4.5} />
       </div>
     </>
   )

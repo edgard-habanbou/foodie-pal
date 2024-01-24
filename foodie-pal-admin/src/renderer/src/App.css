@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 body {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
 }
 * {
   margin: 0;
@@ -150,8 +150,11 @@ span {
 select {
   -webkit-appearance: none;
   appearance: none;
-  background-image: url("https://localhost:8000/down-arrow.svg");
+  background-image: url('https://localhost:8000/down-arrow.svg');
   background-size: 24px;
   background-repeat: no-repeat;
   background-position: calc(100% - 10px);
+}
+.background {
+  background-color: #2d2d2d;
 }
