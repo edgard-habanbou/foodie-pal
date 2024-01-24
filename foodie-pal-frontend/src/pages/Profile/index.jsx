@@ -67,46 +67,52 @@ function Profile() {
       </div>
       <div className="landing">
         <Header />
-        <div className="flex gap margin padding">
-          <div className="flex gap center">
-            <img
-              className="recipe-image-large"
-              src={`${process.env.REACT_APP_BASE_URL}/images/${user.imageUrl}`}
-              alt="profile"
-            />
-          </div>
-          <div className="flex gap center column">
-            <h3 className="color-white">
-              {user.firstName + " " + user.lastName}
-            </h3>
-            <div>
-              <button className="btn" onClick={setShowEditProfile}>
-                Edit Profile
-              </button>
+        <div className="flex center full-width">
+          <div className="profile-actions full-width">
+            <div className="flex gap margin padding profile-image">
+              <div className="flex gap center">
+                <img
+                  className="recipe-image-large"
+                  src={`${process.env.REACT_APP_BASE_URL}/images/${user.imageUrl}`}
+                  alt="profile"
+                />
+              </div>
+              <div className="flex gap center column">
+                <h3 className="color-white">
+                  {user.firstName + " " + user.lastName}
+                </h3>
+                <div>
+                  <button className="btn" onClick={setShowEditProfile}>
+                    Edit Profile
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div className="flex gap column credentials padding">
-          <div>
-            <h3 className="color-white">Dietairy Preferences</h3>
-            <hr />
-          </div>
-          <div className="flex gap">
-            <button className="btn" onClick={handleShowModal}>
-              Edit Preferences
-            </button>
-          </div>
-        </div>
-        <div className="flex gap column credentials padding">
-          <div>
-            <h3 className="color-white">Danger Zone</h3>
-            <hr className="danger" />
-          </div>
-          <div>
-            <button className="btn danger" onClick={() => handleDelete("data")}>
-              Delete All Data
-            </button>
+            <div className="flex gap column credentials padding">
+              <div>
+                <h3 className="color-white">Dietairy Preferences</h3>
+                <hr />
+              </div>
+              <div className="flex gap">
+                <button className="btn" onClick={handleShowModal}>
+                  Edit Preferences
+                </button>
+              </div>
+            </div>
+            <div className="flex gap column credentials padding">
+              <div>
+                <h3 className="color-white">Danger Zone</h3>
+                <hr className="danger" />
+              </div>
+              <div>
+                <button
+                  className="btn danger"
+                  onClick={() => handleDelete("data")}
+                >
+                  Delete All Data
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

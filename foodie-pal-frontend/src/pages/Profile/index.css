@@ -1,3 +1,12 @@
 .credentials {
   margin: 20px 10px 5px 10px;
 }
+.profile-actions {
+  max-width: 800px;
+}
+@media screen and (max-width: 400px) {
+  .profile-image {
+    display: flex;
+    flex-direction: column;
+  }
+}
