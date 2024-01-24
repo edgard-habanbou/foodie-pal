@@ -1,32 +1,14 @@
-import React, { useEffect } from 'react'
 import Logo from '../../assets/svgs/Logo.svg'
 import './index.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
-import { faBasketShopping } from '@fortawesome/free-solid-svg-icons'
-import { faSeedling } from '@fortawesome/free-solid-svg-icons'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 
 function Nav() {
-  const selected = () => {
-    const url = window.location.pathname
-    const menuItems = document.querySelectorAll('.menu-item')
-    menuItems.forEach((item) => {
-      if (url === item.children[0].pathname) {
-        item.classList.add('selected')
-      } else {
-        item.classList.remove('selected')
-      }
-    })
-  }
   const Logout = () => {
     localStorage.clear()
   }
-  useEffect(() => {
-    selected()
-  }, [])
+
   return (
     <div id="menu" className="menu hidden full-height-screen">
       <div className="flex center full-width">
@@ -34,7 +16,7 @@ function Nav() {
       </div>
       <div className="flex column center gap menu-items">
         <div className="menu-item flex column center ">
-          <a href="/home">
+          <a href="/landing">
             <FontAwesomeIcon icon={faHouse} />
           </a>
           <p>Home</p>
