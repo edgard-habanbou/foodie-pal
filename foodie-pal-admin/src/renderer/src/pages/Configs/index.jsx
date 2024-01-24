@@ -1,7 +1,7 @@
 import Nav from '../../components/Nav'
 import Header from '../../components/Header'
 
-function Configs() {
+function FoodieConfigs() {
   return (
     <div className="flex background">
       <div>
@@ -9,9 +9,10 @@ function Configs() {
       </div>
       <div className="landing-page full-width flex column gap">
         <Header />
+        Configs
       </div>
     </div>
   )
 }
 
-export default Configs
+export default FoodieConfigs

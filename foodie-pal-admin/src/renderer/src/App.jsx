@@ -2,7 +2,7 @@ import { Route, Routes, HashRouter } from 'react-router-dom'
 import './app.css'
 import Auth from './pages/Auth'
 import Landing from './pages/Landing'
-import Configs from './pages/Configs'
+import FoodieConfigs from './pages/Configs'
 function App() {
   return (
     <div>
@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Auth />} />
           <Route path="/landing" element={<Landing />} />
-          <Route path="/config" element={<Configs />} />
+          <Route path="/foodie-config" element={<FoodieConfigs />} />
         </Routes>
       </HashRouter>
     </div>

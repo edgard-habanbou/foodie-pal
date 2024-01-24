@@ -23,7 +23,7 @@ function Nav() {
           <p>Home</p>
         </div>
         <div className="menu-item flex column center ">
-          <a href="/config">
+          <a href="/foodie-config">
             <FontAwesomeIcon icon={faGears} />
           </a>
           <p>Config</p>
