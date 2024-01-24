@@ -67,7 +67,7 @@ function Profile() {
       </div>
       <div className="landing">
         <Header />
-        <div className="flex gap  center">
+        <div className="flex gap margin padding">
           <div className="flex gap center">
             <img
               className="recipe-image-large"
