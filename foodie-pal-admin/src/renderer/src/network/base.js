@@ -29,7 +29,14 @@ class base {
 
   async post(url, data) {
     try {
-      const response = await Promise.race([axios.post(url, data), this.createTimeoutPromise()])
+      const response = await Promise.race([
+        axios.post(url, data, {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token')
+          }
+        }),
+        this.createTimeoutPromise()
+      ])
       return response?.data
     } catch (error) {
       return error

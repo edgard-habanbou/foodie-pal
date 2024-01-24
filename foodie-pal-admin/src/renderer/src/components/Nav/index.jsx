@@ -36,9 +36,9 @@ function Nav() {
           <p>All Users</p>
         </div>
         <div className="menu-item flex column center logout">
-          <a href="/" onClick={Logout}>
+          <button onClick={Logout} className="btn-menu">
             <FontAwesomeIcon icon={faRightFromBracket} />
-          </a>
+          </button>
           <p>Logout</p>
         </div>
       </div>
