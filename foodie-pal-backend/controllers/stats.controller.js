@@ -32,9 +32,17 @@ const getUsers = async (req, res) => {
     res.status(403).send({ message: "Not Authorized" });
     return;
   }
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 };
 module.exports = {
   getStats,
+  getUsers,
 };
 const getuserCountAndCreationTime = async () => {
   const startDate = new Date(0);
