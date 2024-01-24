@@ -28,7 +28,7 @@ const getStats = async (req, res) => {
   }
 };
 const getUsers = async (req, res) => {
-  if (!req.user.userRole.equals(new ObjectId(process.env.ADMIN_ID))) {
+  if (!req.user?.userRole.equals(new ObjectId(process.env.ADMIN_ID))) {
     res.status(403).send({ message: "Not Authorized" });
     return;
   }

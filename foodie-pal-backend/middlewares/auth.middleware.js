@@ -9,6 +9,10 @@ const authMiddleware = async (req, res, next) => {
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       const user = await User.findOne({ _id: decoded._id }).select("-password");
+      if (!user) {
+        res.status(403).send("Forbidden");
+        return;
+      }
       req.user = user;
       next();
     } catch (e) {
