@@ -9,5 +9,6 @@ const router = express.Router();
 router.post("/upload", upload_image);
 router.get("/user", get_user);
 router.delete("/user", delete_user);
+router.delete("/user/:userId", delete_user);
 
 module.exports = router;

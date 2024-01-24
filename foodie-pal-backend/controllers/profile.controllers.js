@@ -29,7 +29,7 @@ const upload_image = async (req, res) => {
 const delete_user = async (req, res) => {
   let userId;
   if (req.user.userRole.equals(new ObjectId(process.env.ADMIN_ID))) {
-    userId = req.body.userIdToDelete;
+    userId = req.params.userId;
   } else {
     userId = req.user._id;
   }
