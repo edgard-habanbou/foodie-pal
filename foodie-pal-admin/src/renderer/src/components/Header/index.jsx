@@ -14,13 +14,11 @@ function Header() {
         <FontAwesomeIcon icon={faBars} size="xl" />
       </button>
       <div>
-        <a href="/profile">
-          <img
-            src={`${process.env.REACT_APP_BASE_URL}/images/` + userImage}
-            alt="userImage"
-            className="user-image"
-          />
-        </a>
+        <img
+          src={`${process.env.REACT_APP_BASE_URL}/images/` + userImage}
+          alt="userImage"
+          className="user-image"
+        />
       </div>
     </div>
   )
