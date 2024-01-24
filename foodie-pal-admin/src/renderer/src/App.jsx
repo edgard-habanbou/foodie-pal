@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Auth />} />
           <Route path="/landing" element={<Landing />} />
-          <Route path="/foodie-config" element={<Users />} />
+          <Route path="/allusers" element={<Users />} />
         </Routes>
       </HashRouter>
     </div>

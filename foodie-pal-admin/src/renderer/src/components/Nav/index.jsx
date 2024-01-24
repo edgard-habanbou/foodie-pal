@@ -2,7 +2,7 @@ import Logo from '../../assets/svgs/Logo.svg'
 import './index.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
-import { faGears } from '@fortawesome/free-solid-svg-icons'
+import { faUsers } from '@fortawesome/free-solid-svg-icons'
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 function Nav() {
@@ -13,8 +13,8 @@ function Nav() {
   const handleLandingBtn = () => {
     navigate('/landing')
   }
-  const handleConfigBtn = () => {
-    navigate('/foodie-config')
+  const handleUsersBtn = () => {
+    navigate('/allusers')
   }
 
   return (
@@ -30,10 +30,10 @@ function Nav() {
           <p>Home</p>
         </div>
         <div className="menu-item flex column center ">
-          <a onClick={handleConfigBtn}>
-            <FontAwesomeIcon icon={faGears} />
+          <a onClick={handleUsersBtn}>
+            <FontAwesomeIcon icon={faUsers} />
           </a>
-          <p>Config</p>
+          <p>All Users</p>
         </div>
         <div className="menu-item flex column center logout">
           <a href="/" onClick={Logout}>
