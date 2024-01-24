@@ -15,7 +15,7 @@ function Header() {
       </button>
       <div>
         <img
-          src={`https://localhost:8000/images/${userImage}`}
+          src={`http://15.236.209.56:80/images/${userImage}`}
           alt="userImage"
           className="user-image"
         />
