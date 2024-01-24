@@ -57,7 +57,7 @@ function EChart({ title, legend, xAxis, series, yAxis }) {
         color: '#fe8a01'
       }
     })),
-    backgroundColor: '#1E1E1E'
+    backgroundColor: 'rgba(30, 30, 30, 0.5)'
   }
 
   return (
