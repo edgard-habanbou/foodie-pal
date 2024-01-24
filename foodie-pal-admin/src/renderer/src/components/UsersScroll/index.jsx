@@ -1,20 +1,14 @@
 import { userApi } from '../../network/axios'
 import SwiperVertical from '../SwiperVertical'
-import PropTypes from 'prop-types'
 import './index.css'
 
-function Users({ setLoading, handleGetUsers, users }) {
-  const deleteBtnHandler = async (item) => {
+import PropTypes from 'prop-types'
+
+function UsersScroll({ setLoading, handleGetUsers, users }) {
+  const deleteBtnHandler = async (userId) => {
     setLoading(true)
     try {
-      const data = {
-        subDocument: {
-          items: {
-            name: item
-          }
-        }
-      }
-      await userApi.deleteFromUser(data)
+      await userApi.deleteUser(userId)
       handleGetUsers()
     } catch (error) {
       console.error(error)
@@ -33,9 +27,11 @@ function Users({ setLoading, handleGetUsers, users }) {
     </>
   )
 }
-Users.PropTypes = {
+
+UsersScroll.propTypes = {
   setLoading: PropTypes.func.isRequired,
   handleGetUsers: PropTypes.func.isRequired,
-  users: PropTypes.object.isRequired
+  users: PropTypes.array.isRequired
 }
-export default Users
+
+export default UsersScroll

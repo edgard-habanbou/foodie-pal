@@ -12,6 +12,12 @@ class UserApi {
   async getUsers() {
     return await api.post('/stats/getusers')
   }
+  async deleteUser(userId) {
+    if (userId) {
+      return await api.delete('/profile/user/' + userId)
+    }
+    return await api.delete('/profile/user')
+  }
 }
 
 export const userApi = new UserApi()

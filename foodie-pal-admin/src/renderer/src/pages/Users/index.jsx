@@ -2,9 +2,12 @@ import Nav from '../../components/Nav'
 import Header from '../../components/Header'
 import { useEffect, useState } from 'react'
 import { userApi } from '../../network/axios'
+import UsersScroll from '../../components/UsersScroll'
+import Loading from '../../components/Loading'
 
 function Users() {
   const [allUsers, setAllUsers] = useState([])
+  const [Load, setLoad] = useState(false)
 
   const getAllUsers = async () => {
     try {
@@ -13,15 +16,6 @@ function Users() {
     } catch (error) {
       console.error('Error fetching users:', error)
     }
-  }
-
-  const handleDeleteUser = async (userId) => {
-    // try {
-    //   await userApi.deleteUser(userId)
-    //   setAllUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId))
-    // } catch (error) {
-    //   console.error('Error deleting user:', error)
-    // }
   }
 
   useEffect(() => {
@@ -35,32 +29,9 @@ function Users() {
       </div>
       <div className="landing-page full-width flex column gap">
         <Header />
-        <table>
-          <thead>
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Gender</th>
-              <th>Diet Plan</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {allUsers &&
-              allUsers.map((user) => (
-                <tr key={user.id}>
-                  <td>{user.firstName}</td>
-                  <td>{user.lastName}</td>
-                  <td>{user.gender ? 'Female' : 'Male'}</td>
-                  <td>{user.dietPlan ? 'True' : 'False'}</td>
-                  <td>
-                    <button onClick={() => handleDeleteUser(user.id)}>Delete</button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+        <UsersScroll setLoading={setLoad} handleGetUsers={getAllUsers} users={allUsers} />
       </div>
+      {Load && <Loading />}
     </div>
   )
 }
