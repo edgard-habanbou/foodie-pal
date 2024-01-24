@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
@@ -65,7 +65,9 @@ function Recipe() {
       return newIsFavorite;
     });
   };
-
+  useEffect(() => {
+    setImageSrc(selectedRecipe.imageUrl);
+  }, [selectedRecipe]);
   const [imageSrc, setImageSrc] = useState(selectedRecipe.imageUrl);
   const handleImageError = () => {
     setImageSrc(`${process.env.REACT_APP_BASE_URL}/default-item.png`);
