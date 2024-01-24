@@ -62,7 +62,7 @@ const Landing = () => {
       </div>
       <div className="landing-page full-width flex column gap">
         <Header />
-        <div className="flex space-around">
+        <div className="flex space-around wrap gap">
           <Card title="Total Diet Plans" data={dietPlanCount} />
           <Card title="Total Items Added" data={totalItemsCount} />
           <Card title="Total Users" data={userCount} />
