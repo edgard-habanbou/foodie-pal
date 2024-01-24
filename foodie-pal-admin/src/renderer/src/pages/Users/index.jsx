@@ -1,7 +1,7 @@
 import Nav from '../../components/Nav'
 import Header from '../../components/Header'
 
-function FoodieConfigs() {
+function Users() {
   return (
     <div className="flex background">
       <div>
@@ -9,10 +9,10 @@ function FoodieConfigs() {
       </div>
       <div className="landing-page full-width flex column gap">
         <Header />
-        Configs
+        Users
       </div>
     </div>
   )
 }
 
-export default FoodieConfigs
+export default Users
