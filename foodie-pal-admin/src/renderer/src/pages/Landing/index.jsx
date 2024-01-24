@@ -5,6 +5,7 @@ import { userApi } from '../../network/axios'
 import Loading from '../../components/Loading'
 import Card from '../../components/Card'
 import './index.css'
+import Nav from '../../../../../../foodie-pal-frontend/src/components/Nav'
 
 const Landing = () => {
   const [userCreationData, setUserCreationData] = useState([])
@@ -55,55 +56,60 @@ const Landing = () => {
   }
 
   return (
-    <div className="landing-page flex column gap">
-      <Header />
-      <div className="flex space-around">
-        <Card title="Total Diet Plans" data={dietPlanCount} />
-        <Card title="Total Items Added" data={totalItemsCount} />
-        <Card title="Total Users" data={userCount} />
-        <Card title="Male Users" data={maleCount} />
-        <Card title="Female Users" data={femaleCount} />
+    <div className="flex background">
+      <div>
+        <Nav />
       </div>
-      {loading ? (
-        <Loading />
-      ) : (
-        <div className="flex column gap">
-          <EChart
-            title="User Creation"
-            xAxis={{
-              type: 'category',
-              data: userCreationData.map((data) => data.date)
-            }}
-            legend={{
-              data: ['User Creation Times']
-            }}
-            yAxis={{ type: 'value' }}
-            series={[
-              {
-                type: 'line',
-                data: userCreationData.map((data) => data.count)
-              }
-            ]}
-          />
-          <EChart
-            title="Diet Plan Creation"
-            xAxis={{
-              type: 'category',
-              data: dietPlanCreationTimes.map((data) => data.date)
-            }}
-            legend={{
-              data: ['User Creation Times']
-            }}
-            yAxis={{ type: 'value' }}
-            series={[
-              {
-                type: 'line',
-                data: dietPlanCreationTimes.map((data) => data.count)
-              }
-            ]}
-          />
+      <div className="landing-page flex column gap">
+        <Header />
+        <div className="flex space-around">
+          <Card title="Total Diet Plans" data={dietPlanCount} />
+          <Card title="Total Items Added" data={totalItemsCount} />
+          <Card title="Total Users" data={userCount} />
+          <Card title="Male Users" data={maleCount} />
+          <Card title="Female Users" data={femaleCount} />
         </div>
-      )}
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className="flex column gap">
+            <EChart
+              title="User Creation"
+              xAxis={{
+                type: 'category',
+                data: userCreationData.map((data) => data.date)
+              }}
+              legend={{
+                data: ['User Creation Times']
+              }}
+              yAxis={{ type: 'value' }}
+              series={[
+                {
+                  type: 'line',
+                  data: userCreationData.map((data) => data.count)
+                }
+              ]}
+            />
+            <EChart
+              title="Diet Plan Creation"
+              xAxis={{
+                type: 'category',
+                data: dietPlanCreationTimes.map((data) => data.date)
+              }}
+              legend={{
+                data: ['User Creation Times']
+              }}
+              yAxis={{ type: 'value' }}
+              series={[
+                {
+                  type: 'line',
+                  data: dietPlanCreationTimes.map((data) => data.count)
+                }
+              ]}
+            />
+          </div>
+        )}
+      </div>
     </div>
   )
 }
