@@ -2,6 +2,7 @@ import Logo from '../../assets/svgs/Logo.svg'
 import './index.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
+import { faGears } from '@fortawesome/free-solid-svg-icons'
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 
 function Nav() {
@@ -20,6 +21,12 @@ function Nav() {
             <FontAwesomeIcon icon={faHouse} />
           </a>
           <p>Home</p>
+        </div>
+        <div className="menu-item flex column center ">
+          <a href="/config">
+            <FontAwesomeIcon icon={faGears} />
+          </a>
+          <p>Config</p>
         </div>
         <div className="menu-item flex column center logout">
           <a href="/" onClick={Logout}>
