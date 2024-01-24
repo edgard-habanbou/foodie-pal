@@ -5,7 +5,7 @@ import { userApi } from '../../network/axios'
 import Loading from '../../components/Loading'
 import Card from '../../components/Card'
 import './index.css'
-import Nav from '../../../../../../foodie-pal-frontend/src/components/Nav'
+import Nav from '../../components/Nav'
 
 const Landing = () => {
   const [userCreationData, setUserCreationData] = useState([])
