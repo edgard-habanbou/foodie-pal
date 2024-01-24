@@ -32,8 +32,8 @@ function Nav() {
         <div className="menu-item flex column center ">
           <a onClick={handleUsersBtn}>
             <FontAwesomeIcon icon={faUsers} />
-            <p className="text-center">All Users</p>
           </a>
+          <p className="text-center">Users</p>
         </div>
         <div className="menu-item flex column center logout">
           <button onClick={Logout} className="btn-menu">
