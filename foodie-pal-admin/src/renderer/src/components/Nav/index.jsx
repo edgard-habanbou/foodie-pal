@@ -4,10 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import { faGears } from '@fortawesome/free-solid-svg-icons'
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
-
+import { useNavigate } from 'react-router-dom'
 function Nav() {
+  const navigate = useNavigate()
   const Logout = () => {
     localStorage.clear()
+  }
+  const handleLandingBtn = () => {
+    navigate('/landing')
+  }
+  const handleConfigBtn = () => {
+    navigate('/foodie-config')
   }
 
   return (
@@ -17,13 +24,13 @@ function Nav() {
       </div>
       <div className="flex column center gap menu-items">
         <div className="menu-item flex column center ">
-          <a href="/landing">
+          <a onClick={handleLandingBtn}>
             <FontAwesomeIcon icon={faHouse} />
           </a>
           <p>Home</p>
         </div>
         <div className="menu-item flex column center ">
-          <a href="/foodie-config">
+          <a onClick={handleConfigBtn}>
             <FontAwesomeIcon icon={faGears} />
           </a>
           <p>Config</p>
@@ -32,7 +39,6 @@ function Nav() {
           <a href="/" onClick={Logout}>
             <FontAwesomeIcon icon={faRightFromBracket} />
           </a>
-
           <p>Logout</p>
         </div>
       </div>
