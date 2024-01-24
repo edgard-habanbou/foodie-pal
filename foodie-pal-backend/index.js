@@ -38,18 +38,23 @@ app.use("/openai", authMiddleware, openAi);
 const stats = require("./routes/stats.routes");
 app.use("/stats", authMiddleware, stats);
 
-const credentials = {
-  key: fs.readFileSync("./ssl/server.key"),
-  cert: fs.readFileSync("./ssl/server.crt"),
-};
+// const credentials = {
+//   key: fs.readFileSync("./ssl/server.key"),
+//   cert: fs.readFileSync("./ssl/server.crt"),
+// };
 
-const server = https.createServer(credentials, app);
+// const server = https.createServer(credentials, app);
 
-server.listen(process.env.PORT, () => {
-  console.log("Server listening on PORT: ", process.env.PORT);
+// server.listen(process.env.PORT, () => {
+//   console.log("Server listening on PORT: ", process.env.PORT);
+//   connectToMongoDB();
+// });
+// server.on("clientError", (err, socket) => {
+//   console.error("Client error:", err.message);
+//   socket.destroy();
+// });
+app.listen(process.env.PORT, () => {
+  console.log("Server listining on PORT: ", process.env.PORT);
+
   connectToMongoDB();
-});
-server.on("clientError", (err, socket) => {
-  console.error("Client error:", err.message);
-  socket.destroy();
 });
