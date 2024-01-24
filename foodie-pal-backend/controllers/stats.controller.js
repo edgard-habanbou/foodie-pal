@@ -27,7 +27,12 @@ const getStats = async (req, res) => {
     res.status(500).send({ message: "Internal Server Error" });
   }
 };
-
+const getUsers = async (req, res) => {
+  if (!req.user.userRole.equals(new ObjectId(process.env.ADMIN_ID))) {
+    res.status(403).send({ message: "Not Authorized" });
+    return;
+  }
+};
 module.exports = {
   getStats,
 };
