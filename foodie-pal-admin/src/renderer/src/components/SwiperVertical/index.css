@@ -1,0 +1,52 @@
+.messages {
+  width: 100%;
+}
+.message {
+  background-color: #494949;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+}
+.message-user {
+  background-color: #7a7a7a;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+}
+.swiper-wrapper {
+  width: 100%;
+}
+.btn-add {
+  background-color: var(--primarycolor);
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+}
+.btn-delete {
+  background-color: var(--primarycolor);
+  border: none;
+  color: white;
+  width: 50px;
+  height: 40px;
+  border-radius: 10px;
+}
+.instructions {
+  background-color: #2d2d2d;
+  color: white;
+  border-radius: 10px;
+  height: 90%;
+  margin: 10px;
+}
+.mapped-diet-plan {
+  color: white;
+  border-radius: 10px;
+  height: 90%;
+  margin: 10px;
+}
+.mapped-diet-plan .mySwiper {
+  width: 90%;
+  height: 85%;
+  padding-left: 0px;
+}
