@@ -85,8 +85,9 @@ function DietairyPreferences({ toggleModal, handleDelete }) {
           <div className="flex gap column margin ">
             <div className="flex column gap">
               <div className="width-fit">
-                <label htmlFor="flavor">Dietary Restrictions</label>
-                <hr />
+                <b>
+                  <label htmlFor="flavor">Dietary Restrictions</label>
+                </b>
               </div>
               <div className="flex gap wrap ">
                 {restrictions.map((restriction) => {
@@ -110,8 +111,9 @@ function DietairyPreferences({ toggleModal, handleDelete }) {
             </div>
             <div className="flex column gap">
               <div className="width-fit">
-                <label htmlFor="allergies-profile">Other Allergies</label>
-                <hr />
+                <b>
+                  <label htmlFor="allergies-profile">Other Allergies</label>
+                </b>
               </div>
               <input
                 type="text"
@@ -125,8 +127,9 @@ function DietairyPreferences({ toggleModal, handleDelete }) {
           <div className="flex gap column margin">
             <div className="flex gap column">
               <div className="width-fit">
-                <label htmlFor="cuisine-profile">Cuisine Preferences</label>
-                <hr />
+                <b>
+                  <label htmlFor="cuisine-profile">Cuisine Preferences</label>
+                </b>
               </div>
               <input
                 type="text"
@@ -138,8 +141,9 @@ function DietairyPreferences({ toggleModal, handleDelete }) {
             </div>
             <div className="flex column gap">
               <div className="width-fit">
-                <label htmlFor="flavor">Flavor Preferences</label>
-                <hr />
+                <b>
+                  <label htmlFor="flavor">Flavor Preferences</label>
+                </b>
               </div>
               <div id="flavor" className="flex wrap gap">
                 {flavorPreferences.map((flavor) => {
