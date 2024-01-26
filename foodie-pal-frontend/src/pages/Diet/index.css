@@ -7,9 +7,8 @@
   height: 95%;
   width: 100%;
 }
-.questions-section .input {
-  width: 90%;
-  margin: 5px;
+.question {
+  max-width: 500px;
 }
 .swiper-button-prev,
 .swiper-button-next {

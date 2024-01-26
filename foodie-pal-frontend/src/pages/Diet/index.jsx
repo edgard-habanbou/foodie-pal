@@ -106,17 +106,19 @@ function Diet() {
             >
               {sections.map(([sectionName, sectionQuestions], i) => (
                 <SwiperSlide key={i} className="flex column">
-                  <h3 className="margin">
-                    {sectionName} <hr />
-                  </h3>
-                  <div className="flex gap center column margin padding ">
+                  <div className="flex center">
+                    <h3 className="margin">
+                      {sectionName} <hr />
+                    </h3>
+                  </div>
+                  <div className="flex center gap full-width column margin padding ">
                     {sectionQuestions.map((question, j) => (
-                      <div key={j} className="flex form-control column">
+                      <div key={j} className="flex column full-width question">
                         <p className="text-wrap">{question.Question}</p>
-                        <div className="">
+                        <div className="full-width">
                           {question.type === "text" ? (
                             <div className="full-width">
-                              <div className="form-control">
+                              <div>
                                 <input
                                   type="text"
                                   className="input"
@@ -136,7 +138,7 @@ function Diet() {
                             </div>
                           ) : question.type === "select" ? (
                             <div className="full-width">
-                              <div className="flex center form-control">
+                              <div className="flex center">
                                 <select
                                   className="input"
                                   onChange={(e) =>
@@ -163,7 +165,7 @@ function Diet() {
                             </div>
                           ) : question.type === "number" ? (
                             <div className="full-width  column">
-                              <div className="flex center form-control">
+                              <div className="flex center">
                                 <input
                                   className="input"
                                   type="number"
