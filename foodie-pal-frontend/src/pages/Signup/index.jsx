@@ -60,15 +60,18 @@ function Signup({ handleRegister, setLoading }) {
         lastName,
       });
       if (response.message === "user created successfully") {
+        localStorage.setItem("token", response.token);
+        localStorage.setItem("user", JSON.stringify(response.user));
         Popup({
           title: "Success",
           text: `Congratulations! You have successfully registered to Foodie Pal.
           Please login to continue`,
           icon: "success",
           confirmButtonText: "Ok",
+          action: () => {
+            window.location.reload();
+          },
         });
-
-        handleRegister();
       } else if (response.response.data.error.code === 11000) {
         Popup({
           title: "Error",
@@ -84,12 +87,11 @@ function Signup({ handleRegister, setLoading }) {
           icon: "error",
           confirmButtonText: "Ok",
         });
-        setLoading(false);
       }
     } catch (error) {
+    } finally {
       setLoading(false);
     }
-    setLoading(false);
   };
 
   return (

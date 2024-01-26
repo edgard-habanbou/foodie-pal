@@ -139,7 +139,7 @@ function Login({ handleRegister, handleForgotPasswordBtn, setLoading }) {
             </div>
             <div className="flex right">
               <span className="span">
-                don't have an account?{" "}
+                Don't have an account?{" "}
                 <a href="/" className="link" onClick={handleRegister}>
                   Sign Up
                 </a>
