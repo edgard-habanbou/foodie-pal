@@ -76,8 +76,19 @@ const register = async (req, res) => {
     });
 
     await user.save();
-
-    res.status(200).send({ message: "user created successfully" });
+    const newUser = await User.findOne({ email: email });
+    const { password: hashedPassword, _id, ...userDetails } = newUser.toJSON();
+    // generate JWT token
+    const token = jwt.sign(
+      {
+        _id: _id,
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: "2 days" }
+    );
+    res
+      .status(200)
+      .send({ message: "user created successfully", user: userDetails, token });
   } catch (e) {
     res.status(500).send({ error: e });
   }
@@ -86,16 +97,16 @@ const register = async (req, res) => {
 const forgotPassword = async (req, res) => {
   const { email } = req.body;
   if (!email) {
-    res.status(400).send({ message: "email is required" });
+    res.status(400).send({ message: "Email is required!" });
     return;
   } else if (!validator.isEmail(email)) {
-    res.status(400).send({ message: "Invalid email" });
+    res.status(400).send({ message: "Invalid Email!" });
     return;
   }
 
   const user = await User.findOne({ email });
   if (!user) {
-    res.status(400).send({ message: "Invalid email" });
+    res.status(400).send({ message: "Invalid Email!" });
     return;
   } else {
     const code = generateRandomString();
@@ -106,7 +117,7 @@ const forgotPassword = async (req, res) => {
     sendMail(
       email,
       "Reset Password",
-      "Go to this link to reset your password " +
+      "Follow this link to reset your password: " +
         `${process.env.CLIENT_LINK}/reset-password/${code}`,
       res
     );

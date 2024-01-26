@@ -133,23 +133,23 @@ const chatCompletion = async (message, chat = false) => {
 const addImages = async (recipes) => {
   const recipesWithImages = JSON.parse(JSON.stringify(recipes));
   const fetchImagePromises = recipesWithImages.map(async (recipe, index) => {
-    // const encodedTitle = encodeURIComponent(recipe.title);
-    // try {
-    //   await new Promise((resolve, rej) => setTimeout(resolve, 700));
-    //   const res = await axios.get(
-    //     "https://api.bing.microsoft.com/v7.0/images/search?q=" + encodedTitle,
-    //     {
-    //       headers: {
-    //         "Ocp-Apim-Subscription-Key": process.env.BING_API_KEY,
-    //       },
-    //     }
-    //   );
-    //   const thumbnailUrl = res.data.value[0].thumbnailUrl;
-    //   recipe.imageUrl = thumbnailUrl;
-    // } catch (e) {
-    //   console.log(e.message);
-    recipe.imageUrl = `${process.env.SERVER_LINK}/default-item.png`;
-    // }
+    const encodedTitle = encodeURIComponent(recipe.title);
+    try {
+      await new Promise((resolve, rej) => setTimeout(resolve, 700));
+      const res = await axios.get(
+        "https://api.bing.microsoft.com/v7.0/images/search?q=" + encodedTitle,
+        {
+          headers: {
+            "Ocp-Apim-Subscription-Key": process.env.BING_API_KEY,
+          },
+        }
+      );
+      const thumbnailUrl = res.data.value[0].thumbnailUrl;
+      recipe.imageUrl = thumbnailUrl;
+    } catch (e) {
+      console.log(e.message);
+      recipe.imageUrl = `${process.env.SERVER_LINK}/default-item.png`;
+    }
   });
 
   await Promise.all(fetchImagePromises);

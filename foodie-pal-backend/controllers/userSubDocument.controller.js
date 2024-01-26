@@ -12,8 +12,16 @@ const addEditSubDocument = async (req, res) => {
         const existingItems = user.items || [];
         const newItem = value;
 
-        if (!existingItems.some((item) => item.name === newItem.name)) {
-          const updatedItems = [...existingItems, newItem];
+        const newItemName = newItem.name
+          .toLowerCase()
+          .replace(/^\w/, (c) => c.toUpperCase());
+
+        if (
+          !existingItems.some(
+            (item) => item.name.toLowerCase() === newItemName.toLowerCase()
+          )
+        ) {
+          const updatedItems = [...existingItems, { name: newItemName }];
           updateQuery[key] = updatedItems;
         }
       } else if (key === "FavoriteRecipes") {
