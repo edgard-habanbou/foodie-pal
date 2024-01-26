@@ -105,36 +105,38 @@ function Diet() {
               className="mySwiper"
             >
               {sections.map(([sectionName, sectionQuestions], i) => (
-                <SwiperSlide key={i}>
+                <SwiperSlide key={i} className="flex column">
                   <h3 className="margin">
                     {sectionName} <hr />
                   </h3>
                   <div className="flex gap center column margin padding ">
                     {sectionQuestions.map((question, j) => (
-                      <div key={j} className="flex column full-width">
-                        <p>{question.Question}</p>
-                        <div className="flex center">
+                      <div key={j} className="flex form-control column">
+                        <p className="text-wrap">{question.Question}</p>
+                        <div className="">
                           {question.type === "text" ? (
                             <div className="full-width">
-                              <input
-                                type="text"
-                                className="input"
-                                placeholder={question.placeholder}
-                                onChange={(e) =>
-                                  handleInputChange(
-                                    sectionName,
-                                    question,
-                                    e.target.value
-                                  )
-                                }
-                              />
-                              <span className="color-red span-error hidden">
-                                This field cannot be empty!
-                              </span>
+                              <div className="form-control">
+                                <input
+                                  type="text"
+                                  className="input"
+                                  placeholder={question.placeholder}
+                                  onChange={(e) =>
+                                    handleInputChange(
+                                      sectionName,
+                                      question,
+                                      e.target.value
+                                    )
+                                  }
+                                />
+                                <span className="color-red span-error hidden">
+                                  This field cannot be empty!
+                                </span>
+                              </div>
                             </div>
                           ) : question.type === "select" ? (
-                            <div className="full-width  column">
-                              <div className="flex center">
+                            <div className="full-width">
+                              <div className="flex center form-control">
                                 <select
                                   className="input"
                                   onChange={(e) =>
@@ -161,7 +163,7 @@ function Diet() {
                             </div>
                           ) : question.type === "number" ? (
                             <div className="full-width  column">
-                              <div className="flex center">
+                              <div className="flex center form-control">
                                 <input
                                   className="input"
                                   type="number"

@@ -158,3 +158,6 @@ select {
 span {
   font-weight: bold;
 }
+.text-wrap {
+  text-wrap: wrap;
+}
