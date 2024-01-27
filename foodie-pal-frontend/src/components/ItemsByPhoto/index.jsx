@@ -5,16 +5,14 @@ import SwiperVertical from "../SwiperVertical";
 function ItemsByPhoto({ addBtnHandler }) {
   const [itemsInPic, setItemsInPic] = useState([]);
   const [uploadedImage, setUploadedImage] = useState(null);
-  const handleFileChange = (event) => {
+  const handleFileChange = async (event) => {
     const file = event.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = async () => {
-        const result = await userApi.uploadItemsImage({ image: reader.result });
-        setItemsInPic(result);
-        setUploadedImage(reader.result);
-      };
-      reader.readAsDataURL(file);
+      const formData = new FormData();
+      formData.append("image", file);
+      const result = await userApi.uploadItemsImage(formData);
+      setItemsInPic(result);
+      setUploadedImage(result.image);
     }
   };
   return (
@@ -36,7 +34,7 @@ function ItemsByPhoto({ addBtnHandler }) {
           <img
             src={
               uploadedImage
-                ? uploadedImage
+                ? `${process.env.REACT_APP_BASE_URL}/items/${uploadedImage}`
                 : `${process.env.REACT_APP_BASE_URL}/default-item.png`
             }
             className="items-img"

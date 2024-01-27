@@ -25,6 +25,7 @@ function SwiperVertical({
       slidesPerView={slidesPerView}
       pagination={{
         clickable: true,
+        dynamicBullets: true,
       }}
       modules={[Pagination]}
       className={mappedDietPlan ? "mapped-diet-plan" : "instructions"}
@@ -81,15 +82,15 @@ function SwiperVertical({
           </SwiperSlide>
         );
       })}
-      {itemsInPic?.map((itemInPic, i) => {
+      {itemsInPic?.items?.map((itemInPic, i) => {
         return (
           <SwiperSlide key={i}>
             <div className="items-in-pic flex space-between">
-              <div>{itemInPic}</div>
+              <div>{itemInPic.name}</div>
               <div>
                 <button
                   className="btn-add"
-                  onClick={() => addBtnHandler(itemInPic)}
+                  onClick={() => addBtnHandler(itemInPic.name)}
                 >
                   <FontAwesomeIcon icon={faPlus} size="2xl" />
                 </button>
