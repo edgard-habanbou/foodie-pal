@@ -1,4 +1,4 @@
-![title1](https://github.com/edgardhab/foodie-pal/assets/57774147/185c3aca-5c99-49c8-927b-c75d640b8472)
+`![title1](https://github.com/edgardhab/foodie-pal/assets/57774147/185c3aca-5c99-49c8-927b-c75d640b8472)
 
 ![title2](https://github.com/edgardhab/foodie-pal/assets/57774147/ae95d08e-ea0b-4c3a-b6f5-28c88b965a14)
 
@@ -13,8 +13,6 @@
 
 - As a home cook, I want to easily input the ingredients I have in my fridge.
 - As a home cook, I want the app to suggest recipes based on the ingredients I have.
-- As a home cook, I want the option to customize the serving size and get adjusted nutritional values.
-- As a home cook, I want the ability to plan meals for the week and generate a shopping list.
 - As a home cook,  I want to be able to access live chat assistance for quick tips and suggestions.
 
 ## Beginner Cook
