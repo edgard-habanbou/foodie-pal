@@ -27,6 +27,7 @@
 - As a Healthy User, I want the app to suggest recipes that align with my fitness goals and dietary restrictions, ensuring I stay on track with my health objectives.
 
 ## Fitness Enthusiast
+
 - As a fitness enthusiast, I want the app to suggest recipes that support my workout routine, providing the right balance of nutrients.
 - As a fitness enthusiast, I want the nutrition plan generator to consider my fitness goals and preferences, creating a plan that complements my active lifestyle.
 
@@ -35,11 +36,6 @@
 - As a chef, I want the app to provide recipes suitable for gatherings and events.
 - As a chef, I want the option to adjust serving sizes based on the number of guests. 
 - As a chef, I want the app to help me plan and organize meals for group events, including generating a shopping list.
-
-## Admin
-
-- As an admin, I want to receive user feedback to improve the app's functionality.
-- As an admin, I want to be able to accept/decline OpenAI nutrition plan before sending it to the user
  
 ![title3](https://github.com/edgardhab/foodie-pal/assets/57774147/f163f695-873c-4ead-b372-66d9979fdf55)
 
