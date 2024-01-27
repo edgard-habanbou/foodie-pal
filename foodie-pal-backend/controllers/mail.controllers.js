@@ -16,7 +16,7 @@ const sendMail = async (email, subject, message, res) => {
       },
     });
     const mailOptions = {
-      from: "devtest1232023@outlook.com",
+      from: `"Foodie Pal" <${EmailAddress}>`,
       to: email,
       subject: subject,
       text: message,
