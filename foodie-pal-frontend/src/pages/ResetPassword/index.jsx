@@ -25,7 +25,10 @@ function ResetPassword({ token }) {
           icon: "success",
           confirmButtonText: "Ok",
           confirmButtonColor: "#FE8A01",
-        }).then(() => navigate("/"));
+          action: () => {
+            navigate("/");
+          },
+        });
       } else {
         Popup({
           title: "Error",
