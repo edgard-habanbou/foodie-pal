@@ -22,7 +22,7 @@
 
 ## Healthy User
 
-- As a Healthy User, I want the app to provide detailed nutritional information for each recipe, including calorie counts and macronutrient breakdown, to help me maintain a healthy diet.
+- As a Healthy User, I want the app to provide detailed nutritional information for each recipe, including calorie counts, to help me maintain a healthy diet.
 - As a Healthy User, I want the option to give me a personalized nutrition plan based on my dietary goals and preferences.
 - As a Healthy User, I want the app to suggest recipes that align with my fitness goals and dietary restrictions, ensuring I stay on track with my health objectives.
 
