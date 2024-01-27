@@ -6,15 +6,19 @@ import UsersScroll from '../../components/UsersScroll'
 import Loading from '../../components/Loading'
 
 function Users() {
-  const [allUsers, setAllUsers] = useState([])
+  const [allUsers, setAllUsers] = useState(null)
   const [Load, setLoad] = useState(false)
 
   const getAllUsers = async () => {
+    setLoad(true)
     try {
       const users = await userApi.getUsers()
+      console.log(users)
       setAllUsers(users)
     } catch (error) {
       console.error('Error fetching users:', error)
+    } finally {
+      setLoad(false)
     }
   }
 
@@ -29,7 +33,9 @@ function Users() {
       </div>
       <div className="landing-page full-width flex column gap">
         <Header />
-        <UsersScroll setLoading={setLoad} handleGetUsers={getAllUsers} users={allUsers} />
+        {allUsers && (
+          <UsersScroll setLoading={setLoad} handleGetUsers={getAllUsers} users={allUsers} />
+        )}
       </div>
       {Load && <Loading />}
     </div>

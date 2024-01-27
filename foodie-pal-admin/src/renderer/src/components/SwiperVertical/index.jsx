@@ -18,18 +18,19 @@ function SwiperVertical({ users, slidesPerView = 4.5, deleteBtnHandler = () => {
       modules={[Pagination]}
       className={'instructions'}
     >
-      {users?.map((user, i) => {
-        return (
-          <SwiperSlide key={i}>
-            <div className="instruction flex space-between">
-              {user.firstName} {user.lastName}
-              <button className="btn-delete" onClick={() => deleteBtnHandler(user._id)}>
-                <FontAwesomeIcon icon={faTrash} size="xl" />
-              </button>
-            </div>
-          </SwiperSlide>
-        )
-      })}
+      {users &&
+        users?.map((user, i) => {
+          return (
+            <SwiperSlide key={i}>
+              <div className="instruction flex space-between">
+                {user.firstName} {user.lastName}
+                <button className="btn-delete" onClick={() => deleteBtnHandler(user._id)}>
+                  <FontAwesomeIcon icon={faTrash} size="xl" />
+                </button>
+              </div>
+            </SwiperSlide>
+          )
+        })}
     </Swiper>
   )
 }

@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:8000'
+axios.defaults.baseURL = 'http://15.236.209.56:80'
 if (localStorage.getItem('token') !== null)
   axios.defaults.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token')
 
 class base {
   createTimeoutPromise() {
-    const timeoutDuration = 5000
+    const timeoutDuration = 20000
     return new Promise((_, reject) => {
       setTimeout(() => {
         reject(new Error('Request timed out'))

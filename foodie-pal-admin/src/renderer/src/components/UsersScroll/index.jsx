@@ -9,7 +9,7 @@ function UsersScroll({ setLoading, handleGetUsers, users }) {
     setLoading(true)
     try {
       await userApi.deleteUser(userId)
-      handleGetUsers()
+      await handleGetUsers()
     } catch (error) {
       console.error(error)
     }

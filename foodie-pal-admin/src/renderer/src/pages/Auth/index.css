@@ -15,7 +15,7 @@
 }
 
 .image-sidebar {
-  background-image: url("../../assets/images/low-brightness.jpg");
+  background-image: url('../../assets/images/low-brightness.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -24,7 +24,7 @@
 }
 
 .image {
-  background-image: url("../../assets/images/wp9506513.jpg");
+  background-image: url('../../assets/images/wp9506513.jpg');
   filter: blur(6px);
   background-position: center;
   background-repeat: no-repeat;
@@ -46,7 +46,7 @@
 
 @media screen and (min-width: 950px) {
   .image {
-    background-image: url("../../assets/images/background-large.jpg");
+    background-image: url('../../assets/images/background-large.jpg');
     filter: blur(0px);
   }
   .login-form {
