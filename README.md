@@ -1,4 +1,4 @@
-![title1](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/1f3157e5-f25c-4725-b5c7-273ef4f56aca)
+![title1](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/0c8a8017-de86-4dbc-9280-36f46a5928e7)
 
 ![title2](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/0f21920f-af06-4b70-bfee-fe1daad2d213)
 
@@ -41,8 +41,23 @@
 
 ![title3](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/7c9ccb51-064b-4497-aac2-6040b8143492)
 
+- This project utilizes the MERN stack for web development. The MERN stack comprises MongoDB, Express.js, React.js, and Node.js. It enables the creation of full-stack web applications using JavaScript across the entire development process, from backend to frontend.
+- For the Admin Dashboard this project leverages Electron for desktop application development. Electron is a framework that allows developers to build cross-platform desktop applications using web technologies such as React. It enables the creation of native-like applications for Windows, macOS, and Linux using a single codebase.
 
 ![title4](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b22bd441-ef7a-4712-b4da-0ca64e7b6d13)
+
+>
+> We crafted Foodie Pal using wireframes and mockups, meticulously iterating on the design to achieve the perfect layout for effortless navigation and a smooth user experience.
+> Link: [Foodie Pal Figma Design](https://www.figma.com/file/2OH0ml41Aa8RTLZ81gs10A/Final-Project?type=design&node-id=157%3A1176&mode=design&t=eOk50Z7wTfzsyJyz-1)
+>
+
+### Mockups
+| Home screen  | Recipe Description | Nutrition Plan |
+| ---| ---| ---| 
+| ![Home Screen](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/c55249cc-c61f-4a0c-88c1-1befe1680216) | ![Reciep Desc](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/56858864-c364-44b6-8fa1-e58365ef8e2b) | ![Nutrition Plan](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/e5249d1c-9a3e-4513-9e59-f5e9d2e168a6)
+
+ 
+
 
 
 ![title5](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/97de820e-a3a9-4918-af84-34d18e907a20)
