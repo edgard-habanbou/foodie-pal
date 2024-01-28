@@ -1,6 +1,7 @@
-![title1](https://github.com/edgardhab/foodie-pal/assets/57774147/185c3aca-5c99-49c8-927b-c75d640b8472)
+![title1](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/1f3157e5-f25c-4725-b5c7-273ef4f56aca)
 
-![title2](https://github.com/edgardhab/foodie-pal/assets/57774147/ae95d08e-ea0b-4c3a-b6f5-28c88b965a14)
+![title2](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/0f21920f-af06-4b70-bfee-fe1daad2d213)
+
 
 >
 > Foodie-Pal, a user-friendly Progressive Web App, assists in meal preparation by suggesting recipes tailored to available ingredients.
@@ -37,11 +38,26 @@
 - As a chef, I want the option to adjust serving sizes based on the number of guests. 
 - As a chef, I want the app to help me plan and organize meals for group events, including generating a shopping list.
  
-![title3](https://github.com/edgardhab/foodie-pal/assets/57774147/f163f695-873c-4ead-b372-66d9979fdf55)
 
-![title4](https://github.com/edgardhab/foodie-pal/assets/57774147/0883715c-94ce-48f0-b4f1-a64343d03d1d)
+![title3](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/7c9ccb51-064b-4497-aac2-6040b8143492)
 
-![title5](https://github.com/edgardhab/foodie-pal/assets/57774147/f4af602b-b13e-4751-9b69-6978e91b8d3a)
 
-![title6](https://github.com/edgardhab/foodie-pal/assets/57774147/14a7dca0-ad36-4536-bc06-3301a808a79e)
+![title4](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b22bd441-ef7a-4712-b4da-0ca64e7b6d13)
 
+
+![title5](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/97de820e-a3a9-4918-af84-34d18e907a20)
+
+
+![title6](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b57d10a3-4f33-4d4b-a4d1-ec9b93506e74)
+
+
+![title7](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/0bbadd23-dc6c-4176-889e-e8038396c15b)
+
+
+![title8](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/2b4081ec-1caa-4e82-9828-42e108d1cbbe)
+
+
+![title9](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/5073bb0f-7a32-40ac-876e-cdaf5be5c019)
+
+
+![title10](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/22bf728e-9462-4f2b-a4fb-6d308ea90f80)
