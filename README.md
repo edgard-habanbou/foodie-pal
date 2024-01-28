@@ -120,6 +120,12 @@
 
 - This project employs rigorous unit testing methodologies to ensure the reliability and accuracy of code components. By systematically evaluating individual units of the software, we guarantee a robust foundation, identifying and addressing potential issues early in the development process.
 
+![tests1](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/2f5d6c5c-e17e-4d03-b9cf-4d0fa4a77f88)
+![tests2](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/eb897a62-6eeb-454a-ab11-cc6c9045c298)
+![tests3](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/93e49bfe-79cf-4c92-a688-07b85f80c537)
+![tests4](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b9790eeb-917a-4788-8574-edb474c3db5a)
+
+
 ![title10](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/22bf728e-9462-4f2b-a4fb-6d308ea90f80)
 
 > To set up Foodie Pal locally, follow these steps:
