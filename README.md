@@ -95,9 +95,7 @@ https://github.com/edgard-habanbou/foodie-pal/assets/57774147/ba269886-8c66-409d
 ### Admin Screens (Electron)
 | Login screen  | Landing screen |  Users screen |
 | ---| ---| ---|
-| ![Admin Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/d6e9d236-44eb-4a24-801c-dcae2eaa0c03) | 
-[Landing](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/15dec53e-8dcd-4270-856d-6d3cc05f49fd)
- | ![Admin Users](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/170fedb7-4fdc-4eda-93ee-a6898a48dbd9) |
+| ![Admin Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/d6e9d236-44eb-4a24-801c-dcae2eaa0c03) | ![Landing](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/15dec53e-8dcd-4270-856d-6d3cc05f49fd) | ![Admin Users](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/170fedb7-4fdc-4eda-93ee-a6898a48dbd9) |
 
 
 ![title7](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/0bbadd23-dc6c-4176-889e-e8038396c15b)
