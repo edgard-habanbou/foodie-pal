@@ -150,7 +150,34 @@
    git clone git@github.com:edgard-habanbou/foodie-pal.git
    cd foodie-pal 
    ```
-2. Install NPM packages for Backend, Frontend and Admin:
+2. Create a .env file in backend and then:
+   1. Create a Free API Key for [clairify](https://clarifai.com/)
+   2. Create an API key for [OpenAI](https://openai.com/)
+   3. Create an API key for [Bing Search](https://www.microsoft.com/en-us/bing/apis/bing-web-search-api)
+   4. Create a [Gmail account](https://mail.google.com/) and make an app key
+   Adter that add them to the env file as follows:
+
+    ```sh
+     MONGODB_URL=mongodb://127.0.0.1:27017/foodiePal
+     ADMIN_ID=657f0445f4aaced6b5b8d7af #Leave it as is
+     PORT=8000
+     JWT_SECRET=<A random string of characters>
+     
+     SERVER_LINK=http://localhost:8000
+     CLIENT_LINK=http://localhost:3000
+     
+     EMAIL_ADDRESS=<Email address>
+     EMAIL_PASSWORD=<App Key>
+    
+     CLAIRIFY_API_KEY=<Clairify key>
+
+     OPENAI_API_KEY=<OpenAi key>
+    
+     BING_API_KEY=<Bing Search key>
+     
+    ```
+  
+3. Install NPM packages for Backend, Frontend and Admin:
    ```sh
    cd foodie-pal-backend
    npm install
