@@ -1,3 +1,5 @@
+
+https://github.com/edgard-habanbou/foodie-pal/assets/57774147/ba269886-8c66-409d-9eed-3b15f4ffae0a
 ![title1](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/0c8a8017-de86-4dbc-9280-36f46a5928e7)
 
 ![title2](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/0f21920f-af06-4b70-bfee-fe1daad2d213)
@@ -86,13 +88,19 @@
 ### User Screens (Desktop)
 | Login screen  | Register screen | Landing screen | 
 | ---| ---| ---|
-| ![Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/8d371530-9f9a-466e-8c2c-1e9213f7a1eb) | ![Register Desktop](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/2b7c30b5-7589-4698-bf35-7738e9318eb8) | ![Desktop - 1](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/266e71f3-3af8-4675-ab1f-7e3d9053af26) |
+| 
+
+[Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/709fc5fd-6b54-41bb-b3d0-49f861e790a7)
+
+ | ![Register Desktop](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/2b7c30b5-7589-4698-bf35-7738e9318eb8) | ![Desktop - 1](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/266e71f3-3af8-4675-ab1f-7e3d9053af26) |
 
 
 ### Admin Screens (Electron)
 | Login screen  | Landing screen |  Users screen |
 | ---| ---| ---|
-| ![Admin Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/d6e9d236-44eb-4a24-801c-dcae2eaa0c03) | ![Desktop Landing](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/7601f075-67c3-4ff8-9577-24a7953c250e) | ![Admin Users](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/170fedb7-4fdc-4eda-93ee-a6898a48dbd9) |
+| ![Admin Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/d6e9d236-44eb-4a24-801c-dcae2eaa0c03) | 
+[Landing](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/15dec53e-8dcd-4270-856d-6d3cc05f49fd)
+ | ![Admin Users](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/170fedb7-4fdc-4eda-93ee-a6898a48dbd9) |
 
 
 ![title7](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/0bbadd23-dc6c-4176-889e-e8038396c15b)
