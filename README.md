@@ -88,7 +88,8 @@ https://github.com/edgard-habanbou/foodie-pal/assets/57774147/ba269886-8c66-409d
 ### User Screens (Desktop)
 | Login screen  | Register screen | Landing screen | 
 | ---| ---| ---|
-| ![Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/aa86a637-558c-42ac-87c8-02139a5d8562) | ![Register Desktop](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/2b7c30b5-7589-4698-bf35-7738e9318eb8) | ![Desktop - 1](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/266e71f3-3af8-4675-ab1f-7e3d9053af26) |
+| ![Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/8de98162-2be8-4d34-98a6-0ec20d5518bc)
+ | ![Register Desktop](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/2b7c30b5-7589-4698-bf35-7738e9318eb8) | ![Landing](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/aa86a637-558c-42ac-87c8-02139a5d8562) |
 
 
 ### Admin Screens (Electron)
