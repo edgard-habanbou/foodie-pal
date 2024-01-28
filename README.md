@@ -77,6 +77,7 @@
 
 
 | Recipe Screen  | Instructions Screen | Profile Screen |
+| ---| ---| ---|
 | ![Recipe Desc Mobile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/474174a3-3b6b-4df4-8091-9168dcb4b739) | ![Recipe Instructions](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/8ced98cc-abcd-4655-83a4-567886ad80fa) | ![Profile Mobile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/ecba5793-83f9-479f-899a-d2c33716e8c9) |
 
 
@@ -91,7 +92,7 @@
 ### Admin Screens (Electron)
 | Login screen  | Landing screen |  Users screen |
 | ---| ---| ---|
-| ![Admin Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/d6e9d236-44eb-4a24-801c-dcae2eaa0c03) |  | ![Admin Users](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/170fedb7-4fdc-4eda-93ee-a6898a48dbd9) |
+| ![Admin Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/d6e9d236-44eb-4a24-801c-dcae2eaa0c03) | ![Desktop Landing](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/7601f075-67c3-4ff8-9577-24a7953c250e) | ![Admin Users](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/170fedb7-4fdc-4eda-93ee-a6898a48dbd9) |
 
 
 ![title7](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/0bbadd23-dc6c-4176-889e-e8038396c15b)
