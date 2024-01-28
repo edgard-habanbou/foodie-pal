@@ -14,7 +14,7 @@
 
 - As a home cook, I want to easily input the ingredients I have in my fridge.
 - As a home cook, I want the app to suggest recipes based on the ingredients I have.
-- As a home cook,  I want to be able to access live chat assistance for quick tips and suggestions.
+- As a home cook, I want to be able to access live chat assistance for quick tips and suggestions.
 
 ## Beginner Cook
 
@@ -48,8 +48,8 @@
 
 >
 > We crafted Foodie Pal using wireframes and mockups, meticulously iterating on the design to achieve the perfect layout for effortless navigation and a smooth user experience.
-> Link: [Foodie Pal Figma Design](https://www.figma.com/file/2OH0ml41Aa8RTLZ81gs10A/Final-Project?type=design&node-id=157%3A1176&mode=design&t=eOk50Z7wTfzsyJyz-1)
 >
+- Link: [Foodie Pal Figma Design](https://www.figma.com/file/2OH0ml41Aa8RTLZ81gs10A/Final-Project?type=design&node-id=157%3A1176&mode=design&t=eOk50Z7wTfzsyJyz-1)
 
 ### Mockups
 | Home screen  | Recipe Description | Nutrition Plan |
@@ -97,11 +97,89 @@
 
 ![title7](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/0bbadd23-dc6c-4176-889e-e8038396c15b)
 
+### Mastering Prompt Engineering:
+
+- This project uses advanced prompt engineering techniques to optimize the interaction with LLMs (large language models).
+
+#### Example (Getting Recipes):
+
+>
+> Consider yourself a machine-learning model that returns recipes based on items I will give you.
+    the recipe's ingredients should only contain the items given but you can add spices.
+    give small instructions for example: "Boil the water" or "Cut the onion into cubes".
+    I might also give you dietary preferences.
+    You should return only a JSON object with this format: [{"id": id(from 0 and add 1 for each item), "title": recipe name, "description":description, "calories": how many calories, "time": how much time (45m) (don't give me in hours), "instructions":["instruction1", "instruction2"...](make sure to add each instruction by itself), "ingredients": ["ingredient1", "ingredient2" ...]}]
+    Don't add anything else to the object.
+    { ItemsAndPreferences }
+    your answer must be 12 recipes.
+    Give me only the JSON object and remove all texts before and after it.
+>
 
 ![title8](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/2b4081ec-1caa-4e82-9828-42e108d1cbbe)
 
+###  Efficient AI Deployment: Unleashing the Potential with AWS Integration:
+
+- This project leverages AWS deployment strategies to seamlessly integrate and deploy natural language processing models. With a focus on scalability, reliability, and performance, we ensure that AI applications powered by these models deliver robust and responsive solutions for diverse use cases.
 
 ![title9](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/5073bb0f-7a32-40ac-876e-cdaf5be5c019)
 
+###  Precision in Development: Harnessing the Power of Unit Testing:
+
+- This project employs rigorous unit testing methodologies to ensure the reliability and accuracy of code components. By systematically evaluating individual units of the software, we guarantee a robust foundation, identifying and addressing potential issues early in the development process.
 
 ![title10](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/22bf728e-9462-4f2b-a4fb-6d308ea90f80)
+
+> To set up Foodie Pal locally, follow these steps:
+
+### Prerequisites
+
+- Install NPM from: [NPM](https://nodejs.org/en/download)
+
+- Install MongoDB from: [MongoDB](https://www.mongodb.com/docs/manual/installation/)
+  
+- Install nodemon
+   ```sh
+   npm install nodemon
+   ```
+## Installation
+
+### First, Cloning and Installing Packages
+
+1. Clone the repository and then open it
+   ```sh
+   git clone git@github.com:edgard-habanbou/foodie-pal.git
+   cd foodie-pal 
+   ```
+2. Install NPM packages for Backend, Frontend and Admin:
+   ```sh
+   cd foodie-pal-backend
+   npm install
+   cd ..
+   cd foodie-pal-frontend
+   npm install
+   cd ..
+   cd foodie-pal-admin
+   npm install
+   ```
+
+### Second, let's start the server
+
+ In `foodie-pal-backend` run this command:
+   ```sh
+   nodemon .
+   ```
+### Third, let's start the frontend
+
+ Open a new terminal and go to `foodie-pal-frontend` and run this command:
+   ```sh
+   npm start 
+   ```
+### Lastly, let's start the Admin Dasboard
+ Open a new terminal and go to `foodie-pal-admin` and run this command:
+   ```sh
+   npm start 
+   ```
+
+And that's it Congratulations, The App Must be Working Now.
+
+
