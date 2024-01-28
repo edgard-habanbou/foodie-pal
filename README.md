@@ -123,6 +123,9 @@
 | Feature Test 1 | Feature Test 2 |
 | -------------- | -------------- |
 | ![tests1](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/2f5d6c5c-e17e-4d03-b9cf-4d0fa4a77f88) | ![tests2](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/eb897a62-6eeb-454a-ab11-cc6c9045c298) |
+
+| Feature Test 3 | Feature Test 4 |
+| -------------- | -------------- |
 | ![tests3](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/93e49bfe-79cf-4c92-a688-07b85f80c537) | ![tests4](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b9790eeb-917a-4788-8574-edb474c3db5a) |
 
 
