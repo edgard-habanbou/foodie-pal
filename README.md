@@ -10,33 +10,18 @@
 
 # User Stories
 
-## Home Cook
+## User
 
-- As a home cook, I want to easily input the ingredients I have in my fridge.
-- As a home cook, I want the app to suggest recipes based on the ingredients I have.
-- As a home cook, I want to be able to access live chat assistance for quick tips and suggestions.
+- As a user, I want to easily input the ingredients I have in my fridge.
+- As a user, I want the app to suggest recipes based on the ingredients I have.
+- As a user, I want the option to give me a personalized nutrition plan based on my dietary goals and preferences.
 
-## Beginner Cook
+## Admin
 
-- As a beginner cook, I want the app to offer easy-to-follow recipes with step-by-step instructions.
-- As a beginner cook, I want the app to provide cooking tips and suggestions.
+- As an admin, I want to see diffirent KPIs for total users, total diet plans and more
+- As an admin, I need to view user creations displayed on a timeline chart for better tracking and analysis.
+- as an admin, I want to be able to see all users and be able to delete them  
 
-## Healthy User
-
-- As a Healthy User, I want the app to provide detailed nutritional information for each recipe, including calorie counts, to help me maintain a healthy diet.
-- As a Healthy User, I want the option to give me a personalized nutrition plan based on my dietary goals and preferences.
-- As a Healthy User, I want the app to suggest recipes that align with my fitness goals and dietary restrictions, ensuring I stay on track with my health objectives.
-
-## Fitness Enthusiast
-
-- As a fitness enthusiast, I want the app to suggest recipes that support my workout routine, providing the right balance of nutrients.
-- As a fitness enthusiast, I want the nutrition plan generator to consider my fitness goals and preferences, creating a plan that complements my active lifestyle.
-
-## Chef
-
-- As a chef, I want the app to provide recipes suitable for gatherings and events.
-- As a chef, I want the option to adjust serving sizes based on the number of guests. 
-- As a chef, I want the app to help me plan and organize meals for group events, including generating a shopping list.
  
 
 ![title3](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/7c9ccb51-064b-4497-aac2-6040b8143492)
@@ -85,15 +70,16 @@
 
 ### User Screens (Desktop)
 | Login screen  | Register screen | Landing screen | 
-| ---| ---| ---|
-| ![Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/562bf944-7cb2-4103-af88-13b2a3c37cab) | ![Register Desktop](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/80349bf3-1fc6-4b87-b1a4-1d1e75e4481e) | ![Landing Desktop](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/7de610a2-3ebd-4a59-84a4-0f8cdd838643)
- |
+| ---| ---|
+| ![Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/562bf944-7cb2-4103-af88-13b2a3c37cab) | ![Register Desktop](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/80349bf3-1fc6-4b87-b1a4-1d1e75e4481e) |
+| ![Landing Desktop](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/7de610a2-3ebd-4a59-84a4-0f8cdd838643) |
 
 
 ### Admin Screens (Electron)
 | Login screen  | Landing screen |  Users screen |
-| ---| ---| ---|
-| ![Admin Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/e81cc0cb-b1d3-46d2-9955-f49c6a3f5f59) | ![Admin Landing (1)](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b477524f-d4a7-4ffa-a5fe-4c5f31989b28) | ![Admin Users](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/52c821b4-2f06-4288-9e4e-12e931c32dd5) |
+| ---| ---| 
+| ![Admin Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/e81cc0cb-b1d3-46d2-9955-f49c6a3f5f59) | ![Admin Landing (1)](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b477524f-d4a7-4ffa-a5fe-4c5f31989b28) |
+| ![Admin Users](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/52c821b4-2f06-4288-9e4e-12e931c32dd5) |
 
 
 ![title7](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/0bbadd23-dc6c-4176-889e-e8038396c15b)
