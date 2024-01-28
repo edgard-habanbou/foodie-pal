@@ -1,5 +1,3 @@
-
-https://github.com/edgard-habanbou/foodie-pal/assets/57774147/ba269886-8c66-409d-9eed-3b15f4ffae0a
 ![title1](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/0c8a8017-de86-4dbc-9280-36f46a5928e7)
 
 ![title2](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/0f21920f-af06-4b70-bfee-fe1daad2d213)
@@ -56,7 +54,7 @@ https://github.com/edgard-habanbou/foodie-pal/assets/57774147/ba269886-8c66-409d
 ### Mockups
 | Home screen  | Recipe Description | Nutrition Plan |
 | ---| ---| ---| 
-| ![Home Screen](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/c55249cc-c61f-4a0c-88c1-1befe1680216) | ![Reciep Desc](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/56858864-c364-44b6-8fa1-e58365ef8e2b) | ![Nutrition Plan](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/e5249d1c-9a3e-4513-9e59-f5e9d2e168a6)
+| ![Home Screen](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/c55249cc-c61f-4a0c-88c1-1befe1680216) | ![Reciep Desc](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/56858864-c364-44b6-8fa1-e58365ef8e2b) | ![Nutrition Plan}(https://github.com/edgard-habanbou/foodie-pal/assets/57774147/e5249d1c-9a3e-4513-9e59-f5e9d2e168a6)
 
  
 
