@@ -62,8 +62,36 @@
 
 ![title5](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/97de820e-a3a9-4918-af84-34d18e907a20)
 
+###  Architecting Data Excellence: Innovative Database Design Strategies:
+
+![Database](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/e0af338d-ee08-4fc1-a7bc-61fd70f6e46a)
+
 
 ![title6](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b57d10a3-4f33-4d4b-a4d1-ec9b93506e74)
+
+### User Screens (Mobile)
+| Login screen  | Register screen | Landing screen | 
+| ---| ---| ---|
+| ![login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/99420bf2-e085-4bb2-ba97-b2e5f5c10e9f) | ![Register Mobile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b9908d09-e491-4eb2-9612-13123ced0616) | ![Landing Mobile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/cbe2a82e-8098-4d77-8657-98182cae9dea) |
+
+
+
+| Recipe Screen  | Instructions Screen | Profile Screen |
+| ![Recipe Desc Mobile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/474174a3-3b6b-4df4-8091-9168dcb4b739) | ![Recipe Instructions](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/8ced98cc-abcd-4655-83a4-567886ad80fa) | ![Profile Mobile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/ecba5793-83f9-479f-899a-d2c33716e8c9) |
+
+
+
+
+### User Screens (Desktop)
+| Login screen  | Register screen | Landing screen | 
+| ---| ---| ---|
+| ![Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/8d371530-9f9a-466e-8c2c-1e9213f7a1eb) | ![Register Desktop](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/2b7c30b5-7589-4698-bf35-7738e9318eb8) | ![Desktop - 1](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/266e71f3-3af8-4675-ab1f-7e3d9053af26) |
+
+
+### Admin Screens (Electron)
+| Login screen  | Landing screen |  Users screen |
+| ---| ---| ---|
+| ![Admin Login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/d6e9d236-44eb-4a24-801c-dcae2eaa0c03) |  | ![Admin Users](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/170fedb7-4fdc-4eda-93ee-a6898a48dbd9) |
 
 
 ![title7](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/0bbadd23-dc6c-4176-889e-e8038396c15b)
