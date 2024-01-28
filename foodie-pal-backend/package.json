@@ -4,7 +4,7 @@
   "description": "Foodie-Pal is a Progressive Web App that helps users cook meals based on the ingredients they have on hand.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Edgard Habanbou",
   "license": "MIT",
@@ -21,6 +21,10 @@
     "mongoose": "^8.0.3",
     "nodemailer": "^6.9.7",
     "openai": "^4.24.7",
+    "supertest": "^6.3.4",
     "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
