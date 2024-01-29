@@ -32,7 +32,7 @@
 ![title4](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b22bd441-ef7a-4712-b4da-0ca64e7b6d13)
 
 >
-> We crafted Foodie Pal using wireframes and mockups, meticulously iterating on the design to achieve the perfect layout for effortless navigation and a smooth user experience.
+> I crafted Foodie Pal using wireframes and mockups for a smooth user experience.
 >
 - Link: [Foodie Pal Figma Design](https://www.figma.com/file/2OH0ml41Aa8RTLZ81gs10A/Final-Project?type=design&node-id=157%3A1176&mode=design&t=eOk50Z7wTfzsyJyz-1)
 
@@ -47,7 +47,7 @@
 
 ![title5](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/97de820e-a3a9-4918-af84-34d18e907a20)
 
-###  Architecting Data Excellence: Innovative Database Design Strategies:
+###  MongoDB Schema:
 
 ![Database](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/e0af338d-ee08-4fc1-a7bc-61fd70f6e46a)
 
@@ -92,7 +92,7 @@
 
 ### Mastering Prompt Engineering:
 
-- This project uses advanced prompt engineering techniques to optimize the interaction with LLMs (large language models).
+- This project uses advanced prompt engineering techniques to optimize the interaction with LLMs (Large Language Models).
 
 #### Example (Getting Recipes):
 
@@ -110,15 +110,18 @@
 
 ![title8](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/2b4081ec-1caa-4e82-9828-42e108d1cbbe)
 
-###  Efficient AI Deployment: Unleashing the Potential with AWS Integration:
+### Deployed on AWS EC2 Instance:
 
-- This project leverages AWS deployment strategies to seamlessly integrate and deploy natural language processing models. With a focus on scalability, reliability, and performance, we ensure that AI applications powered by these models deliver robust and responsive solutions for diverse use cases.
+- **Connecting with PUTTY**: To access the instance shell, connect using PUTTY. Refer to [this guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html) for instructions on setting up PUTTY and SSH keys.
+
+- **Prerequisites**: Before running the backend on the instance, ensure you've met all the [prerequisites](https://github.com/edgard-habanbou/foodie-pal?tab=readme-ov-file#prerequisites) outlined in the README.
+
+- **Instance Running example**: ![Instance Setup](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/3c62b879-f02b-470f-98c0-1a9a99a0dde3)
+
 
 ![title9](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/5073bb0f-7a32-40ac-876e-cdaf5be5c019)
 
-###  Precision in Development: Harnessing the Power of Unit Testing:
-
-- This project employs rigorous unit testing methodologies to ensure the reliability and accuracy of code components. By systematically evaluating individual units of the software, we guarantee a robust foundation, identifying and addressing potential issues early in the development process.
+###  Feature testing:
 
 | Feature Test 1 | Feature Test 2 |
 | -------------- | -------------- |
