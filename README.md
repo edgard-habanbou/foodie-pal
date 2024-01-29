@@ -26,7 +26,7 @@
 
 ![title3](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/7c9ccb51-064b-4497-aac2-6040b8143492)
 
-- This project utilizes the MERN stack for web development. The MERN stack comprises MongoDB, Express.js, React.js, and Node.js. It enables the creation of full-stack web applications using JavaScript across the entire development process, from backend to frontend.
+- This project utilizes the MERN stack for web development. The MERN stack comprises [MongoDB](https://www.mongodb.com/), [Express.js](https://expressjs.com/), [React](https://react.dev/), and [Node.js](https://nodejs.org/en). It enables the creation of full-stack web applications using JavaScript across the entire development process, from backend to frontend.
 - For the Admin Dashboard this project leverages Electron for desktop application development. Electron is a framework that allows developers to build cross-platform desktop applications using web technologies such as React. It enables the creation of native-like applications for Windows, macOS, and Linux using a single codebase.
 
 ![title4](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b22bd441-ef7a-4712-b4da-0ca64e7b6d13)
@@ -49,7 +49,7 @@
 
 ###  MongoDB Schema:
 
-![Database](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/e0af338d-ee08-4fc1-a7bc-61fd70f6e46a)
+![Database](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/1a6a967b-54db-413c-b131-228421621b89)
 
 
 ![title6](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b57d10a3-4f33-4d4b-a4d1-ec9b93506e74)
@@ -130,7 +130,9 @@
 | Feature Test 3 | Feature Test 4 |
 | -------------- | -------------- |
 | ![tests3](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/93e49bfe-79cf-4c92-a688-07b85f80c537) | ![tests4](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b9790eeb-917a-4788-8574-edb474c3db5a) |
-
+| Test Results |
+| -------------|
+| ![image](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/d2d82b03-082f-4fdc-9eae-2ce905901e15) |
 
 
 ![title10](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/22bf728e-9462-4f2b-a4fb-6d308ea90f80)
@@ -157,7 +159,7 @@
    cd foodie-pal 
    ```
 2. Create a .env file in backend and then:
-   1. Create a Free API Key for [clairify](https://clarifai.com/)
+   1. Create a Free API Key for [Clarifai](https://clarifai.com/)
    2. Create an API key for [OpenAI](https://openai.com/)
    3. Create an API key for [Bing Search](https://www.microsoft.com/en-us/bing/apis/bing-web-search-api)
    4. Create a [Gmail account](https://mail.google.com/) and make an app key
