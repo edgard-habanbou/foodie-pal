@@ -116,7 +116,9 @@
 
 - **Prerequisites**: Before running the backend on the instance, ensure you've met all the [prerequisites](https://github.com/edgard-habanbou/foodie-pal?tab=readme-ov-file#prerequisites) outlined in the README.
 
-- **Instance Running example**: ![Instance Setup](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/3c62b879-f02b-470f-98c0-1a9a99a0dde3)
+- **Instance Running example**:
+
+  ![Instance Setup](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/3c62b879-f02b-470f-98c0-1a9a99a0dde3)
 
 
 ![title9](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/5073bb0f-7a32-40ac-876e-cdaf5be5c019)
