@@ -57,13 +57,13 @@
 ### User Screens (Mobile)
 | Login screen  | Register screen | Landing screen | 
 | ---| ---| ---|
-| ![login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/99420bf2-e085-4bb2-ba97-b2e5f5c10e9f) | ![Register Mobile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b9908d09-e491-4eb2-9612-13123ced0616) | ![Landing Mobile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/cbe2a82e-8098-4d77-8657-98182cae9dea) |
+| ![login](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/d334c85e-968f-4f11-bdc3-7e8f5ec574a7) | ![Register Mobile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/ec066d37-cda0-4fec-b252-d2fea490c84f) | ![Landing Mobile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/319bcfdd-f912-44b7-8977-c0598be61a1c) |
 
 
 
 | Recipe Screen  | Instructions Screen | Profile Screen |
 | ---| ---| ---|
-| ![Recipe Desc Mobile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/474174a3-3b6b-4df4-8091-9168dcb4b739) | ![Recipe Instructions](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/8ced98cc-abcd-4655-83a4-567886ad80fa) | ![Profile Mobile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/ecba5793-83f9-479f-899a-d2c33716e8c9) |
+| ![Recipe Desc Mobile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/3a172e45-330b-4f99-801a-ef5104ca64e6) | ![Recipe Instructions](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/65554543-7d9c-430e-98e0-cb1b910f48f1) | ![Profile Mobile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b2ec455c-bc61-4e75-a2a1-b7eea08b6a86) |
 
 
 
