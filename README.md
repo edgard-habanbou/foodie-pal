@@ -131,8 +131,9 @@
 | Feature Test 3 | Feature Test 4 |
 | -------------- | -------------- |
 | ![tests3](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/93e49bfe-79cf-4c92-a688-07b85f80c537) | ![tests4](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b9790eeb-917a-4788-8574-edb474c3db5a) |
+
 | Test Results |
-| -------------|
+| ------------ |
 | ![image](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/d2d82b03-082f-4fdc-9eae-2ce905901e15) |
 
 
