@@ -214,5 +214,11 @@
       ```
    
    And that's it Congratulations, The App Must be Working Now.
+   
+   ### Video: 
+   [Video](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/d5cb5b1a-c3b3-4a4a-857d-92ad682869fb)
 
+
+
+   
 </div>
