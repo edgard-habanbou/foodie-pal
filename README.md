@@ -36,7 +36,7 @@
    >
    > I crafted Foodie Pal using wireframes and mockups for a smooth user experience.
    >
-   - Link: [Foodie Pal Figma Design](https://www.figma.com/file/2OH0ml41Aa8RTLZ81gs10A/Final-Project?type=design&node-id=157%3A1176&mode=design&t=eOk50Z7wTfzsyJyz-1)
+   - Link for Figma Design: [Foodie Pal Figma Design](https://www.figma.com/file/2OH0ml41Aa8RTLZ81gs10A/Final-Project?type=design&node-id=157%3A1176&mode=design&t=eOk50Z7wTfzsyJyz-1)
    
    ### Mockups
    | Home screen  | Recipe Description | Profile |
@@ -113,8 +113,6 @@
    
    ### Deployed on AWS EC2 Instance:
    
-   - **Connecting with PUTTY**: To access the instance shell, connect using PUTTY. Refer to [this guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html) for instructions on setting up PUTTY and SSH keys.
-   
    - **Prerequisites**: Before running the backend on the instance, ensure you've met all the [prerequisites](https://github.com/edgard-habanbou/foodie-pal?tab=readme-ov-file#prerequisites) outlined in the README.
    
    - **Instance Running example**:
@@ -163,7 +161,7 @@
       2. Create an API key for [OpenAI](https://openai.com/)
       3. Create an API key for [Bing Search](https://www.microsoft.com/en-us/bing/apis/bing-web-search-api)
       4. Create a [Gmail account](https://mail.google.com/) and make an app key
-      Adter that add them to the env file as follows:
+      After that add them to the env file as follows:
    
        ```sh
         MONGODB_URL=mongodb://127.0.0.1:27017/foodiePal
