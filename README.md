@@ -126,15 +126,11 @@
 
 | Feature Test 1 | Feature Test 2 |
 | -------------- | -------------- |
-| ![tests1](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/2f5d6c5c-e17e-4d03-b9cf-4d0fa4a77f88) | ![tests2](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/eb897a62-6eeb-454a-ab11-cc6c9045c298) |
+| ![tests1](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/55d6c19d-765a-46e2-8d07-be66d6dcd41d) | ![tests2](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/1b114468-3db4-4352-9e69-44d729c3ad50) |
 
-| Feature Test 3 | Feature Test 4 |
+| Feature Test 3 | Test Results |
 | -------------- | -------------- |
-| ![tests3](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/93e49bfe-79cf-4c92-a688-07b85f80c537) | ![tests4](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b9790eeb-917a-4788-8574-edb474c3db5a) |
-
-| Test Results |
-| ------------ |
-| ![image](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/d2d82b03-082f-4fdc-9eae-2ce905901e15) |
+| ![tests3](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/4d8fc657-3d16-49d9-b364-b802cd3184eb) | ![image](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/d2d82b03-082f-4fdc-9eae-2ce905901e15) |
 
 
 ![title10](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/22bf728e-9462-4f2b-a4fb-6d308ea90f80)
