@@ -37,10 +37,9 @@
 - Link: [Foodie Pal Figma Design](https://www.figma.com/file/2OH0ml41Aa8RTLZ81gs10A/Final-Project?type=design&node-id=157%3A1176&mode=design&t=eOk50Z7wTfzsyJyz-1)
 
 ### Mockups
-| Home screen  | Recipe Description | Nutrition Plan |
+| Home screen  | Recipe Description | Profile |
 | ---| ---| ---| 
-| ![Home Screen](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/c55249cc-c61f-4a0c-88c1-1befe1680216) | ![Reciep Desc](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/56858864-c364-44b6-8fa1-e58365ef8e2b) | ![Nutrition Plan](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/e5249d1c-9a3e-4513-9e59-f5e9d2e168a6)
-
+| ![Home](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/856eed98-26fd-45da-869c-2d6a64530085) | ![Recipe Description](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/045379d7-c825-48f2-8f09-a5bcc2968149) | ![Profile](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/26af7e7d-48be-49fb-9b7a-c022bc0c0ade) |
  
 
 
