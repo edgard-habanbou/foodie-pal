@@ -48,7 +48,7 @@
 
 ###  MongoDB Schema:
 
-![Database](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/1a6a967b-54db-413c-b131-228421621b89)
+![MongoDB Schema](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/4ec07aa1-05f5-4ed2-b468-0963523cc150)
 
 
 ![title6](https://github.com/edgard-habanbou/foodie-pal/assets/57774147/b57d10a3-4f33-4d4b-a4d1-ec9b93506e74)
